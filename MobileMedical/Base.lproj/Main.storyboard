@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--采集数据-->
+        <!--采集-->
         <scene sceneID="71T-eC-Hh6">
             <objects>
                 <viewController id="x6M-YC-QRD" customClass="CollectDataViewController" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="采集数据" id="eRk-5h-ZEL"/>
+                    <tabBarItem key="tabBarItem" title="采集" id="eRk-5h-ZEL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="No9-ey-418" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,7 +42,7 @@
             </objects>
             <point key="canvasLocation" x="-1" y="184"/>
         </scene>
-        <!--查询-->
+        <!--展示-->
         <scene sceneID="hhe-iz-a6e">
             <objects>
                 <viewController id="Rlh-6A-frX" customClass="DisplayDataViewController" sceneMemberID="viewController">
@@ -55,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="查询" id="hfN-fi-tV8"/>
+                    <tabBarItem key="tabBarItem" title="展示" id="hfN-fi-tV8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glv-E7-Oq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -92,6 +92,7 @@
 		837113E119F540B60029DE66 /* MobileMedical */ = {
 			isa = PBXGroup;
 			children = (
+				8371141519F5488B0029DE66 /* Resources */,
 				8371140B19F543ED0029DE66 /* ViewControllers */,
 				837113E619F540B60029DE66 /* AppDelegate.h */,
 				837113E719F540B60029DE66 /* AppDelegate.m */,
@@ -143,6 +144,21 @@
 				8371141319F544970029DE66 /* CollectDataViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8371141519F5488B0029DE66 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8371141619F5488B0029DE66 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8371141619F5488B0029DE66 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

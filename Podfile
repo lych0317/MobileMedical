@@ -1,0 +1,6 @@
+platform:ios, '5.0'
+pod 'AFNetworking', '~> 1.3.4'
+pod 'RestKit', '~> 0.23.1'
+pod 'SVPullToRefresh', :git => 'https://github.com/samvermette/SVPullToRefresh.git', :commit => 'a5f9dfee86a27c4e994d7edf93d0768c881d58bb'
+pod 'SDWebImage', '~> 3.6'
+pod 'MBProgressHUD', '~> 0.8'
