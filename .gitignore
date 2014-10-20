@@ -19,7 +19,7 @@ DerivedData
 *.DS_Store
 
 # from cocoapods
-Pods*
+Pod*
 *.xcworkspace
 
 # CocoaPods

@@ -1,490 +1,1113 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		837113E519F540B60029DE66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 837113E419F540B60029DE66 /* main.m */; };
-		837113E819F540B60029DE66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 837113E719F540B60029DE66 /* AppDelegate.m */; };
-		837113EB19F540B60029DE66 /* MobileMedical.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 837113E919F540B60029DE66 /* MobileMedical.xcdatamodeld */; };
-		837113EE19F540B60029DE66 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 837113ED19F540B60029DE66 /* ViewController.m */; };
-		837113F119F540B60029DE66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837113EF19F540B60029DE66 /* Main.storyboard */; };
-		837113F319F540B60029DE66 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837113F219F540B60029DE66 /* Images.xcassets */; };
-		837113F619F540B60029DE66 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 837113F419F540B60029DE66 /* LaunchScreen.xib */; };
-		8371140219F540B60029DE66 /* MobileMedicalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371140119F540B60029DE66 /* MobileMedicalTests.m */; };
-		8371140E19F544220029DE66 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371140D19F544220029DE66 /* SettingViewController.m */; };
-		8371141119F544690029DE66 /* DisplayDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371141019F544690029DE66 /* DisplayDataViewController.m */; };
-		8371141419F544970029DE66 /* CollectDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371141319F544970029DE66 /* CollectDataViewController.m */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		837113FC19F540B60029DE66 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 837113D719F540B60029DE66 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 837113DE19F540B60029DE66;
-			remoteInfo = MobileMedical;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		837113DF19F540B60029DE66 /* MobileMedical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileMedical.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		837113E319F540B60029DE66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		837113E419F540B60029DE66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		837113E619F540B60029DE66 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		837113E719F540B60029DE66 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		837113EA19F540B60029DE66 /* MobileMedical.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MobileMedical.xcdatamodel; sourceTree = "<group>"; };
-		837113EC19F540B60029DE66 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		837113ED19F540B60029DE66 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		837113F019F540B60029DE66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		837113F219F540B60029DE66 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		837113F519F540B60029DE66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		837113FB19F540B60029DE66 /* MobileMedicalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileMedicalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8371140019F540B60029DE66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8371140119F540B60029DE66 /* MobileMedicalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileMedicalTests.m; sourceTree = "<group>"; };
-		8371140C19F544220029DE66 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		8371140D19F544220029DE66 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
-		8371140F19F544690029DE66 /* DisplayDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayDataViewController.h; sourceTree = "<group>"; };
-		8371141019F544690029DE66 /* DisplayDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayDataViewController.m; sourceTree = "<group>"; };
-		8371141219F544970029DE66 /* CollectDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectDataViewController.h; sourceTree = "<group>"; };
-		8371141319F544970029DE66 /* CollectDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectDataViewController.m; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		837113DC19F540B60029DE66 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		837113F819F540B60029DE66 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		837113D619F540B60029DE66 = {
-			isa = PBXGroup;
-			children = (
-				837113E119F540B60029DE66 /* MobileMedical */,
-				837113FE19F540B60029DE66 /* MobileMedicalTests */,
-				837113E019F540B60029DE66 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		837113E019F540B60029DE66 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				837113DF19F540B60029DE66 /* MobileMedical.app */,
-				837113FB19F540B60029DE66 /* MobileMedicalTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		837113E119F540B60029DE66 /* MobileMedical */ = {
-			isa = PBXGroup;
-			children = (
-				8371141519F5488B0029DE66 /* Resources */,
-				8371140B19F543ED0029DE66 /* ViewControllers */,
-				837113E619F540B60029DE66 /* AppDelegate.h */,
-				837113E719F540B60029DE66 /* AppDelegate.m */,
-				837113EC19F540B60029DE66 /* ViewController.h */,
-				837113ED19F540B60029DE66 /* ViewController.m */,
-				837113EF19F540B60029DE66 /* Main.storyboard */,
-				837113F219F540B60029DE66 /* Images.xcassets */,
-				837113F419F540B60029DE66 /* LaunchScreen.xib */,
-				837113E919F540B60029DE66 /* MobileMedical.xcdatamodeld */,
-				837113E219F540B60029DE66 /* Supporting Files */,
-			);
-			path = MobileMedical;
-			sourceTree = "<group>";
-		};
-		837113E219F540B60029DE66 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				837113E319F540B60029DE66 /* Info.plist */,
-				837113E419F540B60029DE66 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		837113FE19F540B60029DE66 /* MobileMedicalTests */ = {
-			isa = PBXGroup;
-			children = (
-				8371140119F540B60029DE66 /* MobileMedicalTests.m */,
-				837113FF19F540B60029DE66 /* Supporting Files */,
-			);
-			path = MobileMedicalTests;
-			sourceTree = "<group>";
-		};
-		837113FF19F540B60029DE66 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8371140019F540B60029DE66 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8371140B19F543ED0029DE66 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				8371140C19F544220029DE66 /* SettingViewController.h */,
-				8371140D19F544220029DE66 /* SettingViewController.m */,
-				8371140F19F544690029DE66 /* DisplayDataViewController.h */,
-				8371141019F544690029DE66 /* DisplayDataViewController.m */,
-				8371141219F544970029DE66 /* CollectDataViewController.h */,
-				8371141319F544970029DE66 /* CollectDataViewController.m */,
-			);
-			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		8371141519F5488B0029DE66 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				8371141619F5488B0029DE66 /* Images */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		8371141619F5488B0029DE66 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		837113DE19F540B60029DE66 /* MobileMedical */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8371140519F540B60029DE66 /* Build configuration list for PBXNativeTarget "MobileMedical" */;
-			buildPhases = (
-				837113DB19F540B60029DE66 /* Sources */,
-				837113DC19F540B60029DE66 /* Frameworks */,
-				837113DD19F540B60029DE66 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MobileMedical;
-			productName = MobileMedical;
-			productReference = 837113DF19F540B60029DE66 /* MobileMedical.app */;
-			productType = "com.apple.product-type.application";
-		};
-		837113FA19F540B60029DE66 /* MobileMedicalTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8371140819F540B60029DE66 /* Build configuration list for PBXNativeTarget "MobileMedicalTests" */;
-			buildPhases = (
-				837113F719F540B60029DE66 /* Sources */,
-				837113F819F540B60029DE66 /* Frameworks */,
-				837113F919F540B60029DE66 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				837113FD19F540B60029DE66 /* PBXTargetDependency */,
-			);
-			name = MobileMedicalTests;
-			productName = MobileMedicalTests;
-			productReference = 837113FB19F540B60029DE66 /* MobileMedicalTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		837113D719F540B60029DE66 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = liyc;
-				TargetAttributes = {
-					837113DE19F540B60029DE66 = {
-						CreatedOnToolsVersion = 6.0.1;
-					};
-					837113FA19F540B60029DE66 = {
-						CreatedOnToolsVersion = 6.0.1;
-						TestTargetID = 837113DE19F540B60029DE66;
-					};
-				};
-			};
-			buildConfigurationList = 837113DA19F540B60029DE66 /* Build configuration list for PBXProject "MobileMedical" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 837113D619F540B60029DE66;
-			productRefGroup = 837113E019F540B60029DE66 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				837113DE19F540B60029DE66 /* MobileMedical */,
-				837113FA19F540B60029DE66 /* MobileMedicalTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		837113DD19F540B60029DE66 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				837113F119F540B60029DE66 /* Main.storyboard in Resources */,
-				837113F619F540B60029DE66 /* LaunchScreen.xib in Resources */,
-				837113F319F540B60029DE66 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		837113F919F540B60029DE66 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		837113DB19F540B60029DE66 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				837113EB19F540B60029DE66 /* MobileMedical.xcdatamodeld in Sources */,
-				837113E819F540B60029DE66 /* AppDelegate.m in Sources */,
-				837113EE19F540B60029DE66 /* ViewController.m in Sources */,
-				837113E519F540B60029DE66 /* main.m in Sources */,
-				8371140E19F544220029DE66 /* SettingViewController.m in Sources */,
-				8371141119F544690029DE66 /* DisplayDataViewController.m in Sources */,
-				8371141419F544970029DE66 /* CollectDataViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		837113F719F540B60029DE66 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8371140219F540B60029DE66 /* MobileMedicalTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		837113FD19F540B60029DE66 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 837113DE19F540B60029DE66 /* MobileMedical */;
-			targetProxy = 837113FC19F540B60029DE66 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		837113EF19F540B60029DE66 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				837113F019F540B60029DE66 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		837113F419F540B60029DE66 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				837113F519F540B60029DE66 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		8371140319F540B60029DE66 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		8371140419F540B60029DE66 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		8371140619F540B60029DE66 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = MobileMedical/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		8371140719F540B60029DE66 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = MobileMedical/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		8371140919F540B60029DE66 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MobileMedicalTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobileMedical.app/MobileMedical";
-			};
-			name = Debug;
-		};
-		8371140A19F540B60029DE66 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MobileMedicalTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobileMedical.app/MobileMedical";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		837113DA19F540B60029DE66 /* Build configuration list for PBXProject "MobileMedical" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8371140319F540B60029DE66 /* Debug */,
-				8371140419F540B60029DE66 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8371140519F540B60029DE66 /* Build configuration list for PBXNativeTarget "MobileMedical" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8371140619F540B60029DE66 /* Debug */,
-				8371140719F540B60029DE66 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8371140819F540B60029DE66 /* Build configuration list for PBXNativeTarget "MobileMedicalTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8371140919F540B60029DE66 /* Debug */,
-				8371140A19F540B60029DE66 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		837113E919F540B60029DE66 /* MobileMedical.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				837113EA19F540B60029DE66 /* MobileMedical.xcdatamodel */,
-			);
-			currentVersion = 837113EA19F540B60029DE66 /* MobileMedical.xcdatamodel */;
-			path = MobileMedical.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
-	};
-	rootObject = 837113D719F540B60029DE66 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>1EAA1379EE3C42B6851F4C8D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C06ADFE49640419FBEFD2EB8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5710DE2309C6474E9E02592E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>C06ADFE49640419FBEFD2EB8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7E26E9114AE8454C86EABA26</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>837113D619F540B60029DE66</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>837113E119F540B60029DE66</string>
+				<string>837113FE19F540B60029DE66</string>
+				<string>837113E019F540B60029DE66</string>
+				<string>9F40C37473934489AC2A6766</string>
+				<string>5710DE2309C6474E9E02592E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113D719F540B60029DE66</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0600</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>liyc</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>837113DE19F540B60029DE66</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.0.1</string>
+					</dict>
+					<key>837113FA19F540B60029DE66</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.0.1</string>
+						<key>TestTargetID</key>
+						<string>837113DE19F540B60029DE66</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>837113DA19F540B60029DE66</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>837113D619F540B60029DE66</string>
+			<key>productRefGroup</key>
+			<string>837113E019F540B60029DE66</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>837113DE19F540B60029DE66</string>
+				<string>837113FA19F540B60029DE66</string>
+			</array>
+		</dict>
+		<key>837113DA19F540B60029DE66</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>8371140319F540B60029DE66</string>
+				<string>8371140419F540B60029DE66</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>837113DB19F540B60029DE66</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>837113EB19F540B60029DE66</string>
+				<string>837113E819F540B60029DE66</string>
+				<string>837113EE19F540B60029DE66</string>
+				<string>837113E519F540B60029DE66</string>
+				<string>8371140E19F544220029DE66</string>
+				<string>8371141119F544690029DE66</string>
+				<string>8371141419F544970029DE66</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>837113DC19F540B60029DE66</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1EAA1379EE3C42B6851F4C8D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>837113DD19F540B60029DE66</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>837113F119F540B60029DE66</string>
+				<string>837113F619F540B60029DE66</string>
+				<string>837113F319F540B60029DE66</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>837113DE19F540B60029DE66</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>8371140519F540B60029DE66</string>
+			<key>buildPhases</key>
+			<array>
+				<string>8B712765AB6B4D99B61C0C98</string>
+				<string>837113DB19F540B60029DE66</string>
+				<string>837113DC19F540B60029DE66</string>
+				<string>837113DD19F540B60029DE66</string>
+				<string>7E26E9114AE8454C86EABA26</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>MobileMedical</string>
+			<key>productName</key>
+			<string>MobileMedical</string>
+			<key>productReference</key>
+			<string>837113DF19F540B60029DE66</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>837113DF19F540B60029DE66</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>MobileMedical.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>837113E019F540B60029DE66</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>837113DF19F540B60029DE66</string>
+				<string>837113FB19F540B60029DE66</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113E119F540B60029DE66</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8371141519F5488B0029DE66</string>
+				<string>8371140B19F543ED0029DE66</string>
+				<string>837113E619F540B60029DE66</string>
+				<string>837113E719F540B60029DE66</string>
+				<string>837113EC19F540B60029DE66</string>
+				<string>837113ED19F540B60029DE66</string>
+				<string>837113EF19F540B60029DE66</string>
+				<string>837113F219F540B60029DE66</string>
+				<string>837113F419F540B60029DE66</string>
+				<string>837113E919F540B60029DE66</string>
+				<string>837113E219F540B60029DE66</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>MobileMedical</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113E219F540B60029DE66</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>837113E319F540B60029DE66</string>
+				<string>837113E419F540B60029DE66</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113E319F540B60029DE66</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113E419F540B60029DE66</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113E519F540B60029DE66</key>
+		<dict>
+			<key>fileRef</key>
+			<string>837113E419F540B60029DE66</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>837113E619F540B60029DE66</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113E719F540B60029DE66</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113E819F540B60029DE66</key>
+		<dict>
+			<key>fileRef</key>
+			<string>837113E719F540B60029DE66</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>837113E919F540B60029DE66</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>837113EA19F540B60029DE66</string>
+			</array>
+			<key>currentVersion</key>
+			<string>837113EA19F540B60029DE66</string>
+			<key>isa</key>
+			<string>XCVersionGroup</string>
+			<key>path</key>
+			<string>MobileMedical.xcdatamodeld</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>versionGroupType</key>
+			<string>wrapper.xcdatamodel</string>
+		</dict>
+		<key>837113EA19F540B60029DE66</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>MobileMedical.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113EB19F540B60029DE66</key>
+		<dict>
+			<key>fileRef</key>
+			<string>837113E919F540B60029DE66</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>837113EC19F540B60029DE66</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>ViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113ED19F540B60029DE66</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>ViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113EE19F540B60029DE66</key>
+		<dict>
+			<key>fileRef</key>
+			<string>837113ED19F540B60029DE66</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>837113EF19F540B60029DE66</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>837113F019F540B60029DE66</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113F019F540B60029DE66</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113F119F540B60029DE66</key>
+		<dict>
+			<key>fileRef</key>
+			<string>837113EF19F540B60029DE66</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>837113F219F540B60029DE66</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113F319F540B60029DE66</key>
+		<dict>
+			<key>fileRef</key>
+			<string>837113F219F540B60029DE66</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>837113F419F540B60029DE66</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>837113F519F540B60029DE66</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113F519F540B60029DE66</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113F619F540B60029DE66</key>
+		<dict>
+			<key>fileRef</key>
+			<string>837113F419F540B60029DE66</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>837113F719F540B60029DE66</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>8371140219F540B60029DE66</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>837113F819F540B60029DE66</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>837113F919F540B60029DE66</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>837113FA19F540B60029DE66</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>8371140819F540B60029DE66</string>
+			<key>buildPhases</key>
+			<array>
+				<string>837113F719F540B60029DE66</string>
+				<string>837113F819F540B60029DE66</string>
+				<string>837113F919F540B60029DE66</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>837113FD19F540B60029DE66</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>MobileMedicalTests</string>
+			<key>productName</key>
+			<string>MobileMedicalTests</string>
+			<key>productReference</key>
+			<string>837113FB19F540B60029DE66</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>837113FB19F540B60029DE66</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>MobileMedicalTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>837113FC19F540B60029DE66</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>837113D719F540B60029DE66</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>837113DE19F540B60029DE66</string>
+			<key>remoteInfo</key>
+			<string>MobileMedical</string>
+		</dict>
+		<key>837113FD19F540B60029DE66</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>837113DE19F540B60029DE66</string>
+			<key>targetProxy</key>
+			<string>837113FC19F540B60029DE66</string>
+		</dict>
+		<key>837113FE19F540B60029DE66</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8371140119F540B60029DE66</string>
+				<string>837113FF19F540B60029DE66</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>MobileMedicalTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>837113FF19F540B60029DE66</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8371140019F540B60029DE66</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8371140019F540B60029DE66</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8371140119F540B60029DE66</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MobileMedicalTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8371140219F540B60029DE66</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8371140119F540B60029DE66</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8371140319F540B60029DE66</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>8371140419F540B60029DE66</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>8371140519F540B60029DE66</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>8371140619F540B60029DE66</string>
+				<string>8371140719F540B60029DE66</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>8371140619F540B60029DE66</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>9F40C37473934489AC2A6766</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>MobileMedical/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>8371140719F540B60029DE66</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>9F40C37473934489AC2A6766</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>MobileMedical/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>8371140819F540B60029DE66</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>8371140919F540B60029DE66</string>
+				<string>8371140A19F540B60029DE66</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>8371140919F540B60029DE66</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>MobileMedicalTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/MobileMedical.app/MobileMedical</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>8371140A19F540B60029DE66</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>MobileMedicalTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/MobileMedical.app/MobileMedical</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>8371140B19F543ED0029DE66</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8371140C19F544220029DE66</string>
+				<string>8371140D19F544220029DE66</string>
+				<string>8371140F19F544690029DE66</string>
+				<string>8371141019F544690029DE66</string>
+				<string>8371141219F544970029DE66</string>
+				<string>8371141319F544970029DE66</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>ViewControllers</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8371140C19F544220029DE66</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SettingViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8371140D19F544220029DE66</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SettingViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8371140E19F544220029DE66</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8371140D19F544220029DE66</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8371140F19F544690029DE66</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>DisplayDataViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8371141019F544690029DE66</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>DisplayDataViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8371141119F544690029DE66</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8371141019F544690029DE66</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8371141219F544970029DE66</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CollectDataViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8371141319F544970029DE66</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CollectDataViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8371141419F544970029DE66</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8371141319F544970029DE66</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8371141519F5488B0029DE66</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8371141619F5488B0029DE66</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8371141619F5488B0029DE66</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Images</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8B712765AB6B4D99B61C0C98</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>9F40C37473934489AC2A6766</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C06ADFE49640419FBEFD2EB8</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>837113D719F540B60029DE66</string>
+</dict>
+</plist>
