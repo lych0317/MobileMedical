@@ -19,6 +19,8 @@
 		837113F319F540B60029DE66 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837113F219F540B60029DE66 /* Images.xcassets */; };
 		837113F619F540B60029DE66 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 837113F419F540B60029DE66 /* LaunchScreen.xib */; };
 		8371140219F540B60029DE66 /* MobileMedicalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371140119F540B60029DE66 /* MobileMedicalTests.m */; };
+		839148C619F9462C00119F32 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839148C519F9462C00119F32 /* RecordViewController.m */; };
+		839148C919F947B200119F32 /* RecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 839148C819F947B200119F32 /* RecordModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		837113FB19F540B60029DE66 /* MobileMedicalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileMedicalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8371140019F540B60029DE66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8371140119F540B60029DE66 /* MobileMedicalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileMedicalTests.m; sourceTree = "<group>"; };
+		839148C419F9462C00119F32 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
+		839148C519F9462C00119F32 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		839148C719F947B200119F32 /* RecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordModel.h; sourceTree = "<group>"; };
+		839148C819F947B200119F32 /* RecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordModel.m; sourceTree = "<group>"; };
 		9F40C37473934489AC2A6766 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C06ADFE49640419FBEFD2EB8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -81,6 +87,8 @@
 			children = (
 				481FE86C19F913AE00C164D2 /* AppModel.h */,
 				481FE86D19F913AE00C164D2 /* AppModel.m */,
+				839148C719F947B200119F32 /* RecordModel.h */,
+				839148C819F947B200119F32 /* RecordModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -166,6 +174,8 @@
 				4845E90219F8F2E600161C2A /* DataDisplayTableViewController.m */,
 				4845E90419F8F30900161C2A /* DataCollectTableViewController.h */,
 				4845E90519F8F30900161C2A /* DataCollectTableViewController.m */,
+				839148C419F9462C00119F32 /* RecordViewController.h */,
+				839148C519F9462C00119F32 /* RecordViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -326,7 +336,9 @@
 				837113EB19F540B60029DE66 /* MobileMedical.xcdatamodeld in Sources */,
 				837113E819F540B60029DE66 /* AppDelegate.m in Sources */,
 				4845E90319F8F2E600161C2A /* DataDisplayTableViewController.m in Sources */,
+				839148C919F947B200119F32 /* RecordModel.m in Sources */,
 				837113E519F540B60029DE66 /* main.m in Sources */,
+				839148C619F9462C00119F32 /* RecordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
