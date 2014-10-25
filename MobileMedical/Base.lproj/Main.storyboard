@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G9W-yg-gZu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G9W-yg-gZu">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -75,7 +76,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GyV-3P-N9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="474" y="-748"/>
+            <point key="canvasLocation" x="863" y="-646"/>
         </scene>
         <!--采集类型-->
         <scene sceneID="6p3-9u-ax4">
@@ -101,7 +102,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aL0-xH-iPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="648" y="-639"/>
+            <point key="canvasLocation" x="863" y="-396"/>
         </scene>
         <!--数据采集-->
         <scene sceneID="r06-O9-Bwn">
@@ -275,40 +276,61 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="au0-kN-ZPH">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="au0-kN-ZPH">
                                         <rect key="frame" x="130" y="70" width="170" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="9Ql-Vp-xyK" id="j7n-dr-gLK"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DiQ-Qd-tnt">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DiQ-Qd-tnt">
                                         <rect key="frame" x="130" y="105" width="170" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="9Ql-Vp-xyK" id="NJG-ig-u7i"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NVs-pZ-0IJ">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NVs-pZ-0IJ">
                                         <rect key="frame" x="130" y="210" width="170" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="9Ql-Vp-xyK" id="7GW-7j-Jcn"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHu-4f-fCO">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHu-4f-fCO">
                                         <rect key="frame" x="130" y="245" width="170" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="9Ql-Vp-xyK" id="tLK-Gq-ab7"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="接收医生分析结果" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gfm-dX-rPp">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="接收医生分析结果" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gfm-dX-rPp">
                                         <rect key="frame" x="130" y="175" width="170" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="9Ql-Vp-xyK" id="vMJ-vb-HfF"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vxC-Ou-zBD">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vxC-Ou-zBD">
                                         <rect key="frame" x="130" y="140" width="170" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="9Ql-Vp-xyK" id="Lq3-gp-50z"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZC6-Fh-VcJ">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZC6-Fh-VcJ">
                                         <rect key="frame" x="130" y="280" width="170" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="9Ql-Vp-xyK" id="zNf-dM-WnF"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="选择医院" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Io1-pO-vu3">
                                         <rect key="frame" x="20" y="315" width="87" height="30"/>
@@ -316,10 +338,13 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKm-kz-GAn">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKm-kz-GAn">
                                         <rect key="frame" x="130" y="315" width="170" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="9Ql-Vp-xyK" id="Zud-os-YbH"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="选择医生" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OR7-os-Tvt">
                                         <rect key="frame" x="20" y="350" width="87" height="30"/>
@@ -327,10 +352,13 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jkf-vR-mva">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jkf-vR-mva">
                                         <rect key="frame" x="130" y="350" width="170" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="9Ql-Vp-xyK" id="Zc9-Sy-iDt"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBF-8T-pE3">
                                         <rect key="frame" x="20" y="385" width="280" height="30"/>
@@ -341,18 +369,57 @@
                                             <action selector="setCollectionType:" destination="9Ql-Vp-xyK" eventType="touchUpInside" id="MT8-AG-OLT"/>
                                         </connections>
                                     </button>
+                                    <button hidden="YES" opaque="NO" alpha="0.29999999999999966" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jp7-Cp-OoX">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="hidePickerView:" destination="9Ql-Vp-xyK" eventType="touchUpInside" id="H4T-PY-bWA"/>
+                                        </connections>
+                                    </button>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="E50-cB-HrG">
+                                        <rect key="frame" x="0.0" y="480" width="320" height="162"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="435913776.76497102">
+                                            <!--2014-10-25 07:09:36 +0000-->
+                                        </date>
+                                        <connections>
+                                            <action selector="setBirthdayValue:" destination="9Ql-Vp-xyK" eventType="valueChanged" id="p9a-3a-TTv"/>
+                                        </connections>
+                                    </datePicker>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4o-xN-A2l">
+                                        <rect key="frame" x="0.0" y="480" width="320" height="162"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="9Ql-Vp-xyK" id="jzv-Ha-hsc"/>
+                                            <outlet property="delegate" destination="9Ql-Vp-xyK" id="q6n-8P-SLQ"/>
+                                        </connections>
+                                    </pickerView>
                                 </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="birthdayTextField" destination="rHu-4f-fCO" id="J8a-BI-tra"/>
+                        <outlet property="datePicker" destination="E50-cB-HrG" id="rgh-4Q-D8o"/>
+                        <outlet property="doctorTextField" destination="Jkf-vR-mva" id="Mjo-Hq-rl1"/>
+                        <outlet property="genderTextField" destination="DiQ-Qd-tnt" id="aEO-ge-kT0"/>
+                        <outlet property="hidePickerViewButton" destination="jp7-Cp-OoX" id="cdc-52-Rm8"/>
+                        <outlet property="hospitalTextField" destination="jKm-kz-GAn" id="kQI-gk-RmJ"/>
+                        <outlet property="identifierTextField" destination="NVs-pZ-0IJ" id="o0F-zt-W6G"/>
+                        <outlet property="nameTextField" destination="au0-kN-ZPH" id="CZe-KM-dIG"/>
+                        <outlet property="payTypeTextField" destination="ZC6-Fh-VcJ" id="fqy-2e-YEw"/>
+                        <outlet property="phoneTextField" destination="Gfm-dX-rPp" id="GQc-ni-XSQ"/>
+                        <outlet property="relationTextField" destination="vxC-Ou-zBD" id="i39-ko-dtU"/>
+                        <outlet property="textFieldPicker" destination="s4o-xN-A2l" id="5GU-Ff-2oX"/>
                         <segue destination="qQq-4K-G0c" kind="show" identifier="CollectionManagerSegue" id="xEc-09-3Of"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wid-XO-0kq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="159"/>
+            <point key="canvasLocation" x="863" y="158"/>
         </scene>
         <!--采集类型-->
         <scene sceneID="0mN-O2-OXi">
@@ -378,7 +445,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yg9-b9-afh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997" y="-140"/>
+            <point key="canvasLocation" x="1345" y="159"/>
         </scene>
     </scenes>
 </document>
