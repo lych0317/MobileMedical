@@ -10,7 +10,7 @@
 
 @interface AppModel : NSObject
 
-@property (nonatomic, strong) NSArray *appSettingTitles;
+@property (nonatomic, strong) NSArray *staffs;
 
 + (instancetype)sharedAppModel;
 
