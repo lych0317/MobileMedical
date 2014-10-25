@@ -7,6 +7,7 @@
 //
 
 #import "StaffViewController.h"
+#import "CollectionManagerTableViewController.h"
 #import "AppModel.h"
 #import "StaffModel.h"
 #import "Utils.h"
@@ -83,6 +84,13 @@
     self.navigationItem.title = @"取消";
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:CollectionManagerSegue]) {
+        CollectionManagerTableViewController *viewController = segue.destinationViewController;
+        viewController.staffModel = sender;
+    }
+}
+
 - (void)showPickerView {
     [self.textFieldPicker reloadAllComponents];
     [UIView animateWithDuration:0.5 animations:^{
@@ -103,7 +111,7 @@
 }
 
 - (IBAction)setCollectionType:(UIButton *)sender {
-    [self performSegueWithIdentifier:CollectionManagerSegue sender:nil];
+    [self performSegueWithIdentifier:CollectionManagerSegue sender:self.staffModel];
 }
 
 - (IBAction)setBirthdayValue:(id)sender {

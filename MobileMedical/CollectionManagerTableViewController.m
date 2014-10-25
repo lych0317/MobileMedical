@@ -7,8 +7,13 @@
 //
 
 #import "CollectionManagerTableViewController.h"
+#import "AppModel.h"
+#import "StaffModel.h"
+#import "CollectionModel.h"
 
 @interface CollectionManagerTableViewController ()
+
+@property (nonatomic, strong) NSMutableDictionary *selectedIndexPathMap;
 
 @end
 
@@ -16,97 +21,62 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addRightBarButtonItems];
-}
-
-- (void)addRightBarButtonItems {
-    UIBarButtonItem *doneButtonItem = [[UIBarButtonItem alloc] init];
-    doneButtonItem.title = @"完成";
-    doneButtonItem.target = self;
-    doneButtonItem.action = @selector(doneButtonItemClicked:);
-
-    UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] init];
-    addButtonItem.title = @"添加";
-    addButtonItem.target = self;
-    addButtonItem.action = @selector(addButtonItemClicked:);
-
-    self.navigationItem.rightBarButtonItems = @[doneButtonItem, addButtonItem];
-}
-
-- (void)doneButtonItemClicked:(UIBarButtonItem *)sender {
-
-}
-
-- (void)addButtonItemClicked:(UIBarButtonItem *)sender {
-
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return [AppModel sharedAppModel].collectionTypeTitles.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [AppModel sharedAppModel].collectionDeviceTitles.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
+    cell.textLabel.text = [AppModel sharedAppModel].collectionDeviceTitles[indexPath.row];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    [self.staffModel.collectionModels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        CollectionModel *model = obj;
+        if ([model.collectionDevice isEqualToString:cell.textLabel.text]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            [self.selectedIndexPathMap setObject:indexPath forKey:[NSString stringWithFormat:@"%d", indexPath.section]];
+            *stop = YES;
+        }
+    }];
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [AppModel sharedAppModel].collectionTypeTitles[section];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *sectionKey = [NSString stringWithFormat:@"%d", indexPath.section];
+    NSIndexPath *selectedIndexPath = self.selectedIndexPathMap[sectionKey];
+    if (selectedIndexPath) {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:selectedIndexPath];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    if (selectedIndexPath == nil || [selectedIndexPath compare:indexPath] != NSOrderedSame) {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.selectedIndexPathMap setObject:indexPath forKey:sectionKey];
+    } else if ([selectedIndexPath compare:indexPath] == NSOrderedSame) {
+        [self.selectedIndexPathMap removeObjectForKey:sectionKey];
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+#pragma mark - Getters
+
+- (NSMutableDictionary *)selectedIndexPathMap {
+    if (_selectedIndexPathMap == nil) {
+        _selectedIndexPathMap = [NSMutableDictionary dictionaryWithCapacity:[AppModel sharedAppModel].collectionTypeTitles.count];
+    }
+    return _selectedIndexPathMap;
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
