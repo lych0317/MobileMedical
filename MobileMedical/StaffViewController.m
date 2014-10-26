@@ -8,6 +8,7 @@
 
 #import "StaffViewController.h"
 #import "CollectionManagerTableViewController.h"
+#import "DatabaseManager.h"
 #import "AppModel.h"
 #import "StaffModel.h"
 #import "Utils.h"
@@ -43,6 +44,12 @@
     [super viewDidLoad];
     [self addRightBarButtonItem];
 
+    self.datePicker.backgroundColor = [UIColor whiteColor];
+
+    if (self.staffModel == nil) {
+        self.staffModel = [[StaffModel alloc] init];
+    }
+
     [self setupTextField];
 }
 
@@ -62,6 +69,12 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     return [formatter stringFromDate:date];
+}
+
+- (NSDate *)dateFromString:(NSString *)string {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    return [formatter dateFromString:string];
 }
 
 - (void)addRightBarButtonItem {
@@ -92,6 +105,9 @@
 }
 
 - (void)showPickerView {
+    if (self.editingTextField.text == nil || self.editingTextField.text.length == 0) {
+        self.editingTextField.text = self.dataForPicker[[self.textFieldPicker selectedRowInComponent:0]];
+    }
     [self.textFieldPicker reloadAllComponents];
     [UIView animateWithDuration:0.5 animations:^{
         self.hidePickerViewButton.hidden = NO;
@@ -101,26 +117,58 @@
 
 - (void)hidePickerView {
     [UIView animateWithDuration:0.5 animations:^{
-        self.textFieldPicker.center = CGPointMake(self.textFieldPicker.center.x, self.textFieldPicker.center.y + CGRectGetHeight(self.textFieldPicker.frame));
+        self.textFieldPicker.center = CGPointMake(self.textFieldPicker.center.x, CGRectGetHeight(self.view.frame) + CGRectGetHeight(self.textFieldPicker.frame) / 2);
+    }];
+}
+
+- (void)showDatePicker {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.hidePickerViewButton.hidden = NO;
+        self.datePicker.center = CGPointMake(self.datePicker.center.x, self.datePicker.center.y - CGRectGetHeight(self.datePicker.frame));
+    }];
+}
+
+- (void)hideDatePicker {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.datePicker.center = CGPointMake(self.datePicker.center.x, CGRectGetHeight(self.view.frame) + CGRectGetHeight(self.datePicker.frame) / 2);
     }];
 }
 
 #pragma mark - Selectors
 
 - (void)doneButtonItemClicked:(UIBarButtonItem *)sender {
+    self.staffModel.name = self.nameTextField.text;
+    self.staffModel.gender = self.genderTextField.text;
+    self.staffModel.relation = self.relationTextField.text;
+    self.staffModel.phone = self.phoneTextField.text;
+    self.staffModel.identifier = self.identifierTextField.text;
+    self.staffModel.birthday = [self dateFromString:self.birthdayTextField.text];
+    self.staffModel.payType = self.payTypeTextField.text;
+    self.staffModel.hospital = self.hospitalTextField.text;
+    self.staffModel.doctor = self.doctorTextField.text;
+
+    if (![[AppModel sharedAppModel].staffModels containsObject:self.staffModel]) {
+        [[AppModel sharedAppModel].staffModels addObject:self.staffModel];
+        [[DatabaseManager sharedManager] insertStaff:self.staffModel];
+    } else {
+        [[DatabaseManager sharedManager] updateStaff:self.staffModel];
+    }
+
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)setCollectionType:(UIButton *)sender {
     [self performSegueWithIdentifier:CollectionManagerSegue sender:self.staffModel];
 }
 
-- (IBAction)setBirthdayValue:(id)sender {
-
+- (IBAction)setBirthdayValue:(UIDatePicker *)sender {
+    self.birthdayTextField.text = [self stringFromDate:self.datePicker.date];
 }
 
 - (IBAction)hidePickerView:(UIButton *)sender {
     sender.hidden = YES;
     [self hidePickerView];
+    [self hideDatePicker];
 }
 #pragma mark - picker view delegate
 
@@ -161,6 +209,8 @@
         [self showPickerView];
         allowEditing = NO;
     } else if (textField == self.birthdayTextField) {
+        self.birthdayTextField.text = [self stringFromDate:self.datePicker.date];
+        [self showDatePicker];
         allowEditing = NO;
     } else if (textField == self.payTypeTextField) {
         self.dataForPicker = appModel.payTypeTitles;

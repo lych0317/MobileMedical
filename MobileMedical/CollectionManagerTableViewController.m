@@ -21,21 +21,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addRightBarButtonItem];
+}
+
+- (void)addRightBarButtonItem {
+    UIBarButtonItem *doneButtonItem = [[UIBarButtonItem alloc] init];
+    doneButtonItem.title = @"完成";
+    doneButtonItem.target = self;
+    doneButtonItem.action = @selector(doneButtonItemClicked:);
+    self.navigationItem.rightBarButtonItem = doneButtonItem;
+}
+
+#pragma mark - Selectors
+
+- (void)doneButtonItemClicked:(UIBarButtonItem *)sender {
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.selectedIndexPathMap.count];
+    [self.selectedIndexPathMap enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        CollectionModel *model = [[CollectionModel alloc] init];
+        model.collectionType = [self tableView:self.tableView titleForHeaderInSection:[key intValue]];
+        NSIndexPath *indexPath = obj;
+        model.collectionDevice = [AppModel sharedAppModel].collectionTypeAndDeviceTitleMap[model.collectionType][indexPath.row];
+        [array addObject:model];
+    }];
+    self.staffModel.collectionModels = array;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [AppModel sharedAppModel].collectionTypeTitles.count;
+    return [AppModel sharedAppModel].collectionTypeAndDeviceTitleMap.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [AppModel sharedAppModel].collectionDeviceTitles.count;
+    return [[AppModel sharedAppModel].collectionTypeAndDeviceTitleMap[[self tableView:tableView titleForHeaderInSection:section]] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
-    cell.textLabel.text = [AppModel sharedAppModel].collectionDeviceTitles[indexPath.row];
+    cell.textLabel.text = [AppModel sharedAppModel].collectionTypeAndDeviceTitleMap[[self tableView:tableView titleForHeaderInSection:indexPath.section]][indexPath.row];
     cell.accessoryType = UITableViewCellAccessoryNone;
     [self.staffModel.collectionModels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         CollectionModel *model = obj;
@@ -49,7 +73,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [AppModel sharedAppModel].collectionTypeTitles[section];
+    return [AppModel sharedAppModel].collectionTypeAndDeviceTitleMap.allKeys[section];
 }
 
 #pragma mark - Table view delegate
@@ -74,7 +98,7 @@
 
 - (NSMutableDictionary *)selectedIndexPathMap {
     if (_selectedIndexPathMap == nil) {
-        _selectedIndexPathMap = [NSMutableDictionary dictionaryWithCapacity:[AppModel sharedAppModel].collectionTypeTitles.count];
+        _selectedIndexPathMap = [NSMutableDictionary dictionaryWithCapacity:[AppModel sharedAppModel].collectionTypeAndDeviceTitleMap.count];
     }
     return _selectedIndexPathMap;
 }

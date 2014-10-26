@@ -10,13 +10,12 @@
 
 @interface AppModel : NSObject
 
-@property (nonatomic, strong) NSArray *staffs;
+@property (nonatomic, strong) NSMutableArray *staffModels;
 
 @property (nonatomic, strong) NSArray *genderTitles;
 @property (nonatomic, strong) NSArray *payTypeTitles;
 @property (nonatomic, strong) NSDictionary *hospitalAndDoctorTitleMap;
-@property (nonatomic, strong) NSArray *collectionTypeTitles;
-@property (nonatomic, strong) NSArray *collectionDeviceTitles;
+@property (nonatomic, strong) NSDictionary *collectionTypeAndDeviceTitleMap;
 
 + (instancetype)sharedAppModel;
 

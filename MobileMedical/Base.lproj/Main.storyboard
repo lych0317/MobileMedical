@@ -379,13 +379,14 @@
                                             <action selector="hidePickerView:" destination="9Ql-Vp-xyK" eventType="touchUpInside" id="H4T-PY-bWA"/>
                                         </connections>
                                     </button>
-                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="E50-cB-HrG">
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E50-cB-HrG">
                                         <rect key="frame" x="0.0" y="480" width="320" height="162"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="435913776.76497102">
-                                            <!--2014-10-25 07:09:36 +0000-->
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="-978281423.23503113">
+                                            <!--1970-01-01 07:09:36 +0000-->
                                         </date>
                                         <connections>
-                                            <action selector="setBirthdayValue:" destination="9Ql-Vp-xyK" eventType="valueChanged" id="p9a-3a-TTv"/>
+                                            <action selector="setBirthdayValue:" destination="9Ql-Vp-xyK" eventType="valueChanged" id="KTb-oJ-G7C"/>
                                         </connections>
                                     </datePicker>
                                     <pickerView contentMode="scaleToFill" fixedFrame="YES" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4o-xN-A2l">

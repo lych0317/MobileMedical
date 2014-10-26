@@ -24,8 +24,8 @@ static AppModel *sAppModel = nil;
 
 #pragma mark - Getters
 
-- (NSArray *)staffs {
-    if (_staffs == nil) {
+- (NSMutableArray *)staffModels {
+    if (_staffModels == nil) {
         StaffModel *model = [[StaffModel alloc] init];
         model.name = @"张三";
         model.gender = self.genderTitles[0];
@@ -37,12 +37,12 @@ static AppModel *sAppModel = nil;
         model.hospital = self.hospitalAndDoctorTitleMap.allKeys[0];
         model.doctor = self.hospitalAndDoctorTitleMap.allValues[0][0];
         CollectionModel *collection = [[CollectionModel alloc] init];
-        collection.collectionDevice = self.collectionDeviceTitles[0];
-        collection.collectionType = self.collectionTypeTitles[0];
+        collection.collectionDevice = self.collectionTypeAndDeviceTitleMap.allValues[0][0];
+        collection.collectionType = self.collectionTypeAndDeviceTitleMap.allKeys[0];
         model.collectionModels = @[collection];
-        _staffs = @[model];
+        _staffModels = [NSMutableArray arrayWithObject:model];
     }
-    return _staffs;
+    return _staffModels;
 }
 
 - (NSArray *)genderTitles {
@@ -66,19 +66,13 @@ static AppModel *sAppModel = nil;
     return _hospitalAndDoctorTitleMap;
 }
 
-- (NSArray *)collectionTypeTitles {
-    if (_collectionTypeTitles == nil) {
-        _collectionTypeTitles = @[@"心电图", @"血糖值"];
+- (NSDictionary *)collectionTypeAndDeviceTitleMap {
+    if (_collectionTypeAndDeviceTitleMap == nil) {
+        _collectionTypeAndDeviceTitleMap = @{@"心电图": @[@"E100", @"E200"], @"血糖值": @[@"F100", @"F200"]};
     }
-    return _collectionTypeTitles;
+    return _collectionTypeAndDeviceTitleMap;
 }
 
-- (NSArray *)collectionDeviceTitles {
-    if (_collectionDeviceTitles == nil) {
-        _collectionDeviceTitles = @[@"E100", @"F300"];
-    }
-    return _collectionDeviceTitles;
-}
 
 
 

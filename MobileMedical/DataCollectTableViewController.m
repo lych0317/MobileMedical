@@ -23,15 +23,20 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [AppModel sharedAppModel].staffs.count;
+    return [AppModel sharedAppModel].staffModels.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
-    StaffModel *staffModel = [AppModel sharedAppModel].staffs[indexPath.row];
+    StaffModel *staffModel = [AppModel sharedAppModel].staffModels[indexPath.row];
     cell.textLabel.text = staffModel.relation;
     return cell;
 }
@@ -39,7 +44,7 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:CollectionSelectedSegue sender:[AppModel sharedAppModel].staffs[indexPath.row]];
+    [self performSegueWithIdentifier:CollectionSelectedSegue sender:[AppModel sharedAppModel].staffModels[indexPath.row]];
 }
 
 #pragma mark - Navigation

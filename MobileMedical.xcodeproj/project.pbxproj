@@ -13,6 +13,7 @@
 		4845E90319F8F2E600161C2A /* DataDisplayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4845E90219F8F2E600161C2A /* DataDisplayTableViewController.m */; };
 		4845E90619F8F30900161C2A /* DataCollectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4845E90519F8F30900161C2A /* DataCollectTableViewController.m */; };
 		48F03E3B19FB891B003F5EF6 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F03E3A19FB891B003F5EF6 /* Utils.m */; };
+		48F03E3F19FC93A1003F5EF6 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F03E3E19FC93A1003F5EF6 /* DatabaseManager.m */; };
 		837113E519F540B60029DE66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 837113E419F540B60029DE66 /* main.m */; };
 		837113E819F540B60029DE66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 837113E719F540B60029DE66 /* AppDelegate.m */; };
 		837113EB19F540B60029DE66 /* MobileMedical.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 837113E919F540B60029DE66 /* MobileMedical.xcdatamodeld */; };
@@ -42,7 +43,7 @@
 /* Begin PBXFileReference section */
 		481FE86A19F912E400C164D2 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		481FE86C19F913AE00C164D2 /* AppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppModel.h; sourceTree = "<group>"; };
-		481FE86D19F913AE00C164D2 /* AppModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppModel.m; sourceTree = "<group>"; };
+		481FE86D19F913AE00C164D2 /* AppModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4845E8FE19F8F2C700161C2A /* AppSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSettingTableViewController.h; sourceTree = "<group>"; };
 		4845E8FF19F8F2C700161C2A /* AppSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSettingTableViewController.m; sourceTree = "<group>"; };
 		4845E90119F8F2E600161C2A /* DataDisplayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDisplayTableViewController.h; sourceTree = "<group>"; };
@@ -51,6 +52,8 @@
 		4845E90519F8F30900161C2A /* DataCollectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCollectTableViewController.m; sourceTree = "<group>"; };
 		48F03E3919FB891B003F5EF6 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		48F03E3A19FB891B003F5EF6 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		48F03E3D19FC93A1003F5EF6 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
+		48F03E3E19FC93A1003F5EF6 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DatabaseManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		837113DF19F540B60029DE66 /* MobileMedical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileMedical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837113E319F540B60029DE66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		837113E419F540B60029DE66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -64,7 +67,7 @@
 		8371140019F540B60029DE66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8371140119F540B60029DE66 /* MobileMedicalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileMedicalTests.m; sourceTree = "<group>"; };
 		837EEB2019FB239C008D8C62 /* StaffManagerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffManagerTableViewController.h; sourceTree = "<group>"; };
-		837EEB2119FB239C008D8C62 /* StaffManagerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffManagerTableViewController.m; sourceTree = "<group>"; };
+		837EEB2119FB239C008D8C62 /* StaffManagerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = StaffManagerTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		837EEB2319FB3C54008D8C62 /* CollectionManagerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionManagerTableViewController.h; sourceTree = "<group>"; };
 		837EEB2419FB3C54008D8C62 /* CollectionManagerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionManagerTableViewController.m; sourceTree = "<group>"; };
 		837EEB2619FB43E2008D8C62 /* CollectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionModel.h; sourceTree = "<group>"; };
@@ -122,6 +125,15 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		48F03E3C19FC9383003F5EF6 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				48F03E3D19FC93A1003F5EF6 /* DatabaseManager.h */,
+				48F03E3E19FC93A1003F5EF6 /* DatabaseManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		5710DE2309C6474E9E02592E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +165,7 @@
 		837113E119F540B60029DE66 /* MobileMedical */ = {
 			isa = PBXGroup;
 			children = (
+				48F03E3C19FC9383003F5EF6 /* Managers */,
 				48F03E3819FB8901003F5EF6 /* Components */,
 				481FE86B19F9138600C164D2 /* Models */,
 				8371141519F5488B0029DE66 /* Resources */,
@@ -380,6 +393,7 @@
 				837EEB2519FB3C54008D8C62 /* CollectionManagerTableViewController.m in Sources */,
 				837EEB2819FB43E2008D8C62 /* CollectionModel.m in Sources */,
 				4845E90319F8F2E600161C2A /* DataDisplayTableViewController.m in Sources */,
+				48F03E3F19FC93A1003F5EF6 /* DatabaseManager.m in Sources */,
 				839148C919F947B200119F32 /* StaffModel.m in Sources */,
 				837113E519F540B60029DE66 /* main.m in Sources */,
 				839148C619F9462C00119F32 /* StaffViewController.m in Sources */,
