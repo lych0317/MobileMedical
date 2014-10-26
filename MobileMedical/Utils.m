@@ -18,4 +18,28 @@
     [loading hide:YES afterDelay:time];
 }
 
++ (NSString *)stringDateFromDate:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    return [formatter stringFromDate:date];
+}
+
++ (NSString *)stringTimeFromDate:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"hh:mm"];
+    return [formatter stringFromDate:date];
+}
+
++ (NSDate *)dateFromString:(NSString *)string {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    return [formatter dateFromString:string];
+}
+
++ (NSDate *)dateFromStringDate:(NSString *)date time:(NSString *)time {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd hh:mm"];
+    return [formatter dateFromString:[NSString stringWithFormat:@"%@ %@", date, time]];
+}
+
 @end

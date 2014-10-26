@@ -12,4 +12,12 @@
 
 + (void)showToastWithTitle:(NSString *)title time:(NSTimeInterval)time;
 
++ (NSString *)stringDateFromDate:(NSDate *)date;
+
++ (NSString *)stringTimeFromDate:(NSDate *)date;
+
++ (NSDate *)dateFromString:(NSString *)string;
+
++ (NSDate *)dateFromStringDate:(NSString *)date time:(NSString *)time;
+
 @end

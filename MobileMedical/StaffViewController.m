@@ -59,22 +59,10 @@
     self.relationTextField.text = self.staffModel.relation;
     self.phoneTextField.text = self.staffModel.phone;
     self.identifierTextField.text = self.staffModel.identifier;
-    self.birthdayTextField.text = [self stringFromDate:self.staffModel.birthday];
+    self.birthdayTextField.text = [Utils stringDateFromDate:self.staffModel.birthday];
     self.payTypeTextField.text = self.staffModel.payType;
     self.hospitalTextField.text = self.staffModel.hospital;
     self.doctorTextField.text = self.staffModel.doctor;
-}
-
-- (NSString *)stringFromDate:(NSDate *)date {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
-    return [formatter stringFromDate:date];
-}
-
-- (NSDate *)dateFromString:(NSString *)string {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
-    return [formatter dateFromString:string];
 }
 
 - (void)addRightBarButtonItem {
@@ -144,7 +132,7 @@
     self.staffModel.relation = self.relationTextField.text;
     self.staffModel.phone = self.phoneTextField.text;
     self.staffModel.identifier = self.identifierTextField.text;
-    self.staffModel.birthday = [self dateFromString:self.birthdayTextField.text];
+    self.staffModel.birthday = [Utils dateFromString:self.birthdayTextField.text];
     self.staffModel.payType = self.payTypeTextField.text;
     self.staffModel.hospital = self.hospitalTextField.text;
     self.staffModel.doctor = self.doctorTextField.text;
@@ -164,7 +152,7 @@
 }
 
 - (IBAction)setBirthdayValue:(UIDatePicker *)sender {
-    self.birthdayTextField.text = [self stringFromDate:self.datePicker.date];
+    self.birthdayTextField.text = [Utils stringDateFromDate:self.datePicker.date];
 }
 
 - (IBAction)hidePickerView:(UIButton *)sender {
@@ -211,7 +199,7 @@
         [self showPickerView];
         allowEditing = NO;
     } else if (textField == self.birthdayTextField) {
-        self.birthdayTextField.text = [self stringFromDate:self.datePicker.date];
+        self.birthdayTextField.text = [Utils stringDateFromDate:self.datePicker.date];
         [self showDatePicker];
         allowEditing = NO;
     } else if (textField == self.payTypeTextField) {

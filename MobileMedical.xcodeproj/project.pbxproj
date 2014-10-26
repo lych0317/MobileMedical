@@ -29,6 +29,11 @@
 		837EEB2819FB43E2008D8C62 /* CollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB2719FB43E2008D8C62 /* CollectionModel.m */; };
 		837EEB2B19FB489C008D8C62 /* CollectionSelectedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB2A19FB489C008D8C62 /* CollectionSelectedTableViewController.m */; };
 		837EEB2E19FB4D86008D8C62 /* DisplaySelectedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB2D19FB4D86008D8C62 /* DisplaySelectedTableViewController.m */; };
+		837EEB3119FCF3F4008D8C62 /* OtherDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB3019FCF3F4008D8C62 /* OtherDataModel.m */; };
+		837EEB3519FCFA28008D8C62 /* OtherDataItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB3419FCFA28008D8C62 /* OtherDataItemTableViewCell.m */; };
+		837EEB3B19FD14AC008D8C62 /* staff.png in Resources */ = {isa = PBXBuildFile; fileRef = 837EEB3819FD14AC008D8C62 /* staff.png */; };
+		837EEB3E19FD17C1008D8C62 /* collect.png in Resources */ = {isa = PBXBuildFile; fileRef = 837EEB3C19FD17C1008D8C62 /* collect.png */; };
+		837EEB3F19FD17C1008D8C62 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = 837EEB3D19FD17C1008D8C62 /* display.png */; };
 		839148C619F9462C00119F32 /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839148C519F9462C00119F32 /* StaffViewController.m */; };
 		839148C919F947B200119F32 /* StaffModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 839148C819F947B200119F32 /* StaffModel.m */; };
 /* End PBXBuildFile section */
@@ -85,6 +90,13 @@
 		837EEB2A19FB489C008D8C62 /* CollectionSelectedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionSelectedTableViewController.m; sourceTree = "<group>"; };
 		837EEB2C19FB4D86008D8C62 /* DisplaySelectedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplaySelectedTableViewController.h; sourceTree = "<group>"; };
 		837EEB2D19FB4D86008D8C62 /* DisplaySelectedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplaySelectedTableViewController.m; sourceTree = "<group>"; };
+		837EEB2F19FCF3F4008D8C62 /* OtherDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherDataModel.h; sourceTree = "<group>"; };
+		837EEB3019FCF3F4008D8C62 /* OtherDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherDataModel.m; sourceTree = "<group>"; };
+		837EEB3319FCFA28008D8C62 /* OtherDataItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherDataItemTableViewCell.h; sourceTree = "<group>"; };
+		837EEB3419FCFA28008D8C62 /* OtherDataItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherDataItemTableViewCell.m; sourceTree = "<group>"; };
+		837EEB3819FD14AC008D8C62 /* staff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = staff.png; sourceTree = "<group>"; };
+		837EEB3C19FD17C1008D8C62 /* collect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collect.png; sourceTree = "<group>"; };
+		837EEB3D19FD17C1008D8C62 /* display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = display.png; sourceTree = "<group>"; };
 		839148C419F9462C00119F32 /* StaffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
 		839148C519F9462C00119F32 /* StaffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
 		839148C719F947B200119F32 /* StaffModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffModel.h; sourceTree = "<group>"; };
@@ -121,6 +133,8 @@
 				839148C819F947B200119F32 /* StaffModel.m */,
 				837EEB2619FB43E2008D8C62 /* CollectionModel.h */,
 				837EEB2719FB43E2008D8C62 /* CollectionModel.m */,
+				837EEB2F19FCF3F4008D8C62 /* OtherDataModel.h */,
+				837EEB3019FCF3F4008D8C62 /* OtherDataModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -174,6 +188,7 @@
 		837113E119F540B60029DE66 /* MobileMedical */ = {
 			isa = PBXGroup;
 			children = (
+				837EEB3219FCFA01008D8C62 /* Cells */,
 				48F03E3C19FC9383003F5EF6 /* Managers */,
 				48F03E3819FB8901003F5EF6 /* Components */,
 				481FE86B19F9138600C164D2 /* Models */,
@@ -257,8 +272,20 @@
 		8371141619F5488B0029DE66 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				837EEB3C19FD17C1008D8C62 /* collect.png */,
+				837EEB3D19FD17C1008D8C62 /* display.png */,
+				837EEB3819FD14AC008D8C62 /* staff.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		837EEB3219FCFA01008D8C62 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				837EEB3319FCFA28008D8C62 /* OtherDataItemTableViewCell.h */,
+				837EEB3419FCFA28008D8C62 /* OtherDataItemTableViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +371,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				837113F119F540B60029DE66 /* Main.storyboard in Resources */,
+				837EEB3B19FD14AC008D8C62 /* staff.png in Resources */,
+				837EEB3F19FD17C1008D8C62 /* display.png in Resources */,
+				837EEB3E19FD17C1008D8C62 /* collect.png in Resources */,
 				837113F619F540B60029DE66 /* LaunchScreen.xib in Resources */,
 				837113F319F540B60029DE66 /* Images.xcassets in Resources */,
 			);
@@ -396,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				837EEB3119FCF3F4008D8C62 /* OtherDataModel.m in Sources */,
 				4845E90619F8F30900161C2A /* DataCollectTableViewController.m in Sources */,
 				48F03E4819FCB03C003F5EF6 /* OtherDataCollectViewController.m in Sources */,
 				48F03E4519FCA5F1003F5EF6 /* DataTransferViewController.m in Sources */,
@@ -411,6 +442,7 @@
 				837EEB2519FB3C54008D8C62 /* CollectionManagerTableViewController.m in Sources */,
 				837EEB2819FB43E2008D8C62 /* CollectionModel.m in Sources */,
 				4845E90319F8F2E600161C2A /* DataDisplayTableViewController.m in Sources */,
+				837EEB3519FCFA28008D8C62 /* OtherDataItemTableViewCell.m in Sources */,
 				48F03E3F19FC93A1003F5EF6 /* DatabaseManager.m in Sources */,
 				839148C919F947B200119F32 /* StaffModel.m in Sources */,
 				837113E519F540B60029DE66 /* main.m in Sources */,

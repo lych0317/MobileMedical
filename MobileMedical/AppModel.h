@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class OtherDataModel;
+
 @interface AppModel : NSObject
 
 @property (nonatomic, strong) NSMutableArray *staffModels;
@@ -16,6 +18,7 @@
 @property (nonatomic, strong) NSArray *payTypeTitles;
 @property (nonatomic, strong) NSDictionary *hospitalAndDoctorTitleMap;
 @property (nonatomic, strong) NSDictionary *collectionTypeAndDeviceTitleMap;
+@property (nonatomic, strong) OtherDataModel *otherDataModel;
 
 + (instancetype)sharedAppModel;
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G9W-yg-gZu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G9W-yg-gZu">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
@@ -9,7 +9,7 @@
         <scene sceneID="Tqc-dG-WfX">
             <objects>
                 <navigationController id="4KN-4X-9aC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="人员管理" id="uhy-mx-lfn"/>
+                    <tabBarItem key="tabBarItem" title="人员管理" image="staff.png" id="uhy-mx-lfn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FpN-rn-JeI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -139,30 +139,44 @@
                                 <rect key="frame" x="0.0" y="130" width="320" height="350"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellIdentifier" id="ssg-zQ-Jro">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellIdentifier" id="ssg-zQ-Jro" customClass="OtherDataItemTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ssg-zQ-Jro" id="3Cs-pS-6tN">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wtr-dU-p2k">
-                                                    <rect key="frame" x="10" y="5" width="100" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wtr-dU-p2k">
+                                                    <rect key="frame" x="10" y="5" width="98" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="ssg-zQ-Jro" id="cCF-J4-TPk"/>
+                                                    </connections>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t7j-vN-ccw">
-                                                    <rect key="frame" x="110" y="5" width="100" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t7j-vN-ccw">
+                                                    <rect key="frame" x="111" y="5" width="98" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="ssg-zQ-Jro" id="9it-jB-XxG"/>
+                                                    </connections>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PGS-sc-1Mp">
-                                                    <rect key="frame" x="210" y="5" width="100" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PGS-sc-1Mp">
+                                                    <rect key="frame" x="212" y="5" width="98" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="ssg-zQ-Jro" id="qNk-5p-9Gx"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="contentTextField" destination="PGS-sc-1Mp" id="EeZ-jM-oss"/>
+                                            <outlet property="dateTextField" destination="wtr-dU-p2k" id="bqf-Nz-ek6"/>
+                                            <outlet property="timeTextField" destination="t7j-vN-ccw" id="nhG-2I-dIh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -188,11 +202,33 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOq-hK-028">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="hidePickerView:" destination="Hgi-ey-jq4" eventType="touchUpInside" id="6bd-oc-BHg"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="I5m-CL-PWu">
+                                <rect key="frame" x="0.0" y="480" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="436013305.47105098">
+                                    <!--2014-10-26 10:48:25 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="setDateValue:" destination="Hgi-ey-jq4" eventType="valueChanged" id="ijm-qM-W5q"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="categoryTitle" destination="Jl8-Vd-7XG" id="BdB-8P-GgH"/>
+                        <outlet property="dataTableView" destination="Auz-Zz-Ldg" id="Znu-m2-osV"/>
+                        <outlet property="datePicker" destination="I5m-CL-PWu" id="Nv7-wI-BAI"/>
+                        <outlet property="hidePickerViewButton" destination="dOq-hK-028" id="PAp-fK-cvG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jee-Lu-HlB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -301,7 +337,7 @@
         <scene sceneID="AXO-SD-Yym">
             <objects>
                 <navigationController id="m1x-If-vwg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="数据采集" id="5J5-ON-PXu"/>
+                    <tabBarItem key="tabBarItem" title="数据采集" image="collect.png" id="5J5-ON-PXu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VoN-En-zU4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -318,7 +354,7 @@
         <scene sceneID="u4S-QB-uJs">
             <objects>
                 <navigationController id="hwo-8y-JIx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="数据展示" id="Xon-g1-Q9P"/>
+                    <tabBarItem key="tabBarItem" title="数据展示" image="display.png" id="Xon-g1-Q9P"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PQU-FF-wK4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -591,6 +627,11 @@
             <point key="canvasLocation" x="1345" y="159"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="collect.png" width="20" height="20"/>
+        <image name="display.png" width="20" height="20"/>
+        <image name="staff.png" width="20" height="20"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Mlc-Qj-dWT"/>
     </inferredMetricsTieBreakers>

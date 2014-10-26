@@ -9,6 +9,7 @@
 #import "AppModel.h"
 #import "StaffModel.h"
 #import "CollectionModel.h"
+#import "OtherDataModel.h"
 #import "Constants.h"
 
 static AppModel *sAppModel = nil;
@@ -72,8 +73,24 @@ static AppModel *sAppModel = nil;
     }
     return _collectionTypeAndDeviceTitleMap;
 }
-
-
+//@property (nonatomic, strong) NSArray *diet;
+//@property (nonatomic, strong) NSArray *sport;
+//@property (nonatomic, strong) NSArray *medicine;
+//@property (nonatomic, strong) NSArray *smoke;
+//@property (nonatomic, strong) NSArray *drink;
+//@property (nonatomic, strong) NSArray *spirit;
+- (OtherDataModel *)otherDataModel {
+    if (_otherDataModel == nil) {
+        _otherDataModel = [[OtherDataModel alloc] init];
+        _otherDataModel.diet = [NSMutableArray array];
+        _otherDataModel.sport = [NSMutableArray array];
+        _otherDataModel.medicine = [NSMutableArray array];
+        _otherDataModel.smoke = [NSMutableArray array];
+        _otherDataModel.drink = [NSMutableArray array];
+        _otherDataModel.spirit = [NSMutableArray array];
+    }
+    return _otherDataModel;
+}
 
 
 
