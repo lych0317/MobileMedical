@@ -14,6 +14,9 @@
 		4845E90619F8F30900161C2A /* DataCollectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4845E90519F8F30900161C2A /* DataCollectTableViewController.m */; };
 		48F03E3B19FB891B003F5EF6 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F03E3A19FB891B003F5EF6 /* Utils.m */; };
 		48F03E3F19FC93A1003F5EF6 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F03E3E19FC93A1003F5EF6 /* DatabaseManager.m */; };
+		48F03E4219FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F03E4119FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.m */; };
+		48F03E4519FCA5F1003F5EF6 /* DataTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F03E4419FCA5F1003F5EF6 /* DataTransferViewController.m */; };
+		48F03E4819FCB03C003F5EF6 /* OtherDataCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F03E4719FCB03C003F5EF6 /* OtherDataCollectViewController.m */; };
 		837113E519F540B60029DE66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 837113E419F540B60029DE66 /* main.m */; };
 		837113E819F540B60029DE66 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 837113E719F540B60029DE66 /* AppDelegate.m */; };
 		837113EB19F540B60029DE66 /* MobileMedical.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 837113E919F540B60029DE66 /* MobileMedical.xcdatamodeld */; };
@@ -54,6 +57,12 @@
 		48F03E3A19FB891B003F5EF6 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		48F03E3D19FC93A1003F5EF6 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
 		48F03E3E19FC93A1003F5EF6 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DatabaseManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		48F03E4019FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodSugarTypeTableViewController.h; sourceTree = "<group>"; };
+		48F03E4119FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodSugarTypeTableViewController.m; sourceTree = "<group>"; };
+		48F03E4319FCA5F1003F5EF6 /* DataTransferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTransferViewController.h; sourceTree = "<group>"; };
+		48F03E4419FCA5F1003F5EF6 /* DataTransferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTransferViewController.m; sourceTree = "<group>"; };
+		48F03E4619FCB03C003F5EF6 /* OtherDataCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherDataCollectViewController.h; sourceTree = "<group>"; };
+		48F03E4719FCB03C003F5EF6 /* OtherDataCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherDataCollectViewController.m; sourceTree = "<group>"; };
 		837113DF19F540B60029DE66 /* MobileMedical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileMedical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837113E319F540B60029DE66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		837113E419F540B60029DE66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -221,6 +230,12 @@
 				4845E90519F8F30900161C2A /* DataCollectTableViewController.m */,
 				837EEB2919FB489C008D8C62 /* CollectionSelectedTableViewController.h */,
 				837EEB2A19FB489C008D8C62 /* CollectionSelectedTableViewController.m */,
+				48F03E4619FCB03C003F5EF6 /* OtherDataCollectViewController.h */,
+				48F03E4719FCB03C003F5EF6 /* OtherDataCollectViewController.m */,
+				48F03E4019FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.h */,
+				48F03E4119FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.m */,
+				48F03E4319FCA5F1003F5EF6 /* DataTransferViewController.h */,
+				48F03E4419FCA5F1003F5EF6 /* DataTransferViewController.m */,
 				837EEB2019FB239C008D8C62 /* StaffManagerTableViewController.h */,
 				837EEB2119FB239C008D8C62 /* StaffManagerTableViewController.m */,
 				839148C419F9462C00119F32 /* StaffViewController.h */,
@@ -382,6 +397,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4845E90619F8F30900161C2A /* DataCollectTableViewController.m in Sources */,
+				48F03E4819FCB03C003F5EF6 /* OtherDataCollectViewController.m in Sources */,
+				48F03E4519FCA5F1003F5EF6 /* DataTransferViewController.m in Sources */,
+				48F03E4219FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.m in Sources */,
 				4845E90019F8F2C700161C2A /* AppSettingTableViewController.m in Sources */,
 				481FE86E19F913AE00C164D2 /* AppModel.m in Sources */,
 				48F03E3B19FB891B003F5EF6 /* Utils.m in Sources */,

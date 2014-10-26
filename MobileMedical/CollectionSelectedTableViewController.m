@@ -10,6 +10,10 @@
 #import "StaffModel.h"
 #import "CollectionModel.h"
 
+#define BloodSugarSegue @"BloodSugarSegue"
+#define DataTransferSegue @"DataTransferSegue"
+#define OtherDataCollectSegue @"OtherDataCollectSegue"
+
 @interface CollectionSelectedTableViewController ()
 
 @end
@@ -35,6 +39,23 @@
         cell.textLabel.text = @"其他数据";
     }
     return cell;
+}
+
+#pragma mark - Table view delegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == self.staffModel.collectionModels.count) {
+        [self performSegueWithIdentifier:OtherDataCollectSegue sender:nil];
+    } else {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        NSString *collectionType = cell.textLabel.text;
+        NSRange range = [collectionType rangeOfString:@"血糖"];
+        if (range.length > 0) {
+            [self performSegueWithIdentifier:BloodSugarSegue sender:nil];
+        } else {
+            [self performSegueWithIdentifier:DataTransferSegue sender:nil];
+        }
+    }
 }
 
 #pragma mark - Navigation

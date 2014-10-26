@@ -105,10 +105,12 @@
 }
 
 - (void)showPickerView {
+    [self.textFieldPicker reloadAllComponents];
     if (self.editingTextField.text == nil || self.editingTextField.text.length == 0) {
         self.editingTextField.text = self.dataForPicker[[self.textFieldPicker selectedRowInComponent:0]];
+    } else {
+        [self.textFieldPicker selectRow:[self.dataForPicker indexOfObject:self.editingTextField.text] inComponent:0 animated:YES];
     }
-    [self.textFieldPicker reloadAllComponents];
     [UIView animateWithDuration:0.5 animations:^{
         self.hidePickerViewButton.hidden = NO;
         self.textFieldPicker.center = CGPointMake(self.textFieldPicker.center.x, self.textFieldPicker.center.y - CGRectGetHeight(self.textFieldPicker.frame));

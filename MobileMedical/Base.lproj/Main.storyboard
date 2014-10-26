@@ -55,7 +55,7 @@
         <!--展示类型-->
         <scene sceneID="s6O-Xy-NfR">
             <objects>
-                <tableViewController title="展示类型" id="JCp-P9-WcO" customClass="DisplaySelectedTableViewController" sceneMemberID="viewController">
+                <tableViewController title="展示类型" hidesBottomBarWhenPushed="YES" id="JCp-P9-WcO" customClass="DisplaySelectedTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ByT-TU-1uB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,7 +81,7 @@
         <!--采集类型-->
         <scene sceneID="6p3-9u-ax4">
             <objects>
-                <tableViewController title="采集类型" id="8a3-kw-a1n" customClass="CollectionSelectedTableViewController" sceneMemberID="viewController">
+                <tableViewController title="采集类型" hidesBottomBarWhenPushed="YES" id="8a3-kw-a1n" customClass="CollectionSelectedTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jME-f0-tVk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,10 +99,152 @@
                             <outlet property="delegate" destination="8a3-kw-a1n" id="ojY-sg-odb"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="awE-NH-wbm" kind="show" identifier="BloodSugarSegue" id="Cov-b1-j7F"/>
+                        <segue destination="cnR-Xh-bYd" kind="show" identifier="DataTransferSegue" id="es1-aX-ke5"/>
+                        <segue destination="Hgi-ey-jq4" kind="show" identifier="OtherDataCollectSegue" id="9Av-ZU-4Ib"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aL0-xH-iPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="863" y="-396"/>
+        </scene>
+        <!--其他数据采集-->
+        <scene sceneID="aUV-tG-dUx">
+            <objects>
+                <viewController title="其他数据采集" id="Hgi-ey-jq4" customClass="OtherDataCollectViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hcY-X3-eqy"/>
+                        <viewControllerLayoutGuide type="bottom" id="94f-Rr-5gQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yZK-rd-7sB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nB5-VV-Mmr">
+                                <rect key="frame" x="0.0" y="64" width="320" height="29"/>
+                                <segments>
+                                    <segment title="膳食"/>
+                                    <segment title="运动量"/>
+                                    <segment title="服药"/>
+                                    <segment title="抽烟"/>
+                                    <segment title="饮酒"/>
+                                    <segment title="精神压力"/>
+                                </segments>
+                                <connections>
+                                    <action selector="categoryValueChanged:" destination="Hgi-ey-jq4" eventType="valueChanged" id="QPl-K1-HCb"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Auz-Zz-Ldg">
+                                <rect key="frame" x="0.0" y="130" width="320" height="350"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellIdentifier" id="ssg-zQ-Jro">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ssg-zQ-Jro" id="3Cs-pS-6tN">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wtr-dU-p2k">
+                                                    <rect key="frame" x="10" y="5" width="100" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t7j-vN-ccw">
+                                                    <rect key="frame" x="110" y="5" width="100" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PGS-sc-1Mp">
+                                                    <rect key="frame" x="210" y="5" width="100" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Hgi-ey-jq4" id="ZhF-c6-3oo"/>
+                                    <outlet property="delegate" destination="Hgi-ey-jq4" id="LK6-nY-vnx"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日期" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkj-Yu-0LT">
+                                <rect key="frame" x="10" y="100" width="100" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="时间" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wrs-GI-Sd6">
+                                <rect key="frame" x="110" y="100" width="100" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="食盐量" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jl8-Vd-7XG">
+                                <rect key="frame" x="210" y="100" width="100" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="categoryTitle" destination="Jl8-Vd-7XG" id="BdB-8P-GgH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jee-Lu-HlB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1230" y="-396"/>
+        </scene>
+        <!--血糖类型-->
+        <scene sceneID="c7J-Zw-jzX">
+            <objects>
+                <tableViewController title="血糖类型" id="awE-NH-wbm" customClass="BloodSugarTypeTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mCM-Wf-d3Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" id="QHP-0m-IDs">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QHP-0m-IDs" id="8XY-wb-Ou1">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="awE-NH-wbm" id="WwN-P4-r8y"/>
+                            <outlet property="delegate" destination="awE-NH-wbm" id="Z01-Vd-4kv"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="cnR-Xh-bYd" kind="show" identifier="DataTransferSegue" id="Mlc-Qj-dWT"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9hB-SP-ksk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1582" y="-396"/>
+        </scene>
+        <!--数据传输-->
+        <scene sceneID="EEq-SD-pdP">
+            <objects>
+                <viewController title="数据传输" id="cnR-Xh-bYd" customClass="DataTransferViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xGg-lS-rhu"/>
+                        <viewControllerLayoutGuide type="bottom" id="GGb-jO-a4A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qMs-I3-6IN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ksu-rL-sUB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1996" y="-396"/>
         </scene>
         <!--数据采集-->
         <scene sceneID="r06-O9-Bwn">
@@ -449,4 +591,7 @@
             <point key="canvasLocation" x="1345" y="159"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Mlc-Qj-dWT"/>
+    </inferredMetricsTieBreakers>
 </document>
