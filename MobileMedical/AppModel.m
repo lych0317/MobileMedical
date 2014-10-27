@@ -25,6 +25,13 @@ static AppModel *sAppModel = nil;
 
 #pragma mark - Getters
 
+- (NSURL *)baseUrl {
+    if (_baseUrl == nil) {
+        _baseUrl = [NSURL URLWithString:BASE_URL];
+    }
+    return _baseUrl;
+}
+
 - (NSMutableArray *)staffModels {
     if (_staffModels == nil) {
         StaffModel *model = [[StaffModel alloc] init];
@@ -73,12 +80,7 @@ static AppModel *sAppModel = nil;
     }
     return _collectionTypeAndDeviceTitleMap;
 }
-//@property (nonatomic, strong) NSArray *diet;
-//@property (nonatomic, strong) NSArray *sport;
-//@property (nonatomic, strong) NSArray *medicine;
-//@property (nonatomic, strong) NSArray *smoke;
-//@property (nonatomic, strong) NSArray *drink;
-//@property (nonatomic, strong) NSArray *spirit;
+
 - (OtherDataModel *)otherDataModel {
     if (_otherDataModel == nil) {
         _otherDataModel = [[OtherDataModel alloc] init];

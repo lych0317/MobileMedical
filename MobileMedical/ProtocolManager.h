@@ -13,8 +13,14 @@
 typedef void(^ProtocolSuccessBlock)(id data);
 typedef void(^ProtocolFailureBlock)(RKObjectRequestOperation *operation, NSError *error);
 
+@class HospitalModel;
+
 @interface ProtocolManager : NSObject
 
 + (instancetype)sharedManager;
+
+- (void)postQueryDeviceWithSuccess:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure;
+- (void)postQueryHospitalWithSuccess:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure;
+- (void)postQueryDoctorWithHospital:(HospitalModel *)hospitalModel success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure;
 
 @end

@@ -35,6 +35,9 @@
 		837EEB3B19FD14AC008D8C62 /* staff.png in Resources */ = {isa = PBXBuildFile; fileRef = 837EEB3819FD14AC008D8C62 /* staff.png */; };
 		837EEB3E19FD17C1008D8C62 /* collect.png in Resources */ = {isa = PBXBuildFile; fileRef = 837EEB3C19FD17C1008D8C62 /* collect.png */; };
 		837EEB3F19FD17C1008D8C62 /* display.png in Resources */ = {isa = PBXBuildFile; fileRef = 837EEB3D19FD17C1008D8C62 /* display.png */; };
+		837EEB4219FE7679008D8C62 /* HospitalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB4119FE7679008D8C62 /* HospitalModel.m */; };
+		837EEB4519FE769A008D8C62 /* DoctorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB4419FE769A008D8C62 /* DoctorModel.m */; };
+		837EEB4819FE7B5E008D8C62 /* DeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB4719FE7B5E008D8C62 /* DeviceModel.m */; };
 		839148C619F9462C00119F32 /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839148C519F9462C00119F32 /* StaffViewController.m */; };
 		839148C919F947B200119F32 /* StaffModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 839148C819F947B200119F32 /* StaffModel.m */; };
 /* End PBXBuildFile section */
@@ -100,6 +103,12 @@
 		837EEB3819FD14AC008D8C62 /* staff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = staff.png; sourceTree = "<group>"; };
 		837EEB3C19FD17C1008D8C62 /* collect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collect.png; sourceTree = "<group>"; };
 		837EEB3D19FD17C1008D8C62 /* display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = display.png; sourceTree = "<group>"; };
+		837EEB4019FE7679008D8C62 /* HospitalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HospitalModel.h; sourceTree = "<group>"; };
+		837EEB4119FE7679008D8C62 /* HospitalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HospitalModel.m; sourceTree = "<group>"; };
+		837EEB4319FE769A008D8C62 /* DoctorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorModel.h; sourceTree = "<group>"; };
+		837EEB4419FE769A008D8C62 /* DoctorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorModel.m; sourceTree = "<group>"; };
+		837EEB4619FE7B5E008D8C62 /* DeviceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceModel.h; sourceTree = "<group>"; };
+		837EEB4719FE7B5E008D8C62 /* DeviceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceModel.m; sourceTree = "<group>"; };
 		839148C419F9462C00119F32 /* StaffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
 		839148C519F9462C00119F32 /* StaffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
 		839148C719F947B200119F32 /* StaffModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffModel.h; sourceTree = "<group>"; };
@@ -138,6 +147,12 @@
 				837EEB2719FB43E2008D8C62 /* CollectionModel.m */,
 				837EEB2F19FCF3F4008D8C62 /* OtherDataModel.h */,
 				837EEB3019FCF3F4008D8C62 /* OtherDataModel.m */,
+				837EEB4019FE7679008D8C62 /* HospitalModel.h */,
+				837EEB4119FE7679008D8C62 /* HospitalModel.m */,
+				837EEB4319FE769A008D8C62 /* DoctorModel.h */,
+				837EEB4419FE769A008D8C62 /* DoctorModel.m */,
+				837EEB4619FE7B5E008D8C62 /* DeviceModel.h */,
+				837EEB4719FE7B5E008D8C62 /* DeviceModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -435,6 +450,7 @@
 				4845E90619F8F30900161C2A /* DataCollectTableViewController.m in Sources */,
 				48B4CC4E19FE20D8009CEDF1 /* ProtocolManager.m in Sources */,
 				48F03E4819FCB03C003F5EF6 /* OtherDataCollectViewController.m in Sources */,
+				837EEB4519FE769A008D8C62 /* DoctorModel.m in Sources */,
 				48F03E4519FCA5F1003F5EF6 /* DataTransferViewController.m in Sources */,
 				48F03E4219FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.m in Sources */,
 				4845E90019F8F2C700161C2A /* AppSettingTableViewController.m in Sources */,
@@ -442,7 +458,9 @@
 				48F03E3B19FB891B003F5EF6 /* Utils.m in Sources */,
 				837EEB2E19FB4D86008D8C62 /* DisplaySelectedTableViewController.m in Sources */,
 				837EEB2B19FB489C008D8C62 /* CollectionSelectedTableViewController.m in Sources */,
+				837EEB4219FE7679008D8C62 /* HospitalModel.m in Sources */,
 				837EEB2219FB239C008D8C62 /* StaffManagerTableViewController.m in Sources */,
+				837EEB4819FE7B5E008D8C62 /* DeviceModel.m in Sources */,
 				837113EB19F540B60029DE66 /* MobileMedical.xcdatamodeld in Sources */,
 				837113E819F540B60029DE66 /* AppDelegate.m in Sources */,
 				837EEB2519FB3C54008D8C62 /* CollectionManagerTableViewController.m in Sources */,

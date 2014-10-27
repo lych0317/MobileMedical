@@ -12,6 +12,8 @@
 
 @interface AppModel : NSObject
 
+@property (nonatomic, strong) NSURL *baseUrl;
+
 @property (nonatomic, strong) NSMutableArray *staffModels;
 
 @property (nonatomic, strong) NSArray *genderTitles;
