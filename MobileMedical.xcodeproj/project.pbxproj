@@ -12,6 +12,7 @@
 		4845E90019F8F2C700161C2A /* AppSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4845E8FF19F8F2C700161C2A /* AppSettingTableViewController.m */; };
 		4845E90319F8F2E600161C2A /* DataDisplayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4845E90219F8F2E600161C2A /* DataDisplayTableViewController.m */; };
 		4845E90619F8F30900161C2A /* DataCollectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4845E90519F8F30900161C2A /* DataCollectTableViewController.m */; };
+		48B4CC4E19FE20D8009CEDF1 /* ProtocolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CC4D19FE20D8009CEDF1 /* ProtocolManager.m */; };
 		48F03E3B19FB891B003F5EF6 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F03E3A19FB891B003F5EF6 /* Utils.m */; };
 		48F03E3F19FC93A1003F5EF6 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F03E3E19FC93A1003F5EF6 /* DatabaseManager.m */; };
 		48F03E4219FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F03E4119FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.m */; };
@@ -58,6 +59,8 @@
 		4845E90219F8F2E600161C2A /* DataDisplayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDisplayTableViewController.m; sourceTree = "<group>"; };
 		4845E90419F8F30900161C2A /* DataCollectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCollectTableViewController.h; sourceTree = "<group>"; };
 		4845E90519F8F30900161C2A /* DataCollectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCollectTableViewController.m; sourceTree = "<group>"; };
+		48B4CC4C19FE20D8009CEDF1 /* ProtocolManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolManager.h; sourceTree = "<group>"; };
+		48B4CC4D19FE20D8009CEDF1 /* ProtocolManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolManager.m; sourceTree = "<group>"; };
 		48F03E3919FB891B003F5EF6 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		48F03E3A19FB891B003F5EF6 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		48F03E3D19FC93A1003F5EF6 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
@@ -142,6 +145,7 @@
 		48F03E3819FB8901003F5EF6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				481FE86A19F912E400C164D2 /* Constants.h */,
 				48F03E3919FB891B003F5EF6 /* Utils.h */,
 				48F03E3A19FB891B003F5EF6 /* Utils.m */,
 			);
@@ -153,6 +157,8 @@
 			children = (
 				48F03E3D19FC93A1003F5EF6 /* DatabaseManager.h */,
 				48F03E3E19FC93A1003F5EF6 /* DatabaseManager.m */,
+				48B4CC4C19FE20D8009CEDF1 /* ProtocolManager.h */,
+				48B4CC4D19FE20D8009CEDF1 /* ProtocolManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -201,7 +207,6 @@
 				837113F419F540B60029DE66 /* LaunchScreen.xib */,
 				837113E919F540B60029DE66 /* MobileMedical.xcdatamodeld */,
 				837113E219F540B60029DE66 /* Supporting Files */,
-				481FE86A19F912E400C164D2 /* Constants.h */,
 			);
 			path = MobileMedical;
 			sourceTree = "<group>";
@@ -428,6 +433,7 @@
 			files = (
 				837EEB3119FCF3F4008D8C62 /* OtherDataModel.m in Sources */,
 				4845E90619F8F30900161C2A /* DataCollectTableViewController.m in Sources */,
+				48B4CC4E19FE20D8009CEDF1 /* ProtocolManager.m in Sources */,
 				48F03E4819FCB03C003F5EF6 /* OtherDataCollectViewController.m in Sources */,
 				48F03E4519FCA5F1003F5EF6 /* DataTransferViewController.m in Sources */,
 				48F03E4219FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.m in Sources */,
