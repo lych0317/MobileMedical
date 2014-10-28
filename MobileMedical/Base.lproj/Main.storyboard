@@ -94,14 +94,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2t0-fk-ZkX" customClass="CKCalendarView">
-                                <rect key="frame" x="0.0" y="64" width="320" height="94"/>
+                                <rect key="frame" x="0.0" y="64" width="250" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zt0-Cs-caZ">
+                                <rect key="frame" x="255" y="90" width="60" height="30"/>
+                                <color key="backgroundColor" red="0.46274509803921571" green="0.65490196078431373" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="今天">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="comeToTaday:" destination="5CU-94-9Be" eventType="touchUpInside" id="Z3C-DZ-7g2"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="未测量" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1WN-HS-H7R">
+                                <rect key="frame" x="255" y="146" width="60" height="30"/>
+                                <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="正常" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikd-xT-WKH">
+                                <rect key="frame" x="255" y="202" width="60" height="30"/>
+                                <color key="backgroundColor" red="0.3529411764705882" green="0.6705882352941176" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="异常" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zK6-EG-xqX">
+                                <rect key="frame" x="255" y="258" width="60" height="30"/>
+                                <color key="backgroundColor" red="0.99215686274509807" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gor-hx-qsD">
+                                <rect key="frame" x="0.0" y="314" width="320" height="166"/>
+                                <color key="backgroundColor" red="0.46960538321167883" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="calendarView" destination="2t0-fk-ZkX" id="Xyl-Je-f8y"/>
+                        <outlet property="comeToTadayButton" destination="Zt0-Cs-caZ" id="gau-F2-T9G"/>
+                        <outlet property="dataDisplayView" destination="Gor-hx-qsD" id="rPD-xp-hNx"/>
+                        <outlet property="exceptionDataLabel" destination="zK6-EG-xqX" id="fcy-H0-zSP"/>
+                        <outlet property="noDataLabel" destination="1WN-HS-H7R" id="frw-7C-xvO"/>
+                        <outlet property="normalDataLabel" destination="ikd-xT-WKH" id="JPm-6P-aFz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAF-aa-8gs" userLabel="First Responder" sceneMemberID="firstResponder"/>
