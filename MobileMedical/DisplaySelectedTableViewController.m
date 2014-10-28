@@ -10,6 +10,8 @@
 #import "StaffModel.h"
 #import "CollectionModel.h"
 
+#define DataDisplaySegue @"DataDisplaySegue"
+
 @interface DisplaySelectedTableViewController ()
 
 @end
@@ -31,6 +33,12 @@
     CollectionModel *model = self.staffModel.collectionModels[indexPath.row];
     cell.textLabel.text = model.collectionType;
     return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:DataDisplaySegue sender:nil];
 }
 
 #pragma mark - Navigation

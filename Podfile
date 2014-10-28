@@ -6,3 +6,4 @@ pod 'SVPullToRefresh', :git => 'https://github.com/samvermette/SVPullToRefresh.g
 pod 'SDWebImage', '~> 3.6'
 pod 'MBProgressHUD', '~> 0.8'
 pod 'LGBluetooth', '~> 1.1.4'
+pod 'CKCalendar', '~> 1.0.0'

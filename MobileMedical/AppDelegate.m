@@ -1,4 +1,4 @@
-//
+
 //  AppDelegate.m
 //  MobileMedical
 //
@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "DatabaseManager.h"
+#import "ProtocolManager.h"
+#import "UserModel.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +20,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[DatabaseManager sharedManager] loadAllData];
+
+//    [[ProtocolManager sharedManager] postLoginWithUserModel:[[UserModel alloc] init] success:^(id data) {
+//
+//    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+//
+//    }];
+//
+//    [[ProtocolManager sharedManager] postQueryDeviceWithSuccess:^(id data) {
+//
+//    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+//        
+//    }];
+
     return YES;
 }
 

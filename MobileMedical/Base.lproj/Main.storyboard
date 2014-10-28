@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G9W-yg-gZu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G9W-yg-gZu">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
@@ -73,10 +73,40 @@
                             <outlet property="delegate" destination="JCp-P9-WcO" id="0i8-xk-s8O"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="5CU-94-9Be" kind="show" identifier="DataDisplaySegue" id="LHM-DJ-Bd4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GyV-3P-N9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="863" y="-646"/>
+        </scene>
+        <!--数据展示-->
+        <scene sceneID="4dd-1M-Fi1">
+            <objects>
+                <viewController title="数据展示" id="5CU-94-9Be" customClass="DataDisplayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HUj-5n-HoT"/>
+                        <viewControllerLayoutGuide type="bottom" id="5d6-wq-M9B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bdf-IX-KmQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2t0-fk-ZkX" customClass="CKCalendarView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="94"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="calendarView" destination="2t0-fk-ZkX" id="Xyl-Je-f8y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QAF-aa-8gs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1230" y="-646"/>
         </scene>
         <!--采集类型-->
         <scene sceneID="6p3-9u-ax4">

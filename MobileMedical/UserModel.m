@@ -13,10 +13,10 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _name = @"李远超";
-        _password = @"";
-        _phone = @"18501340650";
-        _identifier = @"130283198803175734";
+        _name = @"zhh";
+        _password = @"111111";
+//        _phone = @"13911918140";
+//        _identifier = @"110108197610286325";
     }
     return self;
 }
