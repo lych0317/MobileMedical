@@ -11,6 +11,8 @@
 
 #define BASE_URL @"http://beijingsny.eicp.net:91/healthmoni/"
 
+#define LOGIN_URL @"checkLogin"
+
 #define QUERY_DEVICE_URL @"queryDevice"
 #define QUERY_HOSPITAL_URL @"queryHospital"
 #define QUERY_DOCTOR_URL @"queryDoctor"

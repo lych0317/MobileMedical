@@ -38,6 +38,9 @@
 		837EEB4219FE7679008D8C62 /* HospitalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB4119FE7679008D8C62 /* HospitalModel.m */; };
 		837EEB4519FE769A008D8C62 /* DoctorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB4419FE769A008D8C62 /* DoctorModel.m */; };
 		837EEB4819FE7B5E008D8C62 /* DeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB4719FE7B5E008D8C62 /* DeviceModel.m */; };
+		837EEB4B19FF0F74008D8C62 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB4A19FF0F74008D8C62 /* UserModel.m */; };
+		837EEB4E19FF11CE008D8C62 /* BaseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB4D19FF11CE008D8C62 /* BaseResult.m */; };
+		837EEB5119FF11FB008D8C62 /* LoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB5019FF11FB008D8C62 /* LoginResult.m */; };
 		839148C619F9462C00119F32 /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839148C519F9462C00119F32 /* StaffViewController.m */; };
 		839148C919F947B200119F32 /* StaffModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 839148C819F947B200119F32 /* StaffModel.m */; };
 /* End PBXBuildFile section */
@@ -109,6 +112,12 @@
 		837EEB4419FE769A008D8C62 /* DoctorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorModel.m; sourceTree = "<group>"; };
 		837EEB4619FE7B5E008D8C62 /* DeviceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceModel.h; sourceTree = "<group>"; };
 		837EEB4719FE7B5E008D8C62 /* DeviceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceModel.m; sourceTree = "<group>"; };
+		837EEB4919FF0F74008D8C62 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		837EEB4A19FF0F74008D8C62 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		837EEB4C19FF11CE008D8C62 /* BaseResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseResult.h; sourceTree = "<group>"; };
+		837EEB4D19FF11CE008D8C62 /* BaseResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseResult.m; sourceTree = "<group>"; };
+		837EEB4F19FF11FB008D8C62 /* LoginResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginResult.h; sourceTree = "<group>"; };
+		837EEB5019FF11FB008D8C62 /* LoginResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginResult.m; sourceTree = "<group>"; };
 		839148C419F9462C00119F32 /* StaffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffViewController.h; sourceTree = "<group>"; };
 		839148C519F9462C00119F32 /* StaffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffViewController.m; sourceTree = "<group>"; };
 		839148C719F947B200119F32 /* StaffModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffModel.h; sourceTree = "<group>"; };
@@ -153,6 +162,12 @@
 				837EEB4419FE769A008D8C62 /* DoctorModel.m */,
 				837EEB4619FE7B5E008D8C62 /* DeviceModel.h */,
 				837EEB4719FE7B5E008D8C62 /* DeviceModel.m */,
+				837EEB4919FF0F74008D8C62 /* UserModel.h */,
+				837EEB4A19FF0F74008D8C62 /* UserModel.m */,
+				837EEB4C19FF11CE008D8C62 /* BaseResult.h */,
+				837EEB4D19FF11CE008D8C62 /* BaseResult.m */,
+				837EEB4F19FF11FB008D8C62 /* LoginResult.h */,
+				837EEB5019FF11FB008D8C62 /* LoginResult.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -454,6 +469,7 @@
 				48F03E4519FCA5F1003F5EF6 /* DataTransferViewController.m in Sources */,
 				48F03E4219FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.m in Sources */,
 				4845E90019F8F2C700161C2A /* AppSettingTableViewController.m in Sources */,
+				837EEB4B19FF0F74008D8C62 /* UserModel.m in Sources */,
 				481FE86E19F913AE00C164D2 /* AppModel.m in Sources */,
 				48F03E3B19FB891B003F5EF6 /* Utils.m in Sources */,
 				837EEB2E19FB4D86008D8C62 /* DisplaySelectedTableViewController.m in Sources */,
@@ -463,11 +479,13 @@
 				837EEB4819FE7B5E008D8C62 /* DeviceModel.m in Sources */,
 				837113EB19F540B60029DE66 /* MobileMedical.xcdatamodeld in Sources */,
 				837113E819F540B60029DE66 /* AppDelegate.m in Sources */,
+				837EEB4E19FF11CE008D8C62 /* BaseResult.m in Sources */,
 				837EEB2519FB3C54008D8C62 /* CollectionManagerTableViewController.m in Sources */,
 				837EEB2819FB43E2008D8C62 /* CollectionModel.m in Sources */,
 				4845E90319F8F2E600161C2A /* DataDisplayTableViewController.m in Sources */,
 				837EEB3519FCFA28008D8C62 /* OtherDataItemTableViewCell.m in Sources */,
 				48F03E3F19FC93A1003F5EF6 /* DatabaseManager.m in Sources */,
+				837EEB5119FF11FB008D8C62 /* LoginResult.m in Sources */,
 				839148C919F947B200119F32 /* StaffModel.m in Sources */,
 				837113E519F540B60029DE66 /* main.m in Sources */,
 				839148C619F9462C00119F32 /* StaffViewController.m in Sources */,

@@ -9,6 +9,8 @@
 #import "ProtocolManager.h"
 #import <RestKit/RestKit.h>
 #import "AppModel.h"
+#import "UserModel.h"
+#import "LoginResult.h"
 #import "Constants.h"
 
 static ProtocolManager *sProtocolManager = nil;
@@ -30,6 +32,37 @@ static ProtocolManager *sProtocolManager = nil;
     return indexSet;
 }
 
+- (void)postLoginWithUserModel:(UserModel *)userModel success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
+    RKObjectMapping *requestMapping = [self createUserModelMapping];
+    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:[UserModel class] rootKeyPath:nil method:RKRequestMethodPOST];
+
+    RKObjectMapping *responseMapping = nil;
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodPOST pathPattern:nil keyPath:nil statusCodes:[self createStatusCodes]];
+
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[AppModel sharedAppModel].baseUrl];
+    manager.requestSerializationMIMEType = RKMIMETypeJSON;
+    [manager addRequestDescriptor:requestDescriptor];
+    [manager addResponseDescriptor:responseDescriptor];
+
+    [manager postObject:nil path:QUERY_DEVICE_URL parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (success) {
+            success(mappingResult.firstObject);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+}
+
+- (RKObjectMapping *)createUserModelMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[UserModel class]];
+    [mapping addAttributeMappingsFromDictionary:@{@"username": @"name",
+                                                  @"password": @"password"
+                                                  }];
+    return mapping;
+}
+
 - (void)postQueryDeviceWithSuccess:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
     RKObjectMapping *requestMapping = nil;
     RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:nil rootKeyPath:nil method:RKRequestMethodPOST];
@@ -41,7 +74,6 @@ static ProtocolManager *sProtocolManager = nil;
     manager.requestSerializationMIMEType = RKMIMETypeJSON;
     [manager addRequestDescriptor:requestDescriptor];
     [manager addResponseDescriptor:responseDescriptor];
-//    [self setupHeaderWithManager:manager];
 
     [manager postObject:nil path:QUERY_DEVICE_URL parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         if (success) {
