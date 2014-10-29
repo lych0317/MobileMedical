@@ -192,6 +192,7 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     BOOL allowEditing = YES;
+    [self.editingTextField resignFirstResponder];
     self.editingTextField = textField;
     AppModel *appModel = [AppModel sharedAppModel];
     if (textField == self.genderTextField) {
@@ -220,6 +221,11 @@
         allowEditing = NO;
     }
     return allowEditing;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.editingTextField resignFirstResponder];
+    return YES;
 }
 
 @end
