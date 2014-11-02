@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class BloodSugarModel;
+
 @interface BloodSugarTypeTableViewController : UITableViewController
+
+@property (nonatomic, strong) BloodSugarModel *bloodSugarModel;
 
 @end

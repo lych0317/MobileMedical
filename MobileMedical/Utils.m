@@ -7,7 +7,6 @@
 //
 
 #import "Utils.h"
-#import <MBProgressHUD/MBProgressHUD.h>
 
 @implementation Utils
 
@@ -16,6 +15,31 @@
     loading.mode = MBProgressHUDModeText;
     loading.labelText = title;
     [loading hide:YES afterDelay:time];
+}
+
+MBProgressHUD *_loading;
+
++ (void)showProgressViewTitle:(NSString *)title {
+    _loading = [MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] windows] objectAtIndex:0] animated:YES];
+    _loading.labelText = title;
+}
+
++ (void)switchProgressViewTitle:(NSString *)title {
+    _loading.labelText = title;
+}
+
++ (void)hideProgressViewAfter:(NSTimeInterval)delay {
+    [_loading hide:YES afterDelay:delay];
+}
+
++ (void)hideProgressViewWithTitle:(NSString *)title after:(NSTimeInterval)delay {
+    [Utils switchProgressViewTitle:title];
+    [Utils hideProgressViewAfter:delay];
+}
+
++ (void)hideProgressViewWithTitle:(NSString *)title after:(NSTimeInterval)delay completionBlock:(MBProgressHUDCompletionBlock)completionBlock {
+    _loading.completionBlock = completionBlock;
+    [Utils hideProgressViewWithTitle:title after:delay];
 }
 
 + (NSString *)stringDateFromDate:(NSDate *)date {

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class ETCModel, BloodSugarModel;
+
 @interface DataTransferViewController : UIViewController
+
+@property (nonatomic, strong) ETCModel *etcModel;
+@property (nonatomic, strong) BloodSugarModel *bloodSugarModel;
 
 @end

@@ -28,4 +28,11 @@ typedef enum {
     DeviceTypeBloodSugar = 6
 } DeviceType;
 
+typedef enum {
+    BloodSugarTestTypeEmptyStomach,
+    BloodSugarTestTypeBeforMeal,
+    BloodSugarTestTypeAfterMeal2h,
+    BloodSugarTestTypeRandom
+} BloodSugarTestType;
+
 #endif

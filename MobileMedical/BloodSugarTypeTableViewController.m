@@ -7,6 +7,8 @@
 //
 
 #import "BloodSugarTypeTableViewController.h"
+#import "DataTransferViewController.h"
+#import "BloodSugarModel.h"
 
 #define DataTransferSegue @"DataTransferSegue"
 
@@ -38,13 +40,17 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:DataTransferSegue sender:nil];
+    self.bloodSugarModel.testType = [NSNumber numberWithInt:indexPath.row];
+    [self performSegueWithIdentifier:DataTransferSegue sender:self.bloodSugarModel];
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    if ([segue.identifier isEqualToString:DataTransferSegue]) {
+        DataTransferViewController *viewController = segue.destinationViewController;
+        viewController.bloodSugarModel = sender;
+    }
 }
 
 #pragma mark - Getters

@@ -7,8 +7,12 @@
 //
 
 #import "CollectionSelectedTableViewController.h"
+#import "DataTransferViewController.h"
+#import "BloodSugarTypeTableViewController.h"
 #import "StaffModel.h"
 #import "CollectionModel.h"
+#import "ETCModel.h"
+#import "BloodSugarModel.h"
 
 #define BloodSugarSegue @"BloodSugarSegue"
 #define DataTransferSegue @"DataTransferSegue"
@@ -51,9 +55,9 @@
         NSString *collectionType = cell.textLabel.text;
         NSRange range = [collectionType rangeOfString:@"血糖"];
         if (range.length > 0) {
-            [self performSegueWithIdentifier:BloodSugarSegue sender:nil];
+            [self performSegueWithIdentifier:BloodSugarSegue sender:[[BloodSugarModel alloc] init]];
         } else {
-            [self performSegueWithIdentifier:DataTransferSegue sender:nil];
+            [self performSegueWithIdentifier:DataTransferSegue sender:[[ETCModel alloc] init]];
         }
     }
 }
@@ -61,6 +65,13 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:DataTransferSegue]) {
+        DataTransferViewController *viewController = segue.destinationViewController;
+        viewController.etcModel = sender;
+    } else if ([segue.identifier isEqualToString:BloodSugarSegue]) {
+        BloodSugarTypeTableViewController *viewController = segue.destinationViewController;
+        viewController.bloodSugarModel = sender;
+    }
 }
 
 @end
