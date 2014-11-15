@@ -407,6 +407,7 @@
 				TargetAttributes = {
 					837113DE19F540B60029DE66 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 59932VS9Y5;
 					};
 					837113FA19F540B60029DE66 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -651,11 +652,13 @@
 			baseConfigurationReference = 9F40C37473934489AC2A6766 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MobileMedical/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D4A46452-0944-4744-A367-447713F22670";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -664,11 +667,13 @@
 			baseConfigurationReference = 9F40C37473934489AC2A6766 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MobileMedical/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D4A46452-0944-4744-A367-447713F22670";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
