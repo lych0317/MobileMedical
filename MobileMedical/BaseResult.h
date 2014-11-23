@@ -10,6 +10,6 @@
 
 @interface BaseResult : NSObject
 
-@property (nonatomic, strong) NSNumber *code;
+@property (nonatomic, strong) NSNumber *return_code;
 
 @end

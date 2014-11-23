@@ -9,7 +9,7 @@
 #import "DataCollectTableViewController.h"
 #import "AppModel.h"
 #import "StaffModel.h"
-#import "CollectionSelectedTableViewController.h"
+//#import "CollectionSelectedTableViewController.h"
 
 #define CollectionSelectedSegue @"CollectionSelectedSegue"
 
@@ -37,7 +37,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
     StaffModel *staffModel = [AppModel sharedAppModel].staffModels[indexPath.row];
-    cell.textLabel.text = staffModel.relation;
+//    cell.textLabel.text = staffModel.relation;
     return cell;
 }
 
@@ -51,8 +51,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:CollectionSelectedSegue]) {
-        CollectionSelectedTableViewController *viewController = segue.destinationViewController;
-        viewController.staffModel = sender;
+//        CollectionSelectedTableViewController *viewController = segue.destinationViewController;
+//        viewController.staffModel = sender;
     }
 }
 

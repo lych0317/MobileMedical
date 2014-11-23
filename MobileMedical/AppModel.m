@@ -32,25 +32,25 @@ static AppModel *sAppModel = nil;
     return _baseUrl;
 }
 
-- (NSMutableArray *)staffModels {
-    if (_staffModels == nil) {
-        StaffModel *model = [[StaffModel alloc] init];
-        model.name = @"张三";
-        model.gender = self.genderTitles[0];
-        model.relation = @"父亲";
-        model.phone = @"150xxxxxxxx";
-        model.identifier = @"130xxxxxxxxxxxxxxx";
-        model.birthday = [NSDate date];
-        model.payType = self.payTypeTitles[0];
-        model.hospital = self.hospitalAndDoctorTitleMap.allKeys[0];
-        model.doctor = self.hospitalAndDoctorTitleMap.allValues[0][0];
-        CollectionModel *collection = [[CollectionModel alloc] init];
-        collection.collectionDevice = self.collectionTypeAndDeviceTitleMap.allValues[0][0];
-        collection.collectionType = self.collectionTypeAndDeviceTitleMap.allKeys[0];
-        model.collectionModels = @[collection];
-        _staffModels = [NSMutableArray arrayWithObject:model];
+- (NSArray *)deviceTypeTitles {
+    if (_deviceTypeTitles == nil) {
+        _deviceTypeTitles = @[@"血糖仪", @"心电仪"];
     }
-    return _staffModels;
+    return _deviceTypeTitles;
+}
+
+- (NSArray *)otherDataTitles {
+    if (_otherDataTitles == nil) {
+        _otherDataTitles = @[@"膳食", @"运动量", @"服药", @"抽烟", @"饮酒", @"精神状态"];
+    }
+    return _otherDataTitles;
+}
+
+- (NSArray *)spiritTitles {
+    if (_spiritTitles == nil) {
+        _spiritTitles = @[@"无压力", @"轻微", @"中等", @"严重", @"非常严重"];
+    }
+    return _spiritTitles;
 }
 
 - (NSArray *)genderTitles {
@@ -62,7 +62,7 @@ static AppModel *sAppModel = nil;
 
 - (NSArray *)payTypeTitles {
     if (_payTypeTitles == nil) {
-        _payTypeTitles = @[@"支付宝", @"微信", @"其他"];
+        _payTypeTitles = @[@"支付宝", @"其他"];
     }
     return _payTypeTitles;
 }
@@ -80,20 +80,6 @@ static AppModel *sAppModel = nil;
     }
     return _collectionTypeAndDeviceTitleMap;
 }
-
-- (OtherDataModel *)otherDataModel {
-    if (_otherDataModel == nil) {
-        _otherDataModel = [[OtherDataModel alloc] init];
-        _otherDataModel.diet = [NSMutableArray array];
-        _otherDataModel.sport = [NSMutableArray array];
-        _otherDataModel.medicine = [NSMutableArray array];
-        _otherDataModel.smoke = [NSMutableArray array];
-        _otherDataModel.drink = [NSMutableArray array];
-        _otherDataModel.spirit = [NSMutableArray array];
-    }
-    return _otherDataModel;
-}
-
 
 
 

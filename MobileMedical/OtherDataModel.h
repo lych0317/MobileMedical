@@ -8,20 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DataItemModel : NSObject
-
-@property (nonatomic, strong) NSDate *time;
-@property (nonatomic, strong) NSString *content;
-
-@end
-
 @interface OtherDataModel : NSObject
 
-@property (nonatomic, strong) NSMutableArray *diet;
-@property (nonatomic, strong) NSMutableArray *sport;
-@property (nonatomic, strong) NSMutableArray *medicine;
-@property (nonatomic, strong) NSMutableArray *smoke;
-@property (nonatomic, strong) NSMutableArray *drink;
-@property (nonatomic, strong) NSMutableArray *spirit;
+@property (nonatomic, strong) NSNumber *datatype;
+@property (nonatomic, strong) NSNumber *value;
+@property (nonatomic, strong) NSString *datetime;
 
 @end

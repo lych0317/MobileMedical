@@ -8,17 +8,6 @@
 
 #import "OtherDataModel.h"
 
-@implementation DataItemModel
-
-- (NSDate *)time {
-    if (_time == nil) {
-        _time = [NSDate date];
-    }
-    return _time;
-}
-
-@end
-
 @implementation OtherDataModel
 
 @end

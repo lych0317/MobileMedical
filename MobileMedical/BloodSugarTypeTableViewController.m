@@ -8,9 +8,12 @@
 
 #import "BloodSugarTypeTableViewController.h"
 #import "DataTransferViewController.h"
+#import "StaffListTableViewController.h"
 #import "BloodSugarModel.h"
+#import "Config.h"
 
 #define DataTransferSegue @"DataTransferSegue"
+#define StaffListSegue @"StaffListSegue"
 
 @interface BloodSugarTypeTableViewController ()
 
@@ -34,14 +37,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
     cell.textLabel.text = self.bloodSugarTitles[indexPath.row];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.bloodSugarModel.testType = [NSNumber numberWithInt:indexPath.row];
-    [self performSegueWithIdentifier:DataTransferSegue sender:self.bloodSugarModel];
+    if ([[Config sharedConfig].usertype intValue] == 1) {
+        [self performSegueWithIdentifier:StaffListSegue sender:self.bloodSugarTitles[indexPath.row]];
+    } else if ([[Config sharedConfig].usertype intValue] == 1) {
+        self.bloodSugarModel.testType = [NSNumber numberWithInt:indexPath.row];
+        [self performSegueWithIdentifier:DataTransferSegue sender:self.bloodSugarModel];
+    }
 }
 
 #pragma mark - Navigation
@@ -50,6 +58,9 @@
     if ([segue.identifier isEqualToString:DataTransferSegue]) {
         DataTransferViewController *viewController = segue.destinationViewController;
         viewController.bloodSugarModel = sender;
+    } else if ([segue.identifier isEqualToString:StaffListSegue]) {
+        StaffListTableViewController *viewController = segue.destinationViewController;
+        viewController.typeTitle = sender;
     }
 }
 

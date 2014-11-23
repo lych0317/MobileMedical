@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u91-Wp-LIZ">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--账号管理-->
+        <scene sceneID="6Ko-8f-y4H">
+            <objects>
+                <navigationController title="账号管理" id="u91-Wp-LIZ" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bZe-5T-DwY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JXe-RE-N2W" kind="relationship" relationship="rootViewController" id="6wn-PV-muq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bqg-PP-Rih" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-191" y="168"/>
+        </scene>
+        <!--登陆-->
+        <scene sceneID="Ra5-Ht-hIE">
+            <objects>
+                <viewController title="登陆" id="JXe-RE-N2W" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Rv-99-ZYs"/>
+                        <viewControllerLayoutGuide type="bottom" id="ncH-j9-Tg6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5NM-iD-8CK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名（必填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NM6-KU-UPC">
+                                <rect key="frame" x="35" y="127" width="250" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="JXe-RE-N2W" id="dw0-vS-eE7"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码（必填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tom-Vz-Y4C">
+                                <rect key="frame" x="35" y="184" width="250" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="JXe-RE-N2W" id="YDR-l7-h6p"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSm-tU-9ob">
+                                <rect key="frame" x="35" y="266" width="250" height="44"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="登录">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonClicked:" destination="JXe-RE-N2W" eventType="touchUpInside" id="D9k-zu-FZb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65r-ek-jii">
+                                <rect key="frame" x="35" y="317" width="250" height="44"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="注册">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerButtonClicked:" destination="JXe-RE-N2W" eventType="touchUpInside" id="1em-Q3-luT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="登录" id="nly-S4-thr"/>
+                    <connections>
+                        <outlet property="loginButton" destination="SSm-tU-9ob" id="xwG-ne-VAf"/>
+                        <outlet property="passwordTextField" destination="Tom-Vz-Y4C" id="jqb-ff-eJ8"/>
+                        <outlet property="registerButton" destination="65r-ek-jii" id="Jog-ME-6Ue"/>
+                        <outlet property="usernameTextField" destination="NM6-KU-UPC" id="SSj-bL-eEj"/>
+                        <segue destination="yAG-1o-Hz8" kind="show" identifier="RegisterSegue" id="MCi-0V-eng"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wAE-rI-DvH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="199" y="168"/>
+        </scene>
+        <!--注册-->
+        <scene sceneID="gua-4H-F41">
+            <objects>
+                <viewController title="注册" id="yAG-1o-Hz8" customClass="RegisterViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d0C-1Y-CLb"/>
+                        <viewControllerLayoutGuide type="bottom" id="net-cy-1JI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mvH-6c-6hr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hbd-9E-frN">
+                                <rect key="frame" x="35" y="80" width="250" height="29"/>
+                                <segments>
+                                    <segment title="群组用户"/>
+                                    <segment title="个人用户"/>
+                                </segments>
+                                <connections>
+                                    <action selector="registerTypeValueChanged:" destination="yAG-1o-Hz8" eventType="valueChanged" id="w4d-Rl-1A2"/>
+                                </connections>
+                            </segmentedControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6qb-kc-4eV">
+                                <rect key="frame" x="0.0" y="116" width="320" height="364"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名（必填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hly-Oe-OSO">
+                                        <rect key="frame" x="35" y="15" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="yAG-1o-Hz8" id="82Y-vX-1Ax"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码（必填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YHs-gv-vel">
+                                        <rect key="frame" x="35" y="65" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="yAG-1o-Hz8" id="ryZ-mx-ug9"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="确认密码（必填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WLB-Q1-YjS">
+                                        <rect key="frame" x="35" y="115" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="yAG-1o-Hz8" id="Lxh-b2-rrB"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eJm-nB-hpO">
+                                        <rect key="frame" x="35" y="165" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="yAG-1o-Hz8" id="a2d-89-1sc"/>
+                                        </connections>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nTZ-gk-Gbm">
+                                        <rect key="frame" x="35" y="215" width="250" height="84"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="身份证号（必填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4UY-Cc-qku">
+                                        <rect key="frame" x="35" y="165" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="yAG-1o-Hz8" id="bh3-Kt-DQv"/>
+                                        </connections>
+                                    </textField>
+                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gW0-VL-Se3">
+                                        <rect key="frame" x="35" y="215" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="yAG-1o-Hz8" id="Gh3-kc-OKl"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjW-UO-Bf8">
+                                        <rect key="frame" x="35" y="312" width="250" height="44"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <state key="normal" title="注册">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="registerButtonClicked:" destination="yAG-1o-Hz8" eventType="touchUpInside" id="pbz-fB-QNA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="confirmPwdTextField" destination="WLB-Q1-YjS" id="a96-Ew-rNH"/>
+                        <outlet property="introTextView" destination="nTZ-gk-Gbm" id="4tX-TO-IT5"/>
+                        <outlet property="nameTextField" destination="eJm-nB-hpO" id="Foj-Xf-pGL"/>
+                        <outlet property="pIdTextField" destination="4UY-Cc-qku" id="WJu-3t-G0c"/>
+                        <outlet property="passwordTestField" destination="YHs-gv-vel" id="M8j-Sx-StW"/>
+                        <outlet property="phoneTextField" destination="gW0-VL-Se3" id="oIv-mW-fwR"/>
+                        <outlet property="registerButton" destination="BjW-UO-Bf8" id="V70-Io-5kn"/>
+                        <outlet property="usernameTextField" destination="hly-Oe-OSO" id="ce7-Pq-IiT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAK-s0-BuC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="603" y="168"/>
+        </scene>
+    </scenes>
+</document>

@@ -8,13 +8,18 @@
 
 #import "StaffManagerTableViewController.h"
 #import "StaffViewController.h"
+#import "ProtocolManager.h"
 #import "DatabaseManager.h"
 #import "AppModel.h"
 #import "StaffModel.h"
+#import "QueryStaffListResult.h"
+#import "Utils.h"
 
 #define StaffSegue @"StaffSegue"
 
 @interface StaffManagerTableViewController ()
+
+@property (nonatomic, strong) NSArray *staffModels;
 
 @end
 
@@ -39,6 +44,28 @@
     [self.tableView reloadData];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self fetchStaffList];
+}
+
+- (void)fetchStaffList {
+    [Utils showProgressViewTitle:@"正在请求人员列表"];
+    [[ProtocolManager sharedManager] postQueryStaffListWithSuccess:^(id data) {
+        [Utils hideProgressViewAfter:0];
+        QueryStaffListResult *result = data;
+        if ([result.return_code intValue] == 0) {
+            self.staffModels = result.patients;
+            [self.tableView reloadData];
+        } else {
+            [Utils showToastWithTitle:@"请求数据失败" time:1];
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        [Utils hideProgressViewAfter:0];
+        [Utils showToastWithTitle:@"请求数据失败" time:1];
+    }];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationItem.title = @"取消";
@@ -53,24 +80,24 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [AppModel sharedAppModel].staffModels.count;
+    return self.staffModels.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
-    StaffModel *model = [AppModel sharedAppModel].staffModels[indexPath.row];
-    cell.textLabel.text = model.relation;
+    StaffModel *model =self.staffModels[indexPath.row];
+    cell.textLabel.text = model.name;
     return cell;
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:StaffSegue sender:[AppModel sharedAppModel].staffModels[indexPath.row]];
+    [self performSegueWithIdentifier:StaffSegue sender:self.staffModels[indexPath.row]];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

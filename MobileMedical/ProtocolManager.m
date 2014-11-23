@@ -9,11 +9,22 @@
 #import "ProtocolManager.h"
 #import <RestKit/RestKit.h>
 #import "AppModel.h"
+#import "BaseResult.h"
 #import "UserModel.h"
 #import "DeviceModel.h"
 #import "QueryDeviceResult.h"
+#import "HospitalModel.h"
+#import "QueryHospitalResult.h"
+#import "DoctorModel.h"
+#import "QueryDoctorResult.h"
 #import "LoginResult.h"
+#import "RegisterModel.h"
+#import "RegisterResult.h"
+#import "StaffModel.h"
+#import "QueryStaffListResult.h"
+#import "OtherDataModel.h"
 #import "Constants.h"
+#import "Config.h"
 
 static ProtocolManager *sProtocolManager = nil;
 
@@ -35,8 +46,6 @@ static ProtocolManager *sProtocolManager = nil;
 }
 
 - (void)setupHeaderWithManager:(RKObjectManager *)manager {
-    [manager.HTTPClient setDefaultHeader:@"access_token" value:@"cmn0sb6wq0v6zjx2ief64l9p4kxhdej28stt"];
-    [manager.HTTPClient setDefaultHeader:@"pId" value:@"110108197610286325"];
     [manager.HTTPClient setDefaultHeader:@"Accept-Encoding" value:@"gzip, deflate"];
 }
 
@@ -48,7 +57,7 @@ static ProtocolManager *sProtocolManager = nil;
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodPOST pathPattern:nil keyPath:nil statusCodes:[self createStatusCodes]];
 
     RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[AppModel sharedAppModel].baseUrl];
-    manager.requestSerializationMIMEType = RKMIMETypeJSON;
+    manager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
     [manager addRequestDescriptor:requestDescriptor];
     [manager addResponseDescriptor:responseDescriptor];
     [self setupHeaderWithManager:manager];
@@ -66,43 +75,267 @@ static ProtocolManager *sProtocolManager = nil;
 
 - (RKObjectMapping *)createLoginRequestMapping {
     RKObjectMapping *mapping = [RKObjectMapping requestMapping];
-    [mapping addAttributeMappingsFromDictionary:@{@"name": @"username", @"password": @"password"}];
+    [mapping addAttributeMappingsFromArray:@[@"username", @"password"]];
     return mapping;
 }
 
 - (RKObjectMapping *)createLoginResponseMapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[LoginResult class]];
-    [mapping addAttributeMappingsFromDictionary:@{@"return_code": @"code", @"access_token": @"token", @"pId": @"identifier"}];
+    [mapping addAttributeMappingsFromArray:@[@"return_code", @"access_token", @"usertype", @"pId", @"name", @"chengwei", @"phone", @"doctorIds", @"paytype"]];
     return mapping;
 }
 
-- (void)postQueryDeviceWithSuccess:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
-//    RKObjectMapping *requestMapping = nil;
-//    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:nil rootKeyPath:nil method:RKRequestMethodPOST];
+- (void)postRegisterWithRegisterModel:(RegisterModel *)registerModel success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
+    RKObjectMapping *requestMapping = [self createRegisterRequestMapping];
+    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:[RegisterModel class] rootKeyPath:nil method:RKRequestMethodPOST];
 
+    RKObjectMapping *responseMapping = [self createRegisterResponseMapping];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodPOST pathPattern:nil keyPath:nil statusCodes:[self createStatusCodes]];
+
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[AppModel sharedAppModel].baseUrl];
+    manager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
+    [manager addRequestDescriptor:requestDescriptor];
+    [manager addResponseDescriptor:responseDescriptor];
+    [self setupHeaderWithManager:manager];
+
+    [manager postObject:registerModel path:REGISTER_URL parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (success) {
+            success(mappingResult.firstObject);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+}
+
+- (RKObjectMapping *)createRegisterRequestMapping {
+    RKObjectMapping *mapping = [RKObjectMapping requestMapping];
+    [mapping addAttributeMappingsFromArray:@[@"username", @"password", @"userfrom", @"name", @"intro", @"pId", @"phone"]];
+    return mapping;
+}
+
+- (RKObjectMapping *)createRegisterResponseMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[RegisterResult class]];
+    [mapping addAttributeMappingsFromArray:@[@"return_code", @"access_token"]];
+    return mapping;
+}
+
+- (void)postQueryHospitalWithSuccess:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
+    RKObjectMapping *responseMapping = [self createQueryHospitalResponseMapping];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodPOST pathPattern:nil keyPath:nil statusCodes:[self createStatusCodes]];
+
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[AppModel sharedAppModel].baseUrl];
+    manager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
+    [manager addResponseDescriptor:responseDescriptor];
+
+    NSDictionary *parameters = @{@"access_token": [Config sharedConfig].access_token};
+
+    [manager postObject:nil path:QUERY_HOSPITAL_URL parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (success) {
+            success(mappingResult.firstObject);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+}
+
+- (RKObjectMapping *)createQueryHospitalResponseMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[QueryHospitalResult class]];
+    [mapping addAttributeMappingsFromArray:@[@"return_code"]];
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"hospitals" toKeyPath:@"hospitals" withMapping:[self createHospitalModelMapping]]];
+    return mapping;
+}
+
+- (RKObjectMapping *)createHospitalModelMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[HospitalModel class]];
+    [mapping addAttributeMappingsFromArray:@[@"name", @"hospitalId"]];
+    return mapping;
+}
+
+- (void)postQueryDoctorWithHospital:(HospitalModel *)hospitalModel success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
+    RKObjectMapping *responseMapping = [self createQueryDoctorResponseMapping];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodPOST pathPattern:nil keyPath:nil statusCodes:[self createStatusCodes]];
+
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[AppModel sharedAppModel].baseUrl];
+    manager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
+    [manager addResponseDescriptor:responseDescriptor];
+
+    NSDictionary *parameters = @{@"access_token": [Config sharedConfig].access_token, @"hospitalId": hospitalModel.hospitalId};
+
+    [manager postObject:nil path:QUERY_DOCTOR_URL parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (success) {
+            success(mappingResult.firstObject);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+}
+
+- (RKObjectMapping *)createQueryDoctorResponseMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[QueryDoctorResult class]];
+    [mapping addAttributeMappingsFromArray:@[@"return_code"]];
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"doctors" toKeyPath:@"doctors" withMapping:[self createDoctorModelMapping]]];
+    return mapping;
+}
+
+- (RKObjectMapping *)createDoctorModelMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[DoctorModel class]];
+    [mapping addAttributeMappingsFromArray:@[@"name", @"doctorId"]];
+    return mapping;
+}
+
+- (void)postStaffWithStaffModel:(StaffModel *)staffModel success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
+    RKObjectMapping *requestMapping = [self createAddOrUpdateStaffRequestMapping];
+    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:[StaffModel class] rootKeyPath:nil method:RKRequestMethodPOST];
+
+    RKObjectMapping *responseMapping = [self createBaseResponseMapping];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodPOST pathPattern:nil keyPath:nil statusCodes:[self createStatusCodes]];
+
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[AppModel sharedAppModel].baseUrl];
+    manager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
+    [manager addRequestDescriptor:requestDescriptor];
+    [manager addResponseDescriptor:responseDescriptor];
+    [self setupHeaderWithManager:manager];
+
+    NSDictionary *parameters = @{@"access_token": [Config sharedConfig].access_token};
+
+    [manager postObject:staffModel path:ADD_OR_UPDATE_STAFF_URL parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (success) {
+            success(mappingResult.firstObject);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+}
+
+- (RKObjectMapping *)createAddOrUpdateStaffRequestMapping {
+    RKObjectMapping *mapping = [RKObjectMapping requestMapping];
+    [mapping addAttributeMappingsFromArray:@[@"username", @"password", @"pId", @"name", @"chengwei", @"phone", @"doctorIds", @"paytype", @"opr"]];
+    return mapping;
+}
+
+- (RKObjectMapping *)createBaseResponseMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[BaseResult class]];
+    [mapping addAttributeMappingsFromArray:@[@"return_code"]];
+    return mapping;
+}
+
+- (void)postUpdatePasswordWithOldPwd:(NSString *)oldPwd updatePwd:(NSString *)updatePwd success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
+    RKObjectMapping *responseMapping = [self createBaseResponseMapping];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodPOST pathPattern:nil keyPath:nil statusCodes:[self createStatusCodes]];
+
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[AppModel sharedAppModel].baseUrl];
+    manager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
+    [manager addResponseDescriptor:responseDescriptor];
+
+    NSDictionary *parameters = @{@"access_token": [Config sharedConfig].access_token, @"oldPswd": oldPwd, @"newPswd": updatePwd};
+
+    [manager postObject:nil path:UPDATE_GROUP_PWD_URL parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (success) {
+            success(mappingResult.firstObject);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+}
+
+- (void)postQueryStaffListWithSuccess:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
+    RKObjectMapping *responseMapping = [self createQueryStaffListResponseMapping];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodPOST pathPattern:nil keyPath:nil statusCodes:[self createStatusCodes]];
+
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[AppModel sharedAppModel].baseUrl];
+    manager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
+    [manager addResponseDescriptor:responseDescriptor];
+
+    NSDictionary *parameters = @{@"access_token": [Config sharedConfig].access_token};
+
+    [manager postObject:nil path:QUERY_STAFF_LIST_URL parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (success) {
+            success(mappingResult.firstObject);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+}
+
+- (RKObjectMapping *)createQueryStaffListResponseMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[QueryStaffListResult class]];
+    [mapping addAttributeMappingsFromArray:@[@"return_code"]];
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"patients" toKeyPath:@"patients" withMapping:[self createStaffModelMapping]]];
+    return mapping;
+}
+
+- (RKObjectMapping *)createStaffModelMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[StaffModel class]];
+    [mapping addAttributeMappingsFromArray:@[@"username", @"password", @"pId", @"name", @"chengwei", @"phone", @"doctorIds", @"paytype", @"opr"]];
+    return mapping;
+}
+
+- (void)postOtherDataWithOtherDataModel:(OtherDataModel *)otherDataModel success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
+    RKObjectMapping *requestMapping = [self createOtherDataRequestMapping];
+    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:[OtherDataModel class] rootKeyPath:nil method:RKRequestMethodPOST];
+
+    RKObjectMapping *responseMapping = [self createBaseResponseMapping];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodPOST pathPattern:nil keyPath:nil statusCodes:[self createStatusCodes]];
+
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[AppModel sharedAppModel].baseUrl];
+    manager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
+    [manager addRequestDescriptor:requestDescriptor];
+    [manager addResponseDescriptor:responseDescriptor];
+    [self setupHeaderWithManager:manager];
+
+    NSDictionary *parameters = @{@"access_token": [Config sharedConfig].access_token, @"pId": [Config sharedConfig].pId};
+
+    [manager postObject:otherDataModel path:UPLOAD_OTHER_DATA_URL parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (success) {
+            success(mappingResult.firstObject);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+}
+
+- (RKObjectMapping *)createOtherDataRequestMapping {
+    RKObjectMapping *mapping = [RKObjectMapping requestMapping];
+    [mapping addAttributeMappingsFromArray:@[@"datatype", @"datetime", @"value"]];
+    return mapping;
+}
+
+
+
+
+
+
+- (void)postQueryDeviceWithSuccess:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
     RKObjectMapping *responseMapping = [self createQueryDeviceResponseMapping];
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:[self createStatusCodes]];
 
     RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[AppModel sharedAppModel].baseUrl];
-    manager.requestSerializationMIMEType = RKMIMETypeJSON;
-//    [manager addRequestDescriptor:requestDescriptor];
+    manager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
     [manager addResponseDescriptor:responseDescriptor];
 
-    [manager getObjectsAtPath:QUERY_DEVICE_URL parameters:@{@"access_token": @"cmn0sb6wq0v6zjx2ief64l9p4kxhdej28stt", @"pId": @"110108197610286325"} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        success(mappingResult.firstObject);
+    [manager postObject:nil path:QUERY_DEVICE_URL parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (success) {
+            success(mappingResult.firstObject);
+        }
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        failure(operation, error);
+        if (failure) {
+            failure(operation, error);
+        }
     }];
-
-//    [manager postObject:nil path:QUERY_DEVICE_URL parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-//        if (success) {
-//            success(mappingResult.firstObject);
-//        }
-//    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-//        if (failure) {
-//            failure(operation, error);
-//        }
-//    }];
 }
 
 - (RKObjectMapping *)createQueryDeviceResponseMapping {
@@ -118,12 +351,8 @@ static ProtocolManager *sProtocolManager = nil;
     return mapping;
 }
 
-- (void)postQueryHospitalWithSuccess:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
 
-}
 
-- (void)postQueryDoctorWithHospital:(HospitalModel *)hospitalModel success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
 
-}
 
 @end

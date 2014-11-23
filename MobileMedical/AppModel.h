@@ -17,6 +17,9 @@
 @property (nonatomic, strong) NSMutableArray *staffModels;
 @property (nonatomic, strong) NSMutableArray *etcModels;
 @property (nonatomic, strong) NSMutableArray *bloodSugarModels;
+@property (nonatomic, strong) NSArray *deviceTypeTitles;
+@property (nonatomic, strong) NSArray *otherDataTitles;
+@property (nonatomic, strong) NSArray *spiritTitles;
 
 @property (nonatomic, strong) NSArray *genderTitles;
 @property (nonatomic, strong) NSArray *payTypeTitles;

@@ -8,8 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DatabaseManager.h"
-#import "ProtocolManager.h"
-#import "UserModel.h"
+#import "Config.h"
 
 @interface AppDelegate ()
 
@@ -20,20 +19,37 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[DatabaseManager sharedManager] loadAllData];
-
-//    [[ProtocolManager sharedManager] postLoginWithUserModel:[[UserModel alloc] init] success:^(id data) {
-//
-//    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-//
-//    }];
-//
-//    [[ProtocolManager sharedManager] postQueryDeviceWithSuccess:^(id data) {
-//
-//    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-//        
-//    }];
-
     return YES;
+}
+
+- (void)enterMainView {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"DataDisplay" bundle:nil];
+    UINavigationController *dataDisplay = [storyboard instantiateInitialViewController];
+
+    storyboard = [UIStoryboard storyboardWithName:@"DataCollection" bundle:nil];
+    UINavigationController *dataCollection = [storyboard instantiateInitialViewController];
+
+    storyboard = [UIStoryboard storyboardWithName:@"StaffManager" bundle:nil];
+    UINavigationController *staffManager = [storyboard instantiateInitialViewController];
+
+    storyboard = [UIStoryboard storyboardWithName:@"Setting" bundle:nil];
+    UINavigationController *setting = [storyboard instantiateInitialViewController];
+
+    self.tabBarController = [[UITabBarController alloc] init];
+    if ([[Config sharedConfig].usertype intValue] == 1) {
+        self.tabBarController.viewControllers = [NSArray arrayWithObjects:dataDisplay, dataCollection, staffManager, setting, nil];
+    } else {
+        self.tabBarController.viewControllers = [NSArray arrayWithObjects:dataDisplay, dataCollection, setting, nil];
+    }
+
+    self.window.rootViewController = self.tabBarController;
+}
+
+- (void)exitMainView {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AccountManager" bundle:nil];
+    UINavigationController *accountManager = [storyboard instantiateInitialViewController];
+
+    self.window.rootViewController = accountManager;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

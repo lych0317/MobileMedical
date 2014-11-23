@@ -1,5 +1,5 @@
 //
-//  AppSettingTableViewController.h
+//  SettingTableViewController.h
 //  MobileMedical
 //
 //  Created by 远超李 on 14-10-23.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppSettingTableViewController : UITableViewController
+@interface SettingTableViewController : UITableViewController
 
 @end

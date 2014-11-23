@@ -44,7 +44,7 @@ MBProgressHUD *_loading;
 
 + (NSString *)stringDateFromDate:(NSDate *)date {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
+    [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
     return [formatter stringFromDate:date];
 }
 

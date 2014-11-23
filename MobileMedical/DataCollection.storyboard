@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AZR-Ww-Zxc">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--人员列表-->
+        <scene sceneID="IPa-zh-Hcf">
+            <objects>
+                <tableViewController title="人员列表" hidesBottomBarWhenPushed="YES" id="56r-xK-1ES" customClass="StaffListTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fnY-WE-6xA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellIdentifier" id="lMd-Sv-EMD">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lMd-Sv-EMD" id="2KM-li-sY5">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="56r-xK-1ES" id="vhs-bO-adV"/>
+                            <outlet property="delegate" destination="56r-xK-1ES" id="JDR-es-Uz7"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <segue destination="SBh-Em-WUG" kind="show" identifier="BloodSugarSegue" id="s2g-RK-hmd"/>
+                        <segue destination="fCg-3J-GHp" kind="show" identifier="DataTransferSegue" id="Ls7-GC-tZG"/>
+                        <segue destination="TM4-ub-P80" kind="show" identifier="OtherDataCollectSegue" id="6fT-IG-ovs"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BGg-cp-wg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="863" y="-396"/>
+        </scene>
+        <!--其他数据采集-->
+        <scene sceneID="aBR-cF-Swb">
+            <objects>
+                <viewController title="其他数据采集" hidesBottomBarWhenPushed="YES" id="TM4-ub-P80" customClass="OtherDataCollectViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ems-qD-eSc"/>
+                        <viewControllerLayoutGuide type="bottom" id="kam-OQ-Lw3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WAP-gI-IlA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Je-LN-HcQ">
+                                <rect key="frame" x="35" y="80" width="250" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sOy-Ec-LTZ">
+                                <rect key="frame" x="35" y="125" width="250" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TM4-ub-P80" id="vdN-ef-fxp"/>
+                                </connections>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="92k-u2-yST">
+                                <rect key="frame" x="0.0" y="170" width="320" height="162"/>
+                                <color key="backgroundColor" red="0.53725490200000003" green="0.53725490200000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="438419033.99952102">
+                                    <!--2014-11-23 07:03:53 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="92k-u2-yST" id="eFz-4D-av1"/>
+                        <outlet property="nameLabel" destination="8Je-LN-HcQ" id="DUF-Ag-4HE"/>
+                        <outlet property="valueTextField" destination="sOy-Ec-LTZ" id="c3L-ZC-tKc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0sN-SA-Vbz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1425" y="32"/>
+        </scene>
+        <!--血糖类型-->
+        <scene sceneID="E5c-B6-Eyj">
+            <objects>
+                <tableViewController title="血糖类型" hidesBottomBarWhenPushed="YES" id="SBh-Em-WUG" customClass="BloodSugarTypeTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QqV-mB-2Kt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" id="IK6-bY-EyS">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IK6-bY-EyS" id="GsM-1k-BlW">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="SBh-Em-WUG" id="tau-2s-Pik"/>
+                            <outlet property="delegate" destination="SBh-Em-WUG" id="B2u-TT-ICJ"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="fCg-3J-GHp" kind="show" identifier="DataTransferSegue" id="5OY-uC-8VM"/>
+                        <segue destination="56r-xK-1ES" kind="show" identifier="StaffListSegue" id="1Jr-TU-bva"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nzc-Md-d8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1406" y="-796"/>
+        </scene>
+        <!--数据传输-->
+        <scene sceneID="pmn-Av-oJK">
+            <objects>
+                <viewController title="数据传输" hidesBottomBarWhenPushed="YES" id="fCg-3J-GHp" customClass="DataTransferViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0wo-Go-bVM"/>
+                        <viewControllerLayoutGuide type="bottom" id="M0J-eI-0e8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I5M-dN-h3m">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gTl-Pw-amt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1996" y="-396"/>
+        </scene>
+        <!--数据采集-->
+        <scene sceneID="stz-sE-3PK">
+            <objects>
+                <tableViewController id="VTc-Fn-v7o" customClass="CollectionTypeTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="sSU-oY-pcz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellIdentifier" id="VQT-RD-3un">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VQT-RD-3un" id="jYz-PJ-wsS">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VTc-Fn-v7o" id="fPR-h9-atk"/>
+                            <outlet property="delegate" destination="VTc-Fn-v7o" id="NeL-Ok-D3T"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="数据采集" id="cjB-AQ-wF6"/>
+                    <connections>
+                        <segue destination="56r-xK-1ES" kind="show" identifier="StaffListSegue" id="PGM-BC-xpy"/>
+                        <segue destination="SBh-Em-WUG" kind="show" identifier="BloodSugarSegue" id="LYq-wy-d5A"/>
+                        <segue destination="fCg-3J-GHp" kind="show" identifier="DataTransferSegue" id="Fup-vO-Bxh"/>
+                        <segue destination="TM4-ub-P80" kind="show" identifier="OtherDataCollectSegue" id="gVN-BH-gJn"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Au9-xo-zSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="300" y="-396"/>
+        </scene>
+        <!--数据采集-->
+        <scene sceneID="HEL-Gn-Hoi">
+            <objects>
+                <navigationController id="AZR-Ww-Zxc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="数据采集" image="collect.png" id="GYO-pd-iaV"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1YB-8x-2gY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VTc-Fn-v7o" kind="relationship" relationship="rootViewController" id="wlA-7M-ZZw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pli-j9-sOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-436" y="-396"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="collect.png" width="20" height="20"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="1Jr-TU-bva"/>
+        <segue reference="s2g-RK-hmd"/>
+        <segue reference="5OY-uC-8VM"/>
+        <segue reference="6fT-IG-ovs"/>
+    </inferredMetricsTieBreakers>
+</document>

@@ -44,33 +44,33 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [Utils showProgressViewTitle:@"查找外部蓝牙设备。。。"];
-    [[LGCentralManager sharedInstance] scanForPeripheralsByInterval:50 completion:^(NSArray *peripherals) {
-        __block BOOL foundPeripheral = NO;
-        [peripherals enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            LGPeripheral *peripheral = obj;
-            NSLog(@"peripheral name is %@, uuid is %@", peripheral.name, peripheral.UUIDString);
-            if ([peripheral.name isEqualToString:PERIPHERAL_NAME]) {
-                [Utils switchProgressViewTitle:@"成功找到蓝牙设备"];
-                foundPeripheral = YES;
-                switch (self.deviceType) {
-                    case DeviceTypeETC:
-                        [self setupETCPeripheral:peripheral];
-                        break;
-                    case DeviceTypeBloodSugar:
-                        [self setupBloodSugarPeripheral:peripheral];
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }];
-        if (foundPeripheral == NO) {
-            [Utils hideProgressViewWithTitle:@"未发现蓝牙设备" after:1 completionBlock:^{
-                [self.navigationController popViewControllerAnimated:YES];
-            }];
-        }
-    }];
+//    [Utils showProgressViewTitle:@"查找外部蓝牙设备。。。"];
+//    [[LGCentralManager sharedInstance] scanForPeripheralsByInterval:50 completion:^(NSArray *peripherals) {
+//        __block BOOL foundPeripheral = NO;
+//        [peripherals enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//            LGPeripheral *peripheral = obj;
+//            NSLog(@"peripheral name is %@, uuid is %@", peripheral.name, peripheral.UUIDString);
+//            if ([peripheral.name isEqualToString:PERIPHERAL_NAME]) {
+//                [Utils switchProgressViewTitle:@"成功找到蓝牙设备"];
+//                foundPeripheral = YES;
+//                switch (self.deviceType) {
+//                    case DeviceTypeETC:
+//                        [self setupETCPeripheral:peripheral];
+//                        break;
+//                    case DeviceTypeBloodSugar:
+//                        [self setupBloodSugarPeripheral:peripheral];
+//                        break;
+//                    default:
+//                        break;
+//                }
+//            }
+//        }];
+//        if (foundPeripheral == NO) {
+//            [Utils hideProgressViewWithTitle:@"未发现蓝牙设备" after:1 completionBlock:^{
+//                [self.navigationController popViewControllerAnimated:YES];
+//            }];
+//        }
+//    }];
 }
 
 - (void)setupETCPeripheral:(LGPeripheral *)peripheral {

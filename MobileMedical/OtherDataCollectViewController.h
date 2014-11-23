@@ -10,4 +10,6 @@
 
 @interface OtherDataCollectViewController : UIViewController
 
+@property (nonatomic, strong) NSString *otherDataTitle;
+
 @end

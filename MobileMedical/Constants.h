@@ -12,13 +12,19 @@
 #define BASE_URL @"http://beijingsny.eicp.net:91/healthmoni/"
 
 #define LOGIN_URL @"checkLogin"
-
-#define QUERY_DEVICE_URL @"queryDevice"
+#define REGISTER_URL ([[Config sharedConfig].usertype intValue] == 1 ? @"groupReg" : @"patientReg")
 #define QUERY_HOSPITAL_URL @"queryHospital"
 #define QUERY_DOCTOR_URL @"queryDoctor"
+#define ADD_OR_UPDATE_STAFF_URL @"addOrUpdatePatient"
+#define UPDATE_GROUP_PWD_URL @"updateGroupPwd"
+#define QUERY_STAFF_LIST_URL @"queryPatients"
+#define UPLOAD_OTHER_DATA_URL @"uploadOtherData"
+
+#define QUERY_DEVICE_URL @"queryDevice"
 
 #define ADD_FAMILY_URL @"addFamily"
 
+#define CHECK_STRING_NOT_NULL(string) (string != nil && string.length > 0)
 
 // 血氧——1，血压——3，血糖——6，心电——2
 typedef enum {

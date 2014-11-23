@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PxE-cY-HUb">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--支付方式-->
+        <scene sceneID="Xfw-DD-V8f">
+            <objects>
+                <tableViewController title="支付方式" id="QI8-Kq-ZSn" customClass="PayTypeTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="N2T-xp-cWo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" id="I5b-e6-bCL">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I5b-e6-bCL" id="5Tp-qJ-RK8">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QI8-Kq-ZSn" id="M3S-yS-gac"/>
+                            <outlet property="delegate" destination="QI8-Kq-ZSn" id="eAa-ua-zFX"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3se-vO-UgM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1508" y="46"/>
+        </scene>
+        <!--设置-->
+        <scene sceneID="kKM-lV-iGt">
+            <objects>
+                <tableViewController title="设置" id="etv-Y9-cZR" customClass="SettingTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="yhZ-xr-g7O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="CellIdentifier" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" id="lvN-5b-04K">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lvN-5b-04K" id="T6G-LI-GiZ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="etv-Y9-cZR" id="IH1-g5-d3c"/>
+                            <outlet property="delegate" destination="etv-Y9-cZR" id="z78-mI-1gR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="设置" id="dIv-pW-wch"/>
+                    <connections>
+                        <segue destination="VXV-Rp-QcT" kind="show" identifier="AccountDataSegue" id="Oqo-9z-oqn"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JBn-Dw-emm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="321" y="430"/>
+        </scene>
+        <!--我的资料-->
+        <scene sceneID="hjC-pF-bYJ">
+            <objects>
+                <viewController title="我的资料" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="VXV-Rp-QcT" customClass="AccountDataViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EGV-7g-YZR"/>
+                        <viewControllerLayoutGuide type="bottom" id="EAp-n7-WOZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="42O-eo-GMJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="66g-CA-s8Z">
+                                <rect key="frame" x="0.0" y="64" width="333" height="367"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名（必填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcx-QT-sC9">
+                                        <rect key="frame" x="35" y="10" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="VXV-Rp-QcT" id="pnq-Zv-odO"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="姓名／昵称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gKV-cN-aMh">
+                                        <rect key="frame" x="35" y="55" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="VXV-Rp-QcT" id="DWg-co-D9a"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="称谓" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2yl-Jj-R1U">
+                                        <rect key="frame" x="35" y="100" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="VXV-Rp-QcT" id="9oL-A8-MP3"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="身份证号（必填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t7v-gG-HRo">
+                                        <rect key="frame" x="35" y="145" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="VXV-Rp-QcT" id="J9A-WO-Qne"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dxl-KO-PWA">
+                                        <rect key="frame" x="35" y="190" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="VXV-Rp-QcT" id="uif-TP-INW"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="付费方式" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kvk-yZ-VHN">
+                                        <rect key="frame" x="35" y="235" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="VXV-Rp-QcT" id="GXE-Bs-trb"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h49-bt-3P5">
+                                        <rect key="frame" x="35" y="281" width="250" height="44"/>
+                                        <state key="normal" title="选择医生（必选）">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="chooseDoctorButtonClicked:" destination="VXV-Rp-QcT" eventType="touchUpInside" id="Vbu-rg-ZH0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZF2-rZ-AqF">
+                                        <rect key="frame" x="35" y="319" width="250" height="44"/>
+                                        <state key="normal" title="提交">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="submitButtonClicked:" destination="VXV-Rp-QcT" eventType="touchUpInside" id="GFI-vI-bWF"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d03-JY-Xh2">
+                                        <rect key="frame" x="35" y="30" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="旧密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RPg-ov-TIL">
+                                        <rect key="frame" x="35" y="80" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="VXV-Rp-QcT" id="s9U-6Z-Doi"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="新密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sGf-CP-4nn">
+                                        <rect key="frame" x="35" y="130" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="VXV-Rp-QcT" id="uzm-Lb-61N"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="确认密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4kK-DE-v4U">
+                                        <rect key="frame" x="35" y="180" width="250" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="VXV-Rp-QcT" id="Rou-aK-opn"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPh-GN-78t">
+                                        <rect key="frame" x="35" y="250" width="250" height="44"/>
+                                        <state key="normal" title="修改密码">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="updatePwdButtonClicked:" destination="VXV-Rp-QcT" eventType="touchUpInside" id="zI9-cz-9Jv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="accountDataScrollView" destination="66g-CA-s8Z" id="MJq-cf-beD"/>
+                        <outlet property="chengweiTextField" destination="2yl-Jj-R1U" id="ssF-7c-8bK"/>
+                        <outlet property="chooseDoctorButton" destination="h49-bt-3P5" id="Z3E-Xm-7Ho"/>
+                        <outlet property="confirmPwdTextField" destination="4kK-DE-v4U" id="201-oB-JbZ"/>
+                        <outlet property="nameTextField" destination="gKV-cN-aMh" id="rE8-IR-ehM"/>
+                        <outlet property="oldPwdTextField" destination="RPg-ov-TIL" id="yBt-F3-F8S"/>
+                        <outlet property="pIdTextField" destination="t7v-gG-HRo" id="mqw-K9-qAX"/>
+                        <outlet property="paytypeTextField" destination="kvk-yZ-VHN" id="aDd-Gn-Fbq"/>
+                        <outlet property="phoneTextField" destination="dxl-KO-PWA" id="u7p-iT-scl"/>
+                        <outlet property="submitButton" destination="ZF2-rZ-AqF" id="dh7-Zw-g4q"/>
+                        <outlet property="updatePwdButton" destination="GPh-GN-78t" id="MI9-3g-AzK"/>
+                        <outlet property="updatePwdTextField" destination="sGf-CP-4nn" id="7Nc-Ty-aeB"/>
+                        <outlet property="usernameLabel" destination="d03-JY-Xh2" id="6gJ-qV-tvR"/>
+                        <outlet property="usernameTextField" destination="mcx-QT-sC9" id="UGX-bn-lLz"/>
+                        <segue destination="G0B-P3-HKA" kind="show" identifier="HospitalListSegue" id="P9G-Gk-rpb"/>
+                        <segue destination="QI8-Kq-ZSn" kind="show" identifier="PayTypeSegue" id="JUa-IJ-Vea"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0aD-Jl-d5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="905" y="430"/>
+        </scene>
+        <!--医院列表-->
+        <scene sceneID="vUx-ZB-bnv">
+            <objects>
+                <tableViewController title="医院列表" id="G0B-P3-HKA" customClass="HospitalListTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uUT-aM-scK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" id="yfa-0e-Nch">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yfa-0e-Nch" id="G92-aX-acV">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="G0B-P3-HKA" id="fJ2-Jb-bRz"/>
+                            <outlet property="delegate" destination="G0B-P3-HKA" id="CWD-Tu-HIV"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="2Q9-Kc-Sho" kind="show" identifier="DoctorListSegue" id="Bl6-Qq-0t6"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Us5-jo-oA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1499" y="619"/>
+        </scene>
+        <!--医生列表-->
+        <scene sceneID="coh-cw-Rsw">
+            <objects>
+                <tableViewController title="医生列表" id="2Q9-Kc-Sho" customClass="DoctorListTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MXe-MA-6k9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" id="mrc-EM-wUK">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mrc-EM-wUK" id="RwA-gZ-sjr">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2Q9-Kc-Sho" id="2Kh-Gy-R48"/>
+                            <outlet property="delegate" destination="2Q9-Kc-Sho" id="T8J-Nl-1P9"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lo2-rK-T45" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2035" y="637"/>
+        </scene>
+        <!--设置-->
+        <scene sceneID="fb6-bQ-WG4">
+            <objects>
+                <navigationController title="设置" id="PxE-cY-HUb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="设置" image="staff.png" id="SOq-Nm-ELJ"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q3K-r5-HbI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="etv-Y9-cZR" kind="relationship" relationship="rootViewController" id="7bD-eW-taG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jvr-Cp-u4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-499" y="430"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="staff.png" width="20" height="20"/>
+    </resources>
+</document>
