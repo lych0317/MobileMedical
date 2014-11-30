@@ -21,10 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+    self.clearsSelectionOnViewWillAppear = YES;
 }
 
 #pragma mark - Table view data source

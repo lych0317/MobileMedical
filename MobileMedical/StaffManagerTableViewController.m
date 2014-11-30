@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addRightBarButtonItem];
+    self.clearsSelectionOnViewWillAppear = YES;
 }
 
 - (void)addRightBarButtonItem {

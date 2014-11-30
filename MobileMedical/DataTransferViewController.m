@@ -40,11 +40,17 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 //    [Utils showProgressViewTitle:@"查找外部蓝牙设备。。。"];
-//    [[LGCentralManager sharedInstance] scanForPeripheralsByInterval:50 completion:^(NSArray *peripherals) {
-//        __block BOOL foundPeripheral = NO;
-//        [peripherals enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//            LGPeripheral *peripheral = obj;
-//            NSLog(@"peripheral name is %@, uuid is %@", peripheral.name, peripheral.UUIDString);
+    [[LGCentralManager sharedInstance] scanForPeripheralsByInterval:50 services:@[@"EBCF1351-3806-CA48-315E-2EA9CFEC5211"] options:nil completion:^(NSArray *peripherals) {
+        [peripherals enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            LGPeripheral *peripheral = obj;
+            NSLog(@"1 peripheral name is %@, uuid is %@", peripheral.name, peripheral.UUIDString);
+        }];
+    }];
+    [[LGCentralManager sharedInstance] scanForPeripheralsByInterval:50 completion:^(NSArray *peripherals) {
+        __block BOOL foundPeripheral = NO;
+        [peripherals enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            LGPeripheral *peripheral = obj;
+            NSLog(@"2 peripheral name is %@, uuid is %@", peripheral.name, peripheral.UUIDString);
 //            if ([peripheral.name isEqualToString:PERIPHERAL_NAME]) {
 //                [Utils switchProgressViewTitle:@"成功找到蓝牙设备"];
 //                foundPeripheral = YES;
@@ -59,13 +65,13 @@
 //                        break;
 //                }
 //            }
-//        }];
+        }];
 //        if (foundPeripheral == NO) {
 //            [Utils hideProgressViewWithTitle:@"未发现蓝牙设备" after:1 completionBlock:^{
 //                [self.navigationController popViewControllerAnimated:YES];
 //            }];
 //        }
-//    }];
+    }];
 }
 
 //- (void)setupETCPeripheral:(LGPeripheral *)peripheral {

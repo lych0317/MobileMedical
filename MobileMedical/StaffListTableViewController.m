@@ -33,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.clearsSelectionOnViewWillAppear = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {

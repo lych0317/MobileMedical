@@ -26,6 +26,7 @@
 		837113F319F540B60029DE66 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837113F219F540B60029DE66 /* Images.xcassets */; };
 		837113F619F540B60029DE66 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 837113F419F540B60029DE66 /* LaunchScreen.xib */; };
 		8371140219F540B60029DE66 /* MobileMedicalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371140119F540B60029DE66 /* MobileMedicalTests.m */; };
+		837547C61A29A2600059CB16 /* DataTransferTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 837547C51A29A2600059CB16 /* DataTransferTableViewController.m */; };
 		837547C91A2AFB270059CB16 /* OperatingStaff.m in Sources */ = {isa = PBXBuildFile; fileRef = 837547C81A2AFB270059CB16 /* OperatingStaff.m */; };
 		837EEB2219FB239C008D8C62 /* StaffManagerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB2119FB239C008D8C62 /* StaffManagerTableViewController.m */; };
 		837EEB2819FB43E2008D8C62 /* CollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB2719FB43E2008D8C62 /* CollectionModel.m */; };
@@ -112,6 +113,8 @@
 		837113FB19F540B60029DE66 /* MobileMedicalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileMedicalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8371140019F540B60029DE66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8371140119F540B60029DE66 /* MobileMedicalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileMedicalTests.m; sourceTree = "<group>"; };
+		837547C41A29A2600059CB16 /* DataTransferTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTransferTableViewController.h; sourceTree = "<group>"; };
+		837547C51A29A2600059CB16 /* DataTransferTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTransferTableViewController.m; sourceTree = "<group>"; };
 		837547C71A2AFB270059CB16 /* OperatingStaff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperatingStaff.h; sourceTree = "<group>"; };
 		837547C81A2AFB270059CB16 /* OperatingStaff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperatingStaff.m; sourceTree = "<group>"; };
 		837EEB2019FB239C008D8C62 /* StaffManagerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffManagerTableViewController.h; sourceTree = "<group>"; };
@@ -418,6 +421,8 @@
 				48F03E4119FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.m */,
 				48F03E4319FCA5F1003F5EF6 /* DataTransferViewController.h */,
 				48F03E4419FCA5F1003F5EF6 /* DataTransferViewController.m */,
+				837547C41A29A2600059CB16 /* DataTransferTableViewController.h */,
+				837547C51A29A2600059CB16 /* DataTransferTableViewController.m */,
 			);
 			name = DataCollection;
 			sourceTree = "<group>";
@@ -634,6 +639,7 @@
 				481FE86E19F913AE00C164D2 /* AppModel.m in Sources */,
 				83C416F81A20AA4D0011EB31 /* CollectionTypeTableViewController.m in Sources */,
 				83C416E81A206A700011EB31 /* RegisterResult.m in Sources */,
+				837547C61A29A2600059CB16 /* DataTransferTableViewController.m in Sources */,
 				48F03E3B19FB891B003F5EF6 /* Utils.m in Sources */,
 				837EEB4219FE7679008D8C62 /* HospitalModel.m in Sources */,
 				83C4170A1A217C9B0011EB31 /* PayTypeTableViewController.m in Sources */,

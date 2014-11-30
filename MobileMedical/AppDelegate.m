@@ -18,7 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[DatabaseManager sharedManager] loadAllData];
+//    [[DatabaseManager sharedManager] loadAllData];
     return YES;
 }
 

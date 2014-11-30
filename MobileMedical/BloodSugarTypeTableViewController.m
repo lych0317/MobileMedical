@@ -7,7 +7,7 @@
 //
 
 #import "BloodSugarTypeTableViewController.h"
-#import "DataTransferViewController.h"
+#import "DataTransferTableViewController.h"
 #import "StaffListTableViewController.h"
 #import "OperatingStaff.h"
 #import "BloodSugarModel.h"
@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = YES;
 }
 
 #pragma mark - Table view data source
@@ -56,7 +56,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:DataTransferSegue]) {
-        DataTransferViewController *viewController = segue.destinationViewController;
+        DataTransferTableViewController *viewController = segue.destinationViewController;
         viewController.operatingStaff = sender;
     } else if ([segue.identifier isEqualToString:StaffListSegue]) {
         StaffListTableViewController *viewController = segue.destinationViewController;

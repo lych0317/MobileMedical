@@ -32,6 +32,7 @@
     [super viewDidLoad];
     self.operatingStaff = [[OperatingStaff alloc] init];
     self.operatingStaff.operationType = OperationTypeCollection;
+    self.clearsSelectionOnViewWillAppear = YES;
 }
 
 #pragma mark - Table view data source

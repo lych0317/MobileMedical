@@ -30,6 +30,7 @@
                     <connections>
                         <segue destination="fCg-3J-GHp" kind="show" identifier="DataTransferSegue" id="Ls7-GC-tZG"/>
                         <segue destination="TM4-ub-P80" kind="show" identifier="OtherDataCollectSegue" id="6fT-IG-ovs"/>
+                        <segue destination="Gru-BR-8Nt" kind="show" identifier="DataTransferSegue" id="Fe8-2o-VNn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGg-cp-wg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -82,6 +83,33 @@
             </objects>
             <point key="canvasLocation" x="1993" y="1344"/>
         </scene>
+        <!--数据传输-->
+        <scene sceneID="rMF-W3-i8j">
+            <objects>
+                <tableViewController title="数据传输" id="Gru-BR-8Nt" customClass="DataTransferTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mre-IH-Vrv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellIdentifier" id="SQU-Xb-Su6">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SQU-Xb-Su6" id="X0R-6T-zXY">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Gru-BR-8Nt" id="vUp-fJ-bkc"/>
+                            <outlet property="delegate" destination="Gru-BR-8Nt" id="xyF-6o-bMm"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aOO-dO-dZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1695" y="-353"/>
+        </scene>
         <!--血糖类型-->
         <scene sceneID="E5c-B6-Eyj">
             <objects>
@@ -104,8 +132,8 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="fCg-3J-GHp" kind="show" identifier="DataTransferSegue" id="5OY-uC-8VM"/>
                         <segue destination="56r-xK-1ES" kind="show" identifier="StaffListSegue" id="1Jr-TU-bva"/>
+                        <segue destination="Gru-BR-8Nt" kind="show" identifier="DataTransferSegue" id="PLE-2d-YUm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nzc-Md-d8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -155,8 +183,8 @@
                     <connections>
                         <segue destination="56r-xK-1ES" kind="show" identifier="StaffListSegue" id="PGM-BC-xpy"/>
                         <segue destination="SBh-Em-WUG" kind="show" identifier="BloodSugarSegue" id="LYq-wy-d5A"/>
-                        <segue destination="fCg-3J-GHp" kind="show" identifier="DataTransferSegue" id="Fup-vO-Bxh"/>
                         <segue destination="TM4-ub-P80" kind="show" identifier="OtherDataCollectSegue" id="gVN-BH-gJn"/>
+                        <segue destination="Gru-BR-8Nt" kind="show" identifier="DataTransferSegue" id="Mhi-bs-9Da"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Au9-xo-zSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
