@@ -7,6 +7,8 @@
 //
 
 #import "StaffViewController.h"
+#import "HospitalListTableViewController.h"
+#import "PayTypeTableViewController.h"
 #import "DatabaseManager.h"
 #import "AppModel.h"
 #import "StaffModel.h"
@@ -35,6 +37,8 @@
 @property (nonatomic, strong) UITextField *editingTextFiled;
 @property (nonatomic, assign) BOOL isAdd;
 
+@property (nonatomic, strong) StaffModel *tempStaffModel;
+
 @end
 
 @implementation StaffViewController
@@ -51,26 +55,29 @@
         self.passwordTextField.placeholder = @"密码（必填）";
     }
 
-    [Config sharedConfig].username = self.staffModel.username;
-    [Config sharedConfig].password = self.staffModel.password;
-    [Config sharedConfig].name = self.staffModel.name;
-    [Config sharedConfig].chengwei = self.staffModel.chengwei;
-    [Config sharedConfig].pId = self.staffModel.pId;
-    [Config sharedConfig].phone = self.staffModel.phone;
-    [Config sharedConfig].doctorIds = self.staffModel.doctorIds;
-    [Config sharedConfig].paytype = self.staffModel.paytype;
+    StaffModel *staffModel = [[StaffModel alloc] init];
+    staffModel.username = self.staffModel.username;
+    staffModel.password = self.staffModel.password;
+    staffModel.pId = self.staffModel.pId;
+    staffModel.name = self.staffModel.name;
+    staffModel.chengwei = self.staffModel.chengwei;
+    staffModel.phone = self.staffModel.phone;
+    staffModel.doctorIds = self.staffModel.doctorIds;
+    staffModel.paytype = self.staffModel.paytype;
+    staffModel.opr = self.staffModel.opr;
+
+    self.tempStaffModel = staffModel;
 }
 
 - (void)setupTextField {
-    Config *config = [Config sharedConfig];
-    self.usernameTextField.text = config.username;
-    self.passwordTextField.text = config.password;
-    self.nameTextField.text = config.name;
-    self.chengweiTextField.text = config.chengwei;
-    self.pIdTextField.text = config.pId;
-    self.phoneTextField.text = config.phone;
-    if (config.paytype) {
-        int payType = [config.paytype intValue];
+    self.usernameTextField.text = self.tempStaffModel.username;
+    self.passwordTextField.text = self.tempStaffModel.password;
+    self.nameTextField.text = self.tempStaffModel.name;
+    self.chengweiTextField.text = self.tempStaffModel.chengwei;
+    self.pIdTextField.text = self.tempStaffModel.pId;
+    self.phoneTextField.text = self.tempStaffModel.phone;
+    if (self.tempStaffModel.paytype) {
+        int payType = [self.tempStaffModel.paytype intValue];
         if (payType > 0 && payType <= [AppModel sharedAppModel].payTypeTitles.count) {
             self.payTypeTextField.text = [AppModel sharedAppModel].payTypeTitles[payType - 1];
         }
@@ -95,58 +102,40 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:PayTypeSegue]) {
-
+    if ([segue.identifier isEqualToString:HospitalListSegue]) {
+        HospitalListTableViewController *viewController = segue.destinationViewController;
+        viewController.staffModel = sender;
+    } else if ([segue.identifier isEqualToString:PayTypeSegue]) {
+        PayTypeTableViewController *viewController = segue.destinationViewController;
+        viewController.staffModel = sender;
     }
 }
 
 #pragma mark - Selectors
 
 - (void)doneButtonItemClicked:(UIBarButtonItem *)sender {
+    BOOL willPostData = NO;
     if (self.isAdd) {
-        NSString *username = self.usernameTextField.text;
-        NSString *password = self.passwordTextField.text;
-        NSString *pId = self.pIdTextField.text;
-        NSString *doctorIds = [self getDoctorsIds];
-        if (CHECK_STRING_NOT_NULL(username) && CHECK_STRING_NOT_NULL(password) && CHECK_STRING_NOT_NULL(pId) && CHECK_STRING_NOT_NULL(doctorIds)) {
-            StaffModel *staffModel = [[StaffModel alloc] init];
-            staffModel.pId = pId;
-            staffModel.username = username;
-            staffModel.password = password;
-            staffModel.name = self.nameTextField.text;
-            staffModel.chengwei = self.chengweiTextField.text;
-            staffModel.phone = self.phoneTextField.text;
-            staffModel.doctorIds = doctorIds;
-            staffModel.paytype = [Config sharedConfig].paytype;
-            staffModel.opr = @(1);
-            [self postStaff:staffModel];
-        } else {
-            [Utils showToastWithTitle:@"请输入必填项" time:1];
+        if (CHECK_STRING_NOT_NULL(self.tempStaffModel.username) && CHECK_STRING_NOT_NULL(self.tempStaffModel.password) && CHECK_STRING_NOT_NULL(self.tempStaffModel.pId) && CHECK_STRING_NOT_NULL(self.tempStaffModel.doctorIds)) {
+            willPostData = YES;
+            self.tempStaffModel.opr = @(1);
         }
     } else {
-        NSString *pId = self.pIdTextField.text;
-        NSString *doctorIds = [self getDoctorsIds];
-        if (CHECK_STRING_NOT_NULL(pId) && CHECK_STRING_NOT_NULL(doctorIds)) {
-            StaffModel *staffModel = [[StaffModel alloc] init];
-            staffModel.pId = pId;
-            staffModel.username = self.usernameTextField.text;
-            staffModel.password = self.passwordTextField.text;
-            staffModel.name = self.nameTextField.text;
-            staffModel.chengwei = self.chengweiTextField.text;
-            staffModel.phone = self.phoneTextField.text;
-            staffModel.doctorIds = doctorIds;
-            staffModel.paytype = [Config sharedConfig].paytype;
-            staffModel.opr = @(2);
-            [self postStaff:staffModel];
-        } else {
-            [Utils showToastWithTitle:@"请输入必填项" time:1];
+        if (CHECK_STRING_NOT_NULL(self.tempStaffModel.pId) && CHECK_STRING_NOT_NULL(self.tempStaffModel.doctorIds)) {
+            willPostData = YES;
+            self.tempStaffModel.opr = @(2);
         }
+    }
+    if (willPostData) {
+        [self postStaff:self.tempStaffModel];
+    } else {
+        [Utils showToastWithTitle:@"请输入必填项" time:1];
     }
 }
 
 - (NSString *)getDoctorsIds {
     NSMutableString *doctorsIds = [NSMutableString string];
-    [[Config sharedConfig].hospitalDoctorMap enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+    [self.tempStaffModel.hospitalDoctorMap enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSArray *doctors = obj;
         [doctors enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [doctorsIds appendFormat:@"%@,", obj];
@@ -166,6 +155,7 @@
         if (result) {
             if ([result.return_code intValue] == 0) {
                 [Utils showToastWithTitle:@"提交数据成功" time:1];
+                self.staffModel = self.tempStaffModel;
                 [self.navigationController popViewControllerAnimated:YES];
             } else if ([result.return_code intValue] == 4) {
                 [Utils showToastWithTitle:@"身份证已经注册" time:1];
@@ -186,7 +176,7 @@
 }
 
 - (IBAction)chooseDoctorButtonClicked:(UIButton *)sender {
-    [self performSegueWithIdentifier:HospitalListSegue sender:nil];
+    [self performSegueWithIdentifier:HospitalListSegue sender:self.tempStaffModel];
 }
 #pragma mark - Text field view delegate
 
@@ -194,7 +184,7 @@
     [self.contentScrollView setContentOffset:CGPointMake(0, CGRectGetMinY(textField.frame) - 30) animated:YES];
     if (self.payTypeTextField == textField) {
         [self.editingTextFiled resignFirstResponder];
-        [self performSegueWithIdentifier:PayTypeSegue sender:nil];
+        [self performSegueWithIdentifier:PayTypeSegue sender:self.tempStaffModel];
         return NO;
     }
     self.editingTextFiled = textField;
@@ -203,17 +193,17 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     if (textField == self.usernameTextField) {
-        [Config sharedConfig].username = self.usernameTextField.text;
+        self.tempStaffModel.username = self.usernameTextField.text;
     } else if (textField == self.passwordTextField) {
-        [Config sharedConfig].password = self.passwordTextField.text;
+        self.tempStaffModel.password = self.passwordTextField.text;
     } else if (textField == self.nameTextField) {
-        [Config sharedConfig].name = self.nameTextField.text;
+        self.tempStaffModel.name = self.nameTextField.text;
     } else if (textField == self.chengweiTextField) {
-        [Config sharedConfig].chengwei = self.chengweiTextField.text;
+        self.tempStaffModel.chengwei = self.chengweiTextField.text;
     } else if (textField == self.phoneTextField) {
-        [Config sharedConfig].phone = self.phoneTextField.text;
+        self.tempStaffModel.phone = self.phoneTextField.text;
     } else if (textField == self.pIdTextField) {
-        [Config sharedConfig].pId = self.pIdTextField.text;
+        self.tempStaffModel.pId = self.pIdTextField.text;
     }
 }
 

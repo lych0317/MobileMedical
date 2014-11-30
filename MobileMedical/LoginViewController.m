@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "UserModel.h"
+#import "StaffModel.h"
 #import "LoginResult.h"
 #import "Config.h"
 #import "ProtocolManager.h"
@@ -51,15 +52,14 @@
         [Utils hideProgressViewAfter:0];
         LoginResult *loginResult = data;
         if ([loginResult.return_code intValue] == 0) {
-            [Config sharedConfig].username = userModel.username;
             [Config sharedConfig].access_token = loginResult.access_token;
-            [Config sharedConfig].pId = loginResult.pId;
-            [Config sharedConfig].phone = loginResult.phone;
-            [Config sharedConfig].name = loginResult.name;
-            [Config sharedConfig].chengwei = loginResult.chengwei;
-            [Config sharedConfig].doctorIds = loginResult.doctorIds;
             [Config sharedConfig].usertype = loginResult.usertype;
-            [Config sharedConfig].paytype = loginResult.paytype;
+            [Config sharedConfig].username = userModel.username;
+            [Config sharedConfig].password = userModel.password;
+            [Config sharedConfig].name = loginResult.name;
+            if ([loginResult.usertype intValue] == 2) {
+                [self setupAccountStaff:loginResult];
+            }
             AppDelegate *delegate = [UIApplication sharedApplication].delegate;
             [delegate enterMainView];
         } else if ([loginResult.return_code intValue] == 401) {
@@ -71,6 +71,19 @@
         [Utils hideProgressViewAfter:0];
         [Utils showToastWithTitle:@"登录失败，请重试" time:1];
     }];
+}
+
+- (void)setupAccountStaff:(LoginResult *)loginResult {
+    Config *config = [Config sharedConfig];
+    config.accountStaff.username = config.username;
+    config.accountStaff.password = config.password;
+    config.accountStaff.pId = loginResult.pId;
+    config.accountStaff.name = loginResult.name;
+    config.accountStaff.chengwei = loginResult.chengwei;
+    config.accountStaff.phone = loginResult.phone;
+    config.accountStaff.doctorIds = loginResult.doctorIds;
+    config.accountStaff.paytype = loginResult.paytype;
+    config.accountStaff.opr = @(2);
 }
 
 - (IBAction)registerButtonClicked:(UIButton *)sender {

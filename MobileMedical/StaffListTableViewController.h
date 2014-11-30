@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class OperatingStaff;
+
 @interface StaffListTableViewController : UITableViewController
 
-@property (nonatomic, strong) NSString *typeTitle;
+@property (nonatomic, strong) OperatingStaff *operatingStaff;
 
 @end

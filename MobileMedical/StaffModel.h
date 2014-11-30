@@ -20,4 +20,6 @@
 @property (nonatomic, strong) NSNumber *paytype;
 @property (nonatomic, strong) NSNumber *opr;
 
+@property (nonatomic, strong) NSDictionary *hospitalDoctorMap;
+
 @end

@@ -12,6 +12,8 @@
 #import "ProtocolManager.h"
 #import "AppModel.h"
 #import "OtherDataModel.h"
+#import "OperatingStaff.h"
+#import "StaffModel.h"
 #import "Utils.h"
 #import "Config.h"
 
@@ -20,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *valueTextField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-@property (nonatomic, strong) NSNumber *dataType;
 
 @end
 
@@ -30,26 +31,25 @@
     [super viewDidLoad];
     [self addRightBarButtonItem];
     self.datePicker.backgroundColor = [UIColor grayColor];
-    self.navigationItem.title = self.otherDataTitle;
     self.nameLabel.text = [Config sharedConfig].name;
-    if ([self.otherDataTitle isEqualToString:@"膳食"]) {
+    if (self.operatingStaff.otherTestType == OtherTestTypeDiet) {
         self.valueTextField.placeholder = @"请输入（克）";
-        self.dataType = @(1);
-    } else if ([self.otherDataTitle isEqualToString:@"运动量"]) {
+        self.navigationItem.title = @"膳食";
+    } else if (self.operatingStaff.otherTestType == OtherTestTypeSport) {
         self.valueTextField.placeholder = @"请输入（卡路里）";
-        self.dataType = @(2);
-    } else if ([self.otherDataTitle isEqualToString:@"服药"]) {
+        self.navigationItem.title = @"运动量";
+    } else if (self.operatingStaff.otherTestType == OtherTestTypeMedicine) {
         self.valueTextField.placeholder = @"请输入（颗）";
-        self.dataType = @(3);
-    } else if ([self.otherDataTitle isEqualToString:@"抽烟"]) {
+        self.navigationItem.title = @"服药";
+    } else if (self.operatingStaff.otherTestType == OtherTestTypeSmoke) {
         self.valueTextField.placeholder = @"请输入（根）";
-        self.dataType = @(4);
-    } else if ([self.otherDataTitle isEqualToString:@"饮酒"]) {
+        self.navigationItem.title = @"抽烟";
+    } else if (self.operatingStaff.otherTestType == OtherTestTypeDrink) {
         self.valueTextField.placeholder = @"请输入（mL）";
-        self.dataType = @(5);
-    } else if ([self.otherDataTitle isEqualToString:@"精神状态"]) {
+        self.navigationItem.title = @"饮酒";
+    } else if (self.operatingStaff.otherTestType == OtherTestTypeSpirit) {
         self.valueTextField.placeholder = @"请选择";
-        self.dataType = @(6);
+        self.navigationItem.title = @"精神状态";
     }
 }
 
@@ -69,9 +69,10 @@
     NSNumber *value = [NSNumber numberWithFloat:[self.valueTextField.text floatValue]];
     if (value) {
         OtherDataModel *model = [[OtherDataModel alloc] init];
-        model.datatype = self.dataType;
+        model.datatype = @(self.operatingStaff.otherTestType);
         model.datetime = [Utils stringDateFromDate:self.datePicker.date];
         model.value = value;
+        model.pId = self.operatingStaff.staffModel.pId;
         [self uploadOtherData:model];
     } else {
         [Utils showToastWithTitle:@"请正确输入对应项" time:1];

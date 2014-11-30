@@ -7,6 +7,7 @@
 //
 
 #import "PayTypeTableViewController.h"
+#import "StaffModel.h"
 #import "AppModel.h"
 #import "Utils.h"
 #import "Config.h"
@@ -32,7 +33,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
     cell.textLabel.text = [AppModel sharedAppModel].payTypeTitles[indexPath.row];
-    if ((indexPath.row + 1) == [[Config sharedConfig].paytype intValue]) {
+    if ((indexPath.row + 1) == [self.staffModel.paytype intValue]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         self.selectedIndexPath = indexPath;
     } else {
@@ -52,7 +53,7 @@
     UITableViewCell *newSelectedCell = [tableView cellForRowAtIndexPath:indexPath];
     newSelectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
 
-    [Config sharedConfig].paytype = @(indexPath.row + 1);
+    self.staffModel.paytype = @(indexPath.row + 1);
     self.selectedIndexPath = indexPath;
 
     [self.navigationController popViewControllerAnimated:YES];

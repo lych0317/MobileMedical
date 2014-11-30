@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class OperatingStaff;
+
 @interface DataDisplayViewController : UIViewController
+
+@property (nonatomic, strong) OperatingStaff *operatingStaff;
 
 @end

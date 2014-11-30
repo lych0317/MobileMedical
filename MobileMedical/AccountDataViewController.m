@@ -7,6 +7,8 @@
 //
 
 #import "AccountDataViewController.h"
+#import "HospitalListTableViewController.h"
+#import "PayTypeTableViewController.h"
 #import "ProtocolManager.h"
 #import "StaffModel.h"
 #import "BaseResult.h"
@@ -36,42 +38,51 @@
 @property (weak, nonatomic) IBOutlet UITextField *confirmPwdTextField;
 @property (weak, nonatomic) IBOutlet UIButton *updatePwdButton;
 
+@property (nonatomic, strong) StaffModel *tempStaffModel;
+
 @end
 
 @implementation AccountDataViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    Config *config = [Config sharedConfig];
+    BOOL isGroupUser = [config.usertype intValue] == 1;
+    self.usernameLabel.hidden = !isGroupUser;
+    self.oldPwdTextField.hidden = !isGroupUser;
+    self.updatePwdTextField.hidden = !isGroupUser;
+    self.confirmPwdTextField.hidden = !isGroupUser;
+    self.updatePwdButton.hidden = !isGroupUser;
+
+    BOOL isStaffUser = [config.usertype intValue] == 2;
+    self.usernameTextField.hidden = !isStaffUser;
+    self.nameTextField.hidden = !isStaffUser;
+    self.chengweiTextField.hidden = !isStaffUser;
+    self.pIdTextField.hidden = !isStaffUser;
+    self.phoneTextField.hidden = !isStaffUser;
+    self.paytypeTextField.hidden = !isStaffUser;
+    self.chooseDoctorButton.hidden = !isStaffUser;
+    self.submitButton.hidden = !isStaffUser;
+
+    self.tempStaffModel = config.accountStaff;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     Config *config = [Config sharedConfig];
-    self.usernameLabel.hidden = [config.usertype intValue] == 2;
-    self.oldPwdTextField.hidden = [config.usertype intValue] == 2;
-    self.updatePwdTextField.hidden = [config.usertype intValue] == 2;
-    self.confirmPwdTextField.hidden = [config.usertype intValue] == 2;
-    self.updatePwdButton.hidden = [config.usertype intValue] == 2;
+    BOOL isGroupUser = [config.usertype intValue] == 1;
+    BOOL isStaffUser = [config.usertype intValue] == 2;
 
-    self.usernameTextField.hidden = [config.usertype intValue] == 1;
-    self.nameTextField.hidden = [config.usertype intValue] == 1;
-    self.chengweiTextField.hidden = [config.usertype intValue] == 1;
-    self.pIdTextField.hidden = [config.usertype intValue] == 1;
-    self.phoneTextField.hidden = [config.usertype intValue] == 1;
-    self.paytypeTextField.hidden = [config.usertype intValue] == 1;
-    self.chooseDoctorButton.hidden = [config.usertype intValue] == 1;
-    self.submitButton.hidden = [config.usertype intValue] == 1;
-
-    if ([config.usertype intValue] == 1) {
+    if (isGroupUser) {
         self.usernameLabel.text = config.username;
-    } else if ([config.usertype intValue] == 2) {
-        self.usernameTextField.text = config.username;
-        self.nameTextField.text = config.name;
-        self.chengweiTextField.text = config.chengwei;
-        self.pIdTextField.text = config.pId;
-        self.phoneTextField.text = config.phone;
-        if (config.paytype) {
-            int payType = [config.paytype intValue];
+    } else if (isStaffUser) {
+        self.usernameTextField.text = self.tempStaffModel.username;
+        self.nameTextField.text = self.tempStaffModel.name;
+        self.chengweiTextField.text = self.tempStaffModel.chengwei;
+        self.pIdTextField.text = self.tempStaffModel.pId;
+        self.phoneTextField.text = self.tempStaffModel.phone;
+        if (self.tempStaffModel.paytype) {
+            int payType = [self.tempStaffModel.paytype intValue];
             if (payType > 0 && payType <= [AppModel sharedAppModel].payTypeTitles.count) {
                 self.paytypeTextField.text = [AppModel sharedAppModel].payTypeTitles[payType - 1];
             }
@@ -80,23 +91,11 @@
 }
 
 - (IBAction)chooseDoctorButtonClicked:(UIButton *)sender {
-    [self performSegueWithIdentifier:HospitalListSegue sender:nil];
+    [self performSegueWithIdentifier:HospitalListSegue sender:self.tempStaffModel];
 }
 - (IBAction)submitButtonClicked:(UIButton *)sender {
-    NSString *username = self.usernameTextField.text;
-    NSString *pId = self.pIdTextField.text;
-    NSString *doctorIds = [self getDoctorsIds];
-    if (CHECK_STRING_NOT_NULL(username) && CHECK_STRING_NOT_NULL(pId) && CHECK_STRING_NOT_NULL(doctorIds)) {
-        StaffModel *staffModel = [[StaffModel alloc] init];
-        staffModel.pId = pId;
-        staffModel.username = username;
-        staffModel.name = self.nameTextField.text;
-        staffModel.chengwei = self.chengweiTextField.text;
-        staffModel.phone = self.phoneTextField.text;
-        staffModel.doctorIds = doctorIds;
-        staffModel.paytype = [Config sharedConfig].paytype;
-        staffModel.opr = @(2);
-        [self updateStaff:staffModel];
+    if (CHECK_STRING_NOT_NULL(self.tempStaffModel.username) && CHECK_STRING_NOT_NULL(self.tempStaffModel.pId) && CHECK_STRING_NOT_NULL(self.tempStaffModel.doctorIds)) {
+        [self updateStaff:self.tempStaffModel];
     } else {
         [Utils showToastWithTitle:@"请输入必填项" time:1];
     }
@@ -104,7 +103,7 @@
 
 - (NSString *)getDoctorsIds {
     NSMutableString *doctorsIds = [NSMutableString string];
-    [[Config sharedConfig].hospitalDoctorMap enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+    [self.tempStaffModel.hospitalDoctorMap enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSArray *doctors = obj;
         [doctors enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [doctorsIds appendFormat:@"%@,", obj];
@@ -123,6 +122,7 @@
         BaseResult *result = data;
         if ([result.return_code intValue] == 0) {
             [Utils showToastWithTitle:@"提交数据成功" time:1];
+            [Config sharedConfig].accountStaff = staffModel;
         } else {
             [Utils showToastWithTitle:@"提交数据失败" time:1];
         }
@@ -154,6 +154,7 @@
         BaseResult *result = data;
         if ([result.return_code intValue] == 0) {
             [Utils showToastWithTitle:@"修改密码成功" time:1];
+            [Config sharedConfig].password = updatePwd;
         } else {
             [Utils showToastWithTitle:@"修改密码失败" time:1];
         }
@@ -168,7 +169,7 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     [self.accountDataScrollView setContentOffset:CGPointMake(0, CGRectGetMinY(textField.frame) - 30) animated:YES];
     if (self.paytypeTextField == textField) {
-        [self performSegueWithIdentifier:PayTypeSegue sender:nil];
+        [self performSegueWithIdentifier:PayTypeSegue sender:self.tempStaffModel];
         return NO;
     }
     return YES;
@@ -176,15 +177,15 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     if (textField == self.usernameTextField) {
-        [Config sharedConfig].username = self.usernameTextField.text;
+        self.tempStaffModel.username = self.usernameTextField.text;
     } else if (textField == self.nameTextField) {
-        [Config sharedConfig].name = self.nameTextField.text;
+        self.tempStaffModel.name = self.nameTextField.text;
     } else if (textField == self.chengweiTextField) {
-        [Config sharedConfig].chengwei = self.chengweiTextField.text;
+        self.tempStaffModel.chengwei = self.chengweiTextField.text;
     } else if (textField == self.phoneTextField) {
-        [Config sharedConfig].phone = self.phoneTextField.text;
+        self.tempStaffModel.phone = self.phoneTextField.text;
     } else if (textField == self.pIdTextField) {
-        [Config sharedConfig].pId = self.pIdTextField.text;
+        self.tempStaffModel.pId = self.pIdTextField.text;
     }
 }
 
@@ -192,6 +193,16 @@
     [self.accountDataScrollView setContentOffset:CGPointZero animated:YES];
     [textField resignFirstResponder];
     return YES;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:HospitalListSegue]) {
+        HospitalListTableViewController *viewController = segue.destinationViewController;
+        viewController.staffModel = sender;
+    } else if ([segue.identifier isEqualToString:PayTypeSegue]) {
+        PayTypeTableViewController *viewController = segue.destinationViewController;
+        viewController.staffModel = sender;
+    }
 }
 
 @end

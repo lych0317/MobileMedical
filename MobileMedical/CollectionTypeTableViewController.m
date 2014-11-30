@@ -9,6 +9,9 @@
 #import "CollectionTypeTableViewController.h"
 #import "OtherDataCollectViewController.h"
 #import "StaffListTableViewController.h"
+#import "BloodSugarTypeTableViewController.h"
+#import "DataTransferTableViewController.h"
+#import "OperatingStaff.h"
 #import "AppModel.h"
 #import "Config.h"
 
@@ -19,12 +22,16 @@
 
 @interface CollectionTypeTableViewController ()
 
+@property (nonatomic, strong) OperatingStaff *operatingStaff;
+
 @end
 
 @implementation CollectionTypeTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.operatingStaff = [[OperatingStaff alloc] init];
+    self.operatingStaff.operationType = OperationTypeCollection;
 }
 
 #pragma mark - Table view data source
@@ -35,9 +42,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return [AppModel sharedAppModel].deviceTypeTitles.count;
+        return [AppModel sharedAppModel].deviceTestTypeTitleMap.count;
     } else if (section == 1) {
-        return [AppModel sharedAppModel].otherDataTitles.count;
+        return [AppModel sharedAppModel].otherTestTypeTitleMap.count;
     }
     return 0;
 }
@@ -55,9 +62,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     if (indexPath.section == 0) {
-        cell.textLabel.text = [AppModel sharedAppModel].deviceTypeTitles[indexPath.row];
+        cell.textLabel.text = [AppModel sharedAppModel].deviceTestTypeTitleMap.allKeys[indexPath.row];
     } else {
-        cell.textLabel.text = [AppModel sharedAppModel].otherDataTitles[indexPath.row];
+        cell.textLabel.text = [AppModel sharedAppModel].otherTestTypeTitleMap.allKeys[indexPath.row];
     }
     return cell;
 }
@@ -66,24 +73,30 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
+        self.operatingStaff.testType = TestTypeDevice;
+        self.operatingStaff.deviceTestType = [[AppModel sharedAppModel].deviceTestTypeTitleMap.allValues[indexPath.row] intValue];
         if ([[Config sharedConfig].usertype intValue] == 1) {
-            if (indexPath.row == 0) {
-                [self performSegueWithIdentifier:BloodSugarSegue sender:nil];
-            } else if (indexPath.row == 1) {
-                [self performSegueWithIdentifier:StaffListSegue sender:@"心电仪"];
+            if (self.operatingStaff.deviceTestType == DeviceTestTypeBloodSugar) {
+                [self performSegueWithIdentifier:BloodSugarSegue sender:self.operatingStaff];
+            } else if (self.operatingStaff.deviceTestType == DeviceTestTypeETC) {
+                [self performSegueWithIdentifier:StaffListSegue sender:self.operatingStaff];
             }
         } else if ([[Config sharedConfig].usertype intValue] == 2) {
-            if (indexPath.row == 0) {
-                [self performSegueWithIdentifier:BloodSugarSegue sender:nil];
-            } else if (indexPath.row == 1) {
-                [self performSegueWithIdentifier:DataTransferSegue sender:nil];
+            self.operatingStaff.staffModel = [Config sharedConfig].accountStaff;
+            if (self.operatingStaff.deviceTestType == DeviceTestTypeBloodSugar) {
+                [self performSegueWithIdentifier:BloodSugarSegue sender:self.operatingStaff];
+            } else if (self.operatingStaff.deviceTestType == DeviceTestTypeETC) {
+                [self performSegueWithIdentifier:DataTransferSegue sender:self.operatingStaff];
             }
         }
     } else if (indexPath.section == 1) {
+        self.operatingStaff.testType = TestTypeOther;
+        self.operatingStaff.otherTestType = [[AppModel sharedAppModel].otherTestTypeTitleMap.allValues[indexPath.row] intValue];
         if ([[Config sharedConfig].usertype intValue] == 1) {
-            [self performSegueWithIdentifier:StaffListSegue sender:[AppModel sharedAppModel].otherDataTitles[indexPath.row]];
+            [self performSegueWithIdentifier:StaffListSegue sender:self.operatingStaff];
         } else if ([[Config sharedConfig].usertype intValue] == 2) {
-            [self performSegueWithIdentifier:OtherDataCollectSegue sender:[AppModel sharedAppModel].otherDataTitles[indexPath.row]];
+            self.operatingStaff.staffModel = [Config sharedConfig].accountStaff;
+            [self performSegueWithIdentifier:OtherDataCollectSegue sender:self.operatingStaff];
         }
     }
 }
@@ -93,10 +106,16 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:OtherDataCollectSegue]) {
         OtherDataCollectViewController *viewController = segue.destinationViewController;
-        viewController.otherDataTitle = sender;
+        viewController.operatingStaff = sender;
     } else if ([segue.identifier isEqualToString:StaffListSegue]) {
         StaffListTableViewController *viewController = segue.destinationViewController;
-        viewController.typeTitle = sender;
+        viewController.operatingStaff = sender;
+    } else if ([segue.identifier isEqualToString:BloodSugarSegue]) {
+        BloodSugarTypeTableViewController *viewController = segue.destinationViewController;
+        viewController.operatingStaff = sender;
+    } else if ([segue.identifier isEqualToString:DataTransferSegue]) {
+        DataTransferTableViewController *viewController = segue.destinationViewController;
+        viewController.operatingStaff = sender;
     }
 }
 

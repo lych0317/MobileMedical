@@ -1,5 +1,5 @@
 //
-//  DeviceTypeTableViewController.h
+//  DisplayTypeTableViewController.h
 //  MobileMedical
 //
 //  Created by li yuanchao on 14/11/22.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DeviceTypeTableViewController : UITableViewController
+@interface DisplayTypeTableViewController : UITableViewController
 
 @end

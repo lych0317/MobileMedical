@@ -8,6 +8,7 @@
 
 #import "HospitalListTableViewController.h"
 #import "DoctorListTableViewController.h"
+#import "StaffModel.h"
 #import "Utils.h"
 #import "ProtocolManager.h"
 #import "HospitalModel.h"
@@ -19,6 +20,7 @@
 @interface HospitalListTableViewController ()
 
 @property (nonatomic, strong) NSArray *hospitals;
+@property (nonatomic, strong) HospitalModel *tempHospitalModel;
 @property (nonatomic, strong) NSArray *selectedHospitals;
 
 @end
@@ -31,7 +33,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.selectedHospitals = [Config sharedConfig].hospitalDoctorMap.allKeys;
+    if (self.tempHospitalModel) {
+        NSMutableDictionary *hospitalDoctorMap = [NSMutableDictionary dictionary];
+        [hospitalDoctorMap setObject:self.tempHospitalModel.selectedDoctorIds forKey:self.tempHospitalModel.hospitalId];
+        [self.staffModel.hospitalDoctorMap enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            NSString *hospitalId = key;
+            if (![hospitalId isEqualToString:self.tempHospitalModel.hospitalId]) {
+                [hospitalDoctorMap setObject:obj forKey:key];
+            }
+        }];
+        self.staffModel.hospitalDoctorMap = hospitalDoctorMap;
+    }
+    self.selectedHospitals = self.staffModel.hospitalDoctorMap.allKeys;
     if (self.hospitals.count > 0) {
         [self.tableView reloadData];
     }
@@ -66,16 +79,16 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     NSMutableString *doctorIds = [NSMutableString string];
-    [[Config sharedConfig].hospitalDoctorMap enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+    [self.staffModel.hospitalDoctorMap enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSArray *doctors = obj;
         [doctors enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [doctorIds appendFormat:@"%@#%@,", key, obj];
         }];
     }];
-    if ([Config sharedConfig].hospitalDoctorMap.count > 0) {
-        [Config sharedConfig].doctorIds = [doctorIds substringToIndex:doctorIds.length - 1];
+    if (self.staffModel.hospitalDoctorMap.count > 0) {
+        self.staffModel.doctorIds = [doctorIds substringToIndex:doctorIds.length - 1];
     } else {
-        [Config sharedConfig].doctorIds = doctorIds;
+        self.staffModel.doctorIds = doctorIds;
     }
 }
 
@@ -91,6 +104,7 @@
     cell.textLabel.text = model.name;
     if ([self isContainedHospital:model.hospitalId]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        model.selectedDoctorIds = self.staffModel.hospitalDoctorMap[model.hospitalId];
     } else {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
@@ -116,6 +130,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:DoctorListSegue]) {
+        self.tempHospitalModel = sender;
         DoctorListTableViewController *viewController = segue.destinationViewController;
         viewController.hospitalModel = sender;
     }

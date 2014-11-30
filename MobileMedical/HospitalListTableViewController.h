@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class StaffModel;
+
 @interface HospitalListTableViewController : UITableViewController
+
+@property (nonatomic, strong) StaffModel *staffModel;
 
 @end

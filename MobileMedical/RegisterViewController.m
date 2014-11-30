@@ -14,6 +14,7 @@
 #import "Config.h"
 #import "Constants.h"
 #import "Utils.h"
+#import "StaffModel.h"
 
 @interface RegisterViewController () <UITextFieldDelegate>
 
@@ -84,6 +85,15 @@
         }
     }
 }
+//@property (nonatomic, strong) NSString *username;
+//@property (nonatomic, strong) NSString *password;
+//@property (nonatomic, strong) NSString *pId;
+//@property (nonatomic, strong) NSString *name;
+//@property (nonatomic, strong) NSString *chengwei;
+//@property (nonatomic, strong) NSString *phone;
+//@property (nonatomic, strong) NSString *doctorIds;
+//@property (nonatomic, strong) NSNumber *paytype;
+//@property (nonatomic, strong) NSNumber *opr;
 
 - (void)registerWithRegisterModel:(RegisterModel *)registerModel {
     [Utils showProgressViewTitle:nil];
@@ -92,6 +102,12 @@
         RegisterResult *registerResult = data;
         if ([registerResult.return_code intValue] == 0) {
             [Config sharedConfig].access_token = registerResult.access_token;
+            [Config sharedConfig].username = registerModel.username;
+            [Config sharedConfig].password = registerModel.password;
+            [Config sharedConfig].name = registerModel.name;
+            if ([[Config sharedConfig].usertype intValue] == 2) {
+                [self setupAccountStaff:registerModel];
+            }
             AppDelegate *delegate = [UIApplication sharedApplication].delegate;
             [delegate enterMainView];
         } else if ([registerResult.return_code intValue] == 4) {
@@ -105,6 +121,14 @@
         [Utils hideProgressViewAfter:0];
         [Utils showToastWithTitle:@"注册失败，请重试" time:1];
     }];
+}
+
+- (void)setupAccountStaff:(RegisterModel *)registerModel {
+    [Config sharedConfig].accountStaff.username = registerModel.username;
+    [Config sharedConfig].accountStaff.password = registerModel.password;
+    [Config sharedConfig].accountStaff.pId = registerModel.pId;
+    [Config sharedConfig].accountStaff.phone = registerModel.phone;
+    [Config sharedConfig].accountStaff.opr = @(2);
 }
 
 #pragma mark - UITextFieldDelegate

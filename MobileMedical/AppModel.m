@@ -32,25 +32,32 @@ static AppModel *sAppModel = nil;
     return _baseUrl;
 }
 
-- (NSArray *)deviceTypeTitles {
-    if (_deviceTypeTitles == nil) {
-        _deviceTypeTitles = @[@"血糖仪", @"心电仪"];
+- (NSDictionary *)bloodSugarTestTypeTitleMap {
+    if (_bloodSugarTestTypeTitleMap == nil) {
+        _bloodSugarTestTypeTitleMap = @{@"空腹血糖": @(BloodSugarTestTypeEmptyStomach), @"餐前血糖": @(BloodSugarTestTypeBeforMeal), @"餐后2h血糖": @(BloodSugarTestTypeAfterMeal2h), @"随机血糖": @(BloodSugarTestTypeRandom)};
     }
-    return _deviceTypeTitles;
+    return _bloodSugarTestTypeTitleMap;
 }
 
-- (NSArray *)otherDataTitles {
-    if (_otherDataTitles == nil) {
-        _otherDataTitles = @[@"膳食", @"运动量", @"服药", @"抽烟", @"饮酒", @"精神状态"];
+- (NSDictionary *)deviceTestTypeTitleMap {
+    if (_deviceTestTypeTitleMap == nil) {
+        _deviceTestTypeTitleMap = @{@"血糖仪": @(DeviceTestTypeBloodSugar), @"心电仪": @(DeviceTestTypeETC)};
     }
-    return _otherDataTitles;
+    return _deviceTestTypeTitleMap;
 }
 
-- (NSArray *)spiritTitles {
-    if (_spiritTitles == nil) {
-        _spiritTitles = @[@"无压力", @"轻微", @"中等", @"严重", @"非常严重"];
+- (NSDictionary *)otherTestTypeTitleMap {
+    if (_otherTestTypeTitleMap == nil) {
+        _otherTestTypeTitleMap = @{@"膳食": @(OtherTestTypeDiet), @"运动量": @(OtherTestTypeSport), @"服药": @(OtherTestTypeMedicine), @"抽烟": @(OtherTestTypeSmoke), @"饮酒": @(OtherTestTypeDrink), @"精神状态": @(OtherTestTypeSpirit)};
     }
-    return _spiritTitles;
+    return _otherTestTypeTitleMap;
+}
+
+- (NSDictionary *)spiritTypeTitleMap {
+    if (_spiritTypeTitleMap == nil) {
+        _spiritTypeTitleMap =@{@"无压力": @(SpiritTypeOne), @"轻微": @(SpiritTypeTwo), @"中等": @(SpiritTypeThree), @"严重": @(SpiritTypeFour), @"非常严重": @(SpiritTypeFive)};
+    }
+    return _spiritTypeTitleMap;
 }
 
 - (NSArray *)genderTitles {

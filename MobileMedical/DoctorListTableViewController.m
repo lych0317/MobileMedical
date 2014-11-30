@@ -17,7 +17,7 @@
 @interface DoctorListTableViewController ()
 
 @property (nonatomic, strong) NSArray *doctors;
-@property (nonatomic, strong) NSMutableArray *selectedDoctors;
+@property (nonatomic, strong) NSMutableArray *selectedDoctorIds;
 
 @end
 
@@ -29,11 +29,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.selectedDoctors = [Config sharedConfig].hospitalDoctorMap[self.hospitalModel.hospitalId];
-    if (self.selectedDoctors == nil) {
-        self.selectedDoctors = [NSMutableArray array];
+    self.selectedDoctorIds = [NSMutableArray arrayWithArray:self.hospitalModel.selectedDoctorIds];
+    if (self.selectedDoctorIds == nil) {
+        self.selectedDoctorIds = [NSMutableArray array];
     }
-    if (self.selectedDoctors.count > 0) {
+    if (self.selectedDoctorIds.count > 0) {
         [self.tableView reloadData];
     }
 }
@@ -63,13 +63,8 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    NSMutableDictionary *hospitalDoctorMap = [NSMutableDictionary dictionaryWithDictionary:[Config sharedConfig].hospitalDoctorMap];
-    if (self.selectedDoctors.count > 0) {
-        [hospitalDoctorMap setObject:self.selectedDoctors forKey:self.hospitalModel.hospitalId];
-    } else {
-        [hospitalDoctorMap removeObjectForKey:self.hospitalModel.hospitalId];
-    }
-    [Config sharedConfig].hospitalDoctorMap = hospitalDoctorMap;
+    [super viewWillDisappear:animated];
+    self.hospitalModel.selectedDoctorIds = self.selectedDoctorIds;
 }
 
 #pragma mark - Table view data source
@@ -91,7 +86,7 @@
 }
 
 - (BOOL)isContainedDoctor:(NSString *)doctor {
-    for (NSString *d in self.selectedDoctors) {
+    for (NSString *d in self.selectedDoctorIds) {
         if ([doctor isEqualToString:d]) {
             return YES;
         }
@@ -107,10 +102,10 @@
     DoctorModel *model = self.doctors[indexPath.row];
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [self.selectedDoctors removeObject:model.doctorId];
+        [self.selectedDoctorIds removeObject:model.doctorId];
     } else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [self.selectedDoctors addObject:model.doctorId];
+        [self.selectedDoctorIds addObject:model.doctorId];
     }
 }
 

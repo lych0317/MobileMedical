@@ -12,10 +12,12 @@
 #import "QueryStaffListResult.h"
 #import "OtherDataCollectViewController.h"
 #import "DataTransferViewController.h"
+#import "DataDisplayViewController.h"
+#import "OperatingStaff.h"
 #import "Config.h"
 #import "Utils.h"
+#import "Constants.h"
 
-#define BloodSugarSegue @"BloodSugarSegue"
 #define DataTransferSegue @"DataTransferSegue"
 #define OtherDataCollectSegue @"OtherDataCollectSegue"
 
@@ -73,27 +75,17 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Config *config = [Config sharedConfig];
-    StaffModel *staffModel = self.staffModels[indexPath.row];
-    config.username = staffModel.username;
-    config.password = staffModel.password;
-    config.pId = staffModel.pId;
-    config.name = staffModel.name;
-    config.chengwei = staffModel.chengwei;
-    config.phone = staffModel.phone;
-    config.doctorIds = staffModel.doctorIds;
-    config.paytype = staffModel.paytype;
+    self.operatingStaff.staffModel = self.staffModels[indexPath.row];
 
-    if (self.tabBarController.selectedIndex == 0) {
-        [self performSegueWithIdentifier:DataDisplaySegue sender:nil];
-    } else if (self.tabBarController.selectedIndex == 1) {
-        if ([self.typeTitle isEqualToString:@"空腹血糖"] || [self.typeTitle isEqualToString:@"餐前血糖"] || [self.typeTitle isEqualToString:@"餐后2h血糖"] || [self.typeTitle isEqualToString:@"随机血糖"] || [self.typeTitle isEqualToString:@"心电仪"]) {
-            [self performSegueWithIdentifier:DataTransferSegue sender:nil];
-        } else {
-            [self performSegueWithIdentifier:OtherDataCollectSegue sender:self.typeTitle];
+    if (self.operatingStaff.operationType == OperationTypeDisplay) {
+        [self performSegueWithIdentifier:DataDisplaySegue sender:self.operatingStaff];
+    } else if (self.operatingStaff.operationType == OperationTypeCollection) {
+        if (self.operatingStaff.testType == TestTypeDevice) {
+            [self performSegueWithIdentifier:DataTransferSegue sender:self.operatingStaff];
+        } else if (self.operatingStaff.testType == TestTypeOther) {
+            [self performSegueWithIdentifier:OtherDataCollectSegue sender:self.operatingStaff];
         }
     }
-//    [self performSegueWithIdentifier:StaffSegue sender:self.staffModels[indexPath.row]];
 }
 
 #pragma mark - Navigation
@@ -101,7 +93,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:OtherDataCollectSegue]) {
         OtherDataCollectViewController *viewController = segue.destinationViewController;
-        viewController.otherDataTitle = sender;
+        viewController.operatingStaff = sender;
+    } else if ([segue.identifier isEqualToString:DataTransferSegue]) {
+        DataTransferViewController *viewController = segue.destinationViewController;
+        viewController.operatingStaff = sender;
+    } else if ([segue.identifier isEqualToString:DataDisplaySegue]) {
+        DataDisplayViewController *viewController = segue.destinationViewController;
+        viewController.operatingStaff = sender;
     }
 }
 

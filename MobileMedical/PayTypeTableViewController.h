@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class StaffModel;
+
 @interface PayTypeTableViewController : UITableViewController
+
+@property (nonatomic, strong) StaffModel *staffModel;
 
 @end

@@ -28,14 +28,13 @@
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <segue destination="SBh-Em-WUG" kind="show" identifier="BloodSugarSegue" id="s2g-RK-hmd"/>
                         <segue destination="fCg-3J-GHp" kind="show" identifier="DataTransferSegue" id="Ls7-GC-tZG"/>
                         <segue destination="TM4-ub-P80" kind="show" identifier="OtherDataCollectSegue" id="6fT-IG-ovs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGg-cp-wg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863" y="-396"/>
+            <point key="canvasLocation" x="2266" y="632"/>
         </scene>
         <!--其他数据采集-->
         <scene sceneID="aBR-cF-Swb">
@@ -81,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0sN-SA-Vbz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1425" y="32"/>
+            <point key="canvasLocation" x="1993" y="1344"/>
         </scene>
         <!--血糖类型-->
         <scene sceneID="E5c-B6-Eyj">
@@ -111,7 +110,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nzc-Md-d8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1406" y="-796"/>
+            <point key="canvasLocation" x="2266" y="-632"/>
         </scene>
         <!--数据传输-->
         <scene sceneID="pmn-Av-oJK">
@@ -129,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gTl-Pw-amt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1996" y="-396"/>
+            <point key="canvasLocation" x="3284" y="456"/>
         </scene>
         <!--数据采集-->
         <scene sceneID="stz-sE-3PK">
@@ -162,7 +161,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Au9-xo-zSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="-396"/>
+            <point key="canvasLocation" x="1192" y="-20"/>
         </scene>
         <!--数据采集-->
         <scene sceneID="HEL-Gn-Hoi">
@@ -180,16 +179,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pli-j9-sOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-436" y="-396"/>
+            <point key="canvasLocation" x="676" y="-20"/>
         </scene>
     </scenes>
     <resources>
         <image name="collect.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Ls7-GC-tZG"/>
         <segue reference="1Jr-TU-bva"/>
-        <segue reference="s2g-RK-hmd"/>
-        <segue reference="5OY-uC-8VM"/>
         <segue reference="6fT-IG-ovs"/>
     </inferredMetricsTieBreakers>
 </document>

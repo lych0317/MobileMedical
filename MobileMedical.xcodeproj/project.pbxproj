@@ -10,7 +10,6 @@
 		1EAA1379EE3C42B6851F4C8D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C06ADFE49640419FBEFD2EB8 /* libPods.a */; };
 		481FE86E19F913AE00C164D2 /* AppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 481FE86D19F913AE00C164D2 /* AppModel.m */; };
 		4845E90019F8F2C700161C2A /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4845E8FF19F8F2C700161C2A /* SettingTableViewController.m */; };
-		4845E90619F8F30900161C2A /* DataCollectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4845E90519F8F30900161C2A /* DataCollectTableViewController.m */; };
 		48B4CC4E19FE20D8009CEDF1 /* ProtocolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CC4D19FE20D8009CEDF1 /* ProtocolManager.m */; };
 		48C796EC19FF3DB700F7527E /* DataDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C796EB19FF3DB700F7527E /* DataDisplayViewController.m */; };
 		48C796EF19FF528200F7527E /* QueryDeviceResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C796EE19FF528200F7527E /* QueryDeviceResult.m */; };
@@ -27,6 +26,7 @@
 		837113F319F540B60029DE66 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837113F219F540B60029DE66 /* Images.xcassets */; };
 		837113F619F540B60029DE66 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 837113F419F540B60029DE66 /* LaunchScreen.xib */; };
 		8371140219F540B60029DE66 /* MobileMedicalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371140119F540B60029DE66 /* MobileMedicalTests.m */; };
+		837547C91A2AFB270059CB16 /* OperatingStaff.m in Sources */ = {isa = PBXBuildFile; fileRef = 837547C81A2AFB270059CB16 /* OperatingStaff.m */; };
 		837EEB2219FB239C008D8C62 /* StaffManagerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB2119FB239C008D8C62 /* StaffManagerTableViewController.m */; };
 		837EEB2819FB43E2008D8C62 /* CollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB2719FB43E2008D8C62 /* CollectionModel.m */; };
 		837EEB3119FCF3F4008D8C62 /* OtherDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EEB3019FCF3F4008D8C62 /* OtherDataModel.m */; };
@@ -53,7 +53,7 @@
 		83C416E81A206A700011EB31 /* RegisterResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C416E71A206A700011EB31 /* RegisterResult.m */; };
 		83C416EA1A2076760011EB31 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83C416E91A2076760011EB31 /* Setting.storyboard */; };
 		83C416EE1A2097C90011EB31 /* AccountDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C416ED1A2097C90011EB31 /* AccountDataViewController.m */; };
-		83C416F21A209DF50011EB31 /* DeviceTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C416F11A209DF50011EB31 /* DeviceTypeTableViewController.m */; };
+		83C416F21A209DF50011EB31 /* DisplayTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C416F11A209DF50011EB31 /* DisplayTypeTableViewController.m */; };
 		83C416F51A20A25A0011EB31 /* StaffListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C416F41A20A25A0011EB31 /* StaffListTableViewController.m */; };
 		83C416F81A20AA4D0011EB31 /* CollectionTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C416F71A20AA4D0011EB31 /* CollectionTypeTableViewController.m */; };
 		83C416FB1A20E0CA0011EB31 /* HospitalListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C416FA1A20E0CA0011EB31 /* HospitalListTableViewController.m */; };
@@ -81,8 +81,6 @@
 		481FE86D19F913AE00C164D2 /* AppModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4845E8FE19F8F2C700161C2A /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		4845E8FF19F8F2C700161C2A /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
-		4845E90419F8F30900161C2A /* DataCollectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCollectTableViewController.h; sourceTree = "<group>"; };
-		4845E90519F8F30900161C2A /* DataCollectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCollectTableViewController.m; sourceTree = "<group>"; };
 		48B4CC4C19FE20D8009CEDF1 /* ProtocolManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolManager.h; sourceTree = "<group>"; };
 		48B4CC4D19FE20D8009CEDF1 /* ProtocolManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolManager.m; sourceTree = "<group>"; };
 		48C796EA19FF3DB700F7527E /* DataDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDisplayViewController.h; sourceTree = "<group>"; };
@@ -114,6 +112,8 @@
 		837113FB19F540B60029DE66 /* MobileMedicalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileMedicalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8371140019F540B60029DE66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8371140119F540B60029DE66 /* MobileMedicalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileMedicalTests.m; sourceTree = "<group>"; };
+		837547C71A2AFB270059CB16 /* OperatingStaff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperatingStaff.h; sourceTree = "<group>"; };
+		837547C81A2AFB270059CB16 /* OperatingStaff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperatingStaff.m; sourceTree = "<group>"; };
 		837EEB2019FB239C008D8C62 /* StaffManagerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffManagerTableViewController.h; sourceTree = "<group>"; };
 		837EEB2119FB239C008D8C62 /* StaffManagerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = StaffManagerTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		837EEB2619FB43E2008D8C62 /* CollectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionModel.h; sourceTree = "<group>"; };
@@ -158,8 +158,8 @@
 		83C416E91A2076760011EB31 /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		83C416EC1A2097C90011EB31 /* AccountDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDataViewController.h; sourceTree = "<group>"; };
 		83C416ED1A2097C90011EB31 /* AccountDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDataViewController.m; sourceTree = "<group>"; };
-		83C416F01A209DF50011EB31 /* DeviceTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceTypeTableViewController.h; sourceTree = "<group>"; };
-		83C416F11A209DF50011EB31 /* DeviceTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceTypeTableViewController.m; sourceTree = "<group>"; };
+		83C416F01A209DF50011EB31 /* DisplayTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayTypeTableViewController.h; sourceTree = "<group>"; };
+		83C416F11A209DF50011EB31 /* DisplayTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayTypeTableViewController.m; sourceTree = "<group>"; };
 		83C416F31A20A25A0011EB31 /* StaffListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffListTableViewController.h; sourceTree = "<group>"; };
 		83C416F41A20A25A0011EB31 /* StaffListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffListTableViewController.m; sourceTree = "<group>"; };
 		83C416F61A20AA4D0011EB31 /* CollectionTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionTypeTableViewController.h; sourceTree = "<group>"; };
@@ -240,6 +240,8 @@
 				83C417031A20E7F00011EB31 /* QueryDoctorResult.m */,
 				83C4170B1A219A610011EB31 /* QueryStaffListResult.h */,
 				83C4170C1A219A610011EB31 /* QueryStaffListResult.m */,
+				837547C71A2AFB270059CB16 /* OperatingStaff.h */,
+				837547C81A2AFB270059CB16 /* OperatingStaff.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -410,8 +412,6 @@
 			children = (
 				83C416F61A20AA4D0011EB31 /* CollectionTypeTableViewController.h */,
 				83C416F71A20AA4D0011EB31 /* CollectionTypeTableViewController.m */,
-				4845E90419F8F30900161C2A /* DataCollectTableViewController.h */,
-				4845E90519F8F30900161C2A /* DataCollectTableViewController.m */,
 				48F03E4619FCB03C003F5EF6 /* OtherDataCollectViewController.h */,
 				48F03E4719FCB03C003F5EF6 /* OtherDataCollectViewController.m */,
 				48F03E4019FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.h */,
@@ -425,8 +425,8 @@
 		83C416D61A2047A60011EB31 /* DataDisplay */ = {
 			isa = PBXGroup;
 			children = (
-				83C416F01A209DF50011EB31 /* DeviceTypeTableViewController.h */,
-				83C416F11A209DF50011EB31 /* DeviceTypeTableViewController.m */,
+				83C416F01A209DF50011EB31 /* DisplayTypeTableViewController.h */,
+				83C416F11A209DF50011EB31 /* DisplayTypeTableViewController.m */,
 				48C796EA19FF3DB700F7527E /* DataDisplayViewController.h */,
 				48C796EB19FF3DB700F7527E /* DataDisplayViewController.m */,
 			);
@@ -623,7 +623,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				837EEB3119FCF3F4008D8C62 /* OtherDataModel.m in Sources */,
-				4845E90619F8F30900161C2A /* DataCollectTableViewController.m in Sources */,
 				48B4CC4E19FE20D8009CEDF1 /* ProtocolManager.m in Sources */,
 				48F03E4819FCB03C003F5EF6 /* OtherDataCollectViewController.m in Sources */,
 				837EEB4519FE769A008D8C62 /* DoctorModel.m in Sources */,
@@ -652,6 +651,7 @@
 				83C416EE1A2097C90011EB31 /* AccountDataViewController.m in Sources */,
 				83C416DC1A205CF60011EB31 /* LoginViewController.m in Sources */,
 				83C416E21A20647B0011EB31 /* Config.m in Sources */,
+				837547C91A2AFB270059CB16 /* OperatingStaff.m in Sources */,
 				83C416DF1A205D0D0011EB31 /* RegisterViewController.m in Sources */,
 				837EEB2819FB43E2008D8C62 /* CollectionModel.m in Sources */,
 				837EEB3519FCFA28008D8C62 /* OtherDataItemTableViewCell.m in Sources */,
@@ -659,7 +659,7 @@
 				48F03E3F19FC93A1003F5EF6 /* DatabaseManager.m in Sources */,
 				837EEB5119FF11FB008D8C62 /* LoginResult.m in Sources */,
 				839148C919F947B200119F32 /* StaffModel.m in Sources */,
-				83C416F21A209DF50011EB31 /* DeviceTypeTableViewController.m in Sources */,
+				83C416F21A209DF50011EB31 /* DisplayTypeTableViewController.m in Sources */,
 				837113E519F540B60029DE66 /* main.m in Sources */,
 				83C416FE1A20E0D90011EB31 /* DoctorListTableViewController.m in Sources */,
 				83DE69C91A0496CB00CBFC6C /* ECGView.m in Sources */,

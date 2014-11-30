@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class OperatingStaff;
+
 @interface OtherDataCollectViewController : UIViewController
 
-@property (nonatomic, strong) NSString *otherDataTitle;
+@property (nonatomic, strong) OperatingStaff *operatingStaff;
 
 @end

@@ -23,6 +23,7 @@
 #import "StaffModel.h"
 #import "QueryStaffListResult.h"
 #import "OtherDataModel.h"
+#import "OperatingStaff.h"
 #import "Constants.h"
 #import "Config.h"
 
@@ -295,7 +296,7 @@ static ProtocolManager *sProtocolManager = nil;
     [manager addResponseDescriptor:responseDescriptor];
     [self setupHeaderWithManager:manager];
 
-    NSDictionary *parameters = @{@"access_token": [Config sharedConfig].access_token, @"pId": [Config sharedConfig].pId};
+    NSDictionary *parameters = @{@"access_token": [Config sharedConfig].access_token};
 
     [manager postObject:otherDataModel path:UPLOAD_OTHER_DATA_URL parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         if (success) {
@@ -310,7 +311,7 @@ static ProtocolManager *sProtocolManager = nil;
 
 - (RKObjectMapping *)createOtherDataRequestMapping {
     RKObjectMapping *mapping = [RKObjectMapping requestMapping];
-    [mapping addAttributeMappingsFromArray:@[@"datatype", @"datetime", @"value"]];
+    [mapping addAttributeMappingsFromArray:@[@"datatype", @"datetime", @"value", @"pId"]];
     return mapping;
 }
 

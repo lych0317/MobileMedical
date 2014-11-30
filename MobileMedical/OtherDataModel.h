@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSNumber *datatype;
 @property (nonatomic, strong) NSNumber *value;
 @property (nonatomic, strong) NSString *datetime;
+@property (nonatomic, strong) NSString *pId;
 
 @end
