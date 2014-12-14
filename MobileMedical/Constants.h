@@ -19,6 +19,8 @@
 #define UPDATE_GROUP_PWD_URL @"updateGroupPwd"
 #define QUERY_STAFF_LIST_URL @"queryPatients"
 #define UPLOAD_OTHER_DATA_URL @"uploadOtherData"
+#define QUERY_BLOOD_SUGAR @"queryBloodSugar"
+#define QUERY_ETC @"queryETC"
 
 #define QUERY_DEVICE_URL @"queryDevice"
 

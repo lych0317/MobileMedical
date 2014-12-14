@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class OperatingStaff;
+@class OperatingStaff, CKCalendarView;
 
 @interface DataDisplayViewController : UIViewController
 
+@property (strong, nonatomic) CKCalendarView *calendarView;
 @property (nonatomic, strong) OperatingStaff *operatingStaff;
+
+- (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date;
 
 @end

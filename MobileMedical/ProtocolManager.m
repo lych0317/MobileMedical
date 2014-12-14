@@ -24,8 +24,13 @@
 #import "QueryStaffListResult.h"
 #import "OtherDataModel.h"
 #import "OperatingStaff.h"
+#import "BloodSugarModel.h"
+#import "BloodSugarResult.h"
+#import "ETCModel.h"
+#import "ETCResult.h"
 #import "Constants.h"
 #import "Config.h"
+#import "Utils.h"
 
 static ProtocolManager *sProtocolManager = nil;
 
@@ -314,6 +319,87 @@ static ProtocolManager *sProtocolManager = nil;
     [mapping addAttributeMappingsFromArray:@[@"datatype", @"datetime", @"value", @"pId"]];
     return mapping;
 }
+
+- (void)postQueryBloodSugar:(NSDate *)date pId:(NSString *)pId success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
+    RKObjectMapping *responseMapping = [self createBloodSugarResultMapping];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodPOST pathPattern:nil keyPath:nil statusCodes:[self createStatusCodes]];
+
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[AppModel sharedAppModel].baseUrl];
+    manager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
+    [manager addResponseDescriptor:responseDescriptor];
+    [self setupHeaderWithManager:manager];
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+
+    NSDictionary *parameters = @{@"date": [formatter stringFromDate:date], @"pId": pId};
+
+    [manager postObject:nil path:QUERY_BLOOD_SUGAR parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (success) {
+            success(mappingResult.firstObject);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+}
+
+- (RKObjectMapping *)createBloodSugarResultMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[BloodSugarResult class]];
+    [mapping addAttributeMappingsFromArray:@[@"return_code"]];
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"sugars" toKeyPath:@"sugars" withMapping:[self createBloodSugarModelMapping]]];
+    return mapping;
+}
+
+- (RKObjectMapping *)createBloodSugarModelMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[BloodSugarModel class]];
+    [mapping addAttributeMappingsFromArray:@[@"value", @"type", @"mac", @"date"]];
+    return mapping;
+}
+
+- (void)postQueryETC:(NSDate *)date pId:(NSString *)pId success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
+    RKObjectMapping *responseMapping = [self createETCResultMapping];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodPOST pathPattern:nil keyPath:nil statusCodes:[self createStatusCodes]];
+
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[AppModel sharedAppModel].baseUrl];
+    manager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
+    [manager addResponseDescriptor:responseDescriptor];
+    [self setupHeaderWithManager:manager];
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+
+    NSDictionary *parameters = @{@"date": [formatter stringFromDate:date], @"pId": pId};
+
+    [manager postObject:nil path:QUERY_ETC parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (success) {
+            success(mappingResult.firstObject);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+}
+
+- (RKObjectMapping *)createETCResultMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[ETCResult class]];
+    [mapping addAttributeMappingsFromArray:@[@"return_code"]];
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"ecgs" toKeyPath:@"ecgs" withMapping:[self createETCModelMapping]]];
+    return mapping;
+}
+
+- (RKObjectMapping *)createETCModelMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[ETCModel class]];
+    [mapping addAttributeMappingsFromArray:@[@"pulse", @"ecg", @"mac", @"date"]];
+    return mapping;
+}
+
+
+
+
+
 
 
 

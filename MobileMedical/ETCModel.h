@@ -10,13 +10,9 @@
 
 @interface ETCModel : NSObject
 
-@property (nonatomic, strong) NSNumber *identifier;
-@property (nonatomic, strong) NSNumber *isSimpleTestModel;
-@property (nonatomic, strong) NSNumber *status;
-@property (nonatomic, strong) NSNumber *bpm;
-@property (nonatomic, strong) NSData *ecgData;
-// 这里用string类型是为了在查询数据库时方便比较选择性查询 格式：yyyy-MM-dd hh-mm-ss
-@property (nonatomic, strong) NSString *date;
-@property (nonatomic, strong) NSString *time;
+@property (nonatomic, strong) NSNumber *pulse;
+@property (nonatomic, strong) NSString *ecg;
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSString *mac;
 
 @end

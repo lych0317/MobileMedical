@@ -27,6 +27,8 @@ typedef void(^ProtocolFailureBlock)(RKObjectRequestOperation *operation, NSError
 - (void)postUpdatePasswordWithOldPwd:(NSString *)oldPwd updatePwd:(NSString *)updatePwd success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure;
 - (void)postQueryStaffListWithSuccess:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure;
 - (void)postOtherDataWithOtherDataModel:(OtherDataModel *)otherDataModel success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure;
+- (void)postQueryBloodSugar:(NSDate *)date pId:(NSString *)pId success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure;
+- (void)postQueryETC:(NSDate *)date pId:(NSString *)pId success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure;
 
 
 

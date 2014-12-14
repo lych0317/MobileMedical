@@ -128,55 +128,55 @@ static DatabaseManager *sDatabaseManager = nil;
 //}
 
 - (void)loadETCWith:(NSString *)date {
-    [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-        NSMutableArray *etcModels = [NSMutableArray array];
-        FMResultSet *etcResultSet = [db executeQuery:@"SELECT * FROM etc WHERE date=?", date];
-        while ([etcResultSet next]) {
-            ETCModel *etcModel = [[ETCModel alloc] init];
-            etcModel.identifier = [NSNumber numberWithInt:[etcResultSet intForColumnIndex:0]];
-            etcModel.isSimpleTestModel = [NSNumber numberWithBool:[etcResultSet boolForColumnIndex:1]];
-            etcModel.status = [NSNumber numberWithInt:[etcResultSet intForColumnIndex:2]];
-            etcModel.bpm = [NSNumber numberWithInt:[etcResultSet intForColumnIndex:3]];
-            etcModel.ecgData = [etcResultSet dataForColumnIndex:4];
-            etcModel.date = [etcResultSet stringForColumnIndex:5];
-            etcModel.time = [etcResultSet stringForColumnIndex:6];
-            [etcModels addObject:etcModel];
-        }
-        [AppModel sharedAppModel].etcModels = etcModels;
-    }];
+//    [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+//        NSMutableArray *etcModels = [NSMutableArray array];
+//        FMResultSet *etcResultSet = [db executeQuery:@"SELECT * FROM etc WHERE date=?", date];
+//        while ([etcResultSet next]) {
+//            ETCModel *etcModel = [[ETCModel alloc] init];
+//            etcModel.identifier = [NSNumber numberWithInt:[etcResultSet intForColumnIndex:0]];
+//            etcModel.isSimpleTestModel = [NSNumber numberWithBool:[etcResultSet boolForColumnIndex:1]];
+//            etcModel.status = [NSNumber numberWithInt:[etcResultSet intForColumnIndex:2]];
+//            etcModel.bpm = [NSNumber numberWithInt:[etcResultSet intForColumnIndex:3]];
+//            etcModel.ecgData = [etcResultSet dataForColumnIndex:4];
+//            etcModel.date = [etcResultSet stringForColumnIndex:5];
+//            etcModel.time = [etcResultSet stringForColumnIndex:6];
+//            [etcModels addObject:etcModel];
+//        }
+//        [AppModel sharedAppModel].etcModels = etcModels;
+//    }];
 }
 
 - (void)insertETC:(ETCModel *)model {
-    [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-        BOOL result = [db executeUpdate:@"INSERT OR REPLACE INTO etc VALUES (?, ?, ?, ?, ?, ?)", model.isSimpleTestModel, model.status, model.bpm, model.ecgData, model.date, model.time];
-        CHECK_RESULT
-    }];
+//    [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+//        BOOL result = [db executeUpdate:@"INSERT OR REPLACE INTO etc VALUES (?, ?, ?, ?, ?, ?)", model.isSimpleTestModel, model.status, model.bpm, model.ecgData, model.date, model.time];
+//        CHECK_RESULT
+//    }];
 }
 
 - (void)loadBloodSugar:(NSString *)date {
-    [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-        NSMutableArray *bloodSugarModels = [NSMutableArray array];
-        FMResultSet *bloodSugarSet = [db executeQuery:@"SELECT * FROM blood_sugar WHERE date=?", date];
-        while ([bloodSugarSet next]) {
-            BloodSugarModel *bloodSugarModel = [[BloodSugarModel alloc] init];
-            bloodSugarModel.identifier = [NSNumber numberWithInt:[bloodSugarSet intForColumnIndex:0]];
-            bloodSugarModel.testType = [NSNumber numberWithInt:[bloodSugarSet intForColumnIndex:1]];
-            bloodSugarModel.isSimpleTestModel = [NSNumber numberWithBool:[bloodSugarSet boolForColumnIndex:2]];
-            bloodSugarModel.style = [NSNumber numberWithInt:[bloodSugarSet intForColumnIndex:3]];
-            bloodSugarModel.value = [NSNumber numberWithFloat:[bloodSugarSet doubleForColumnIndex:4]];
-            bloodSugarModel.date = [bloodSugarSet stringForColumnIndex:5];
-            bloodSugarModel.time = [bloodSugarSet stringForColumnIndex:6];
-            [bloodSugarModels addObject:bloodSugarModel];
-        }
-        [AppModel sharedAppModel].bloodSugarModels = bloodSugarModels;
-    }];
+//    [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+//        NSMutableArray *bloodSugarModels = [NSMutableArray array];
+//        FMResultSet *bloodSugarSet = [db executeQuery:@"SELECT * FROM blood_sugar WHERE date=?", date];
+//        while ([bloodSugarSet next]) {
+//            BloodSugarModel *bloodSugarModel = [[BloodSugarModel alloc] init];
+//            bloodSugarModel.identifier = [NSNumber numberWithInt:[bloodSugarSet intForColumnIndex:0]];
+//            bloodSugarModel.testType = [NSNumber numberWithInt:[bloodSugarSet intForColumnIndex:1]];
+//            bloodSugarModel.isSimpleTestModel = [NSNumber numberWithBool:[bloodSugarSet boolForColumnIndex:2]];
+//            bloodSugarModel.style = [NSNumber numberWithInt:[bloodSugarSet intForColumnIndex:3]];
+//            bloodSugarModel.value = [NSNumber numberWithFloat:[bloodSugarSet doubleForColumnIndex:4]];
+//            bloodSugarModel.date = [bloodSugarSet stringForColumnIndex:5];
+//            bloodSugarModel.time = [bloodSugarSet stringForColumnIndex:6];
+//            [bloodSugarModels addObject:bloodSugarModel];
+//        }
+//        [AppModel sharedAppModel].bloodSugarModels = bloodSugarModels;
+//    }];
 }
 
 - (void)insertBloodSugar:(BloodSugarModel *)model {
-    [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-        BOOL result = [db executeUpdate:@"INSERT OR REPLACE INTO blood_sugar VALUES (?, ?, ?, ?, ?, ?)", model.testType, model.isSimpleTestModel, model.style, model.value, model.date, model.time];
-        CHECK_RESULT
-    }];
+//    [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+//        BOOL result = [db executeUpdate:@"INSERT OR REPLACE INTO blood_sugar VALUES (?, ?, ?, ?, ?, ?)", model.testType, model.isSimpleTestModel, model.style, model.value, model.date, model.time];
+//        CHECK_RESULT
+//    }];
 }
 
 #pragma mark - Getters

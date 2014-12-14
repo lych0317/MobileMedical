@@ -12,7 +12,8 @@
 #import "QueryStaffListResult.h"
 #import "OtherDataCollectViewController.h"
 #import "DataTransferViewController.h"
-#import "DataDisplayViewController.h"
+#import "BloodSugarDisplayViewController.h"
+#import "ETCDisplayViewController.h"
 #import "OperatingStaff.h"
 #import "Config.h"
 #import "Utils.h"
@@ -21,7 +22,8 @@
 #define DataTransferSegue @"DataTransferSegue"
 #define OtherDataCollectSegue @"OtherDataCollectSegue"
 
-#define DataDisplaySegue @"DataDisplaySegue"
+#define BloodSugarDisplaySegue @"BloodSugarDisplaySegue"
+#define ETCDisplaySegue @"ETCDisplaySegue"
 
 @interface StaffListTableViewController ()
 
@@ -79,7 +81,13 @@
     self.operatingStaff.staffModel = self.staffModels[indexPath.row];
 
     if (self.operatingStaff.operationType == OperationTypeDisplay) {
-        [self performSegueWithIdentifier:DataDisplaySegue sender:self.operatingStaff];
+        if (self.operatingStaff.testType == TestTypeDevice) {
+            if (self.operatingStaff.deviceTestType == DeviceTestTypeBloodSugar) {
+                [self performSegueWithIdentifier:BloodSugarDisplaySegue sender:self.operatingStaff];
+            } else if (self.operatingStaff.deviceTestType == DeviceTestTypeETC) {
+                [self performSegueWithIdentifier:ETCDisplaySegue sender:self.operatingStaff];
+            }
+        }
     } else if (self.operatingStaff.operationType == OperationTypeCollection) {
         if (self.operatingStaff.testType == TestTypeDevice) {
             [self performSegueWithIdentifier:DataTransferSegue sender:self.operatingStaff];
@@ -98,7 +106,7 @@
     } else if ([segue.identifier isEqualToString:DataTransferSegue]) {
         DataTransferViewController *viewController = segue.destinationViewController;
         viewController.operatingStaff = sender;
-    } else if ([segue.identifier isEqualToString:DataDisplaySegue]) {
+    } else if ([segue.identifier isEqualToString:BloodSugarDisplaySegue] || [segue.identifier isEqualToString:ETCDisplaySegue]) {
         DataDisplayViewController *viewController = segue.destinationViewController;
         viewController.operatingStaff = sender;
     }

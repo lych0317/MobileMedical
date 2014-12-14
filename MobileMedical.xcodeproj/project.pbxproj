@@ -18,6 +18,10 @@
 		48F03E4219FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F03E4119FCA5C6003F5EF6 /* BloodSugarTypeTableViewController.m */; };
 		48F03E4519FCA5F1003F5EF6 /* DataTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F03E4419FCA5F1003F5EF6 /* DataTransferViewController.m */; };
 		48F03E4819FCB03C003F5EF6 /* OtherDataCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F03E4719FCB03C003F5EF6 /* OtherDataCollectViewController.m */; };
+		830B07791A3D925500EF85BD /* BloodSugarDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830B07781A3D925500EF85BD /* BloodSugarDisplayViewController.m */; };
+		830B077C1A3D937300EF85BD /* ETCDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830B077B1A3D937300EF85BD /* ETCDisplayViewController.m */; };
+		830B077F1A3D97D400EF85BD /* BloodSugarResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 830B077E1A3D97D400EF85BD /* BloodSugarResult.m */; };
+		830B07821A3DA64100EF85BD /* ETCResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 830B07811A3DA64100EF85BD /* ETCResult.m */; };
 		8364065A1A04C1D60093E988 /* ETCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 836406591A04C1D60093E988 /* ETCModel.m */; };
 		8364065E1A05D4E40093E988 /* BloodSugarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8364065D1A05D4E40093E988 /* BloodSugarModel.m */; };
 		837113E519F540B60029DE66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 837113E419F540B60029DE66 /* main.m */; };
@@ -77,6 +81,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07DD9BF5BEDC974027C2D82F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		481FE86A19F912E400C164D2 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Constants.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		481FE86C19F913AE00C164D2 /* AppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppModel.h; sourceTree = "<group>"; };
 		481FE86D19F913AE00C164D2 /* AppModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -98,6 +103,15 @@
 		48F03E4419FCA5F1003F5EF6 /* DataTransferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTransferViewController.m; sourceTree = "<group>"; };
 		48F03E4619FCB03C003F5EF6 /* OtherDataCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherDataCollectViewController.h; sourceTree = "<group>"; };
 		48F03E4719FCB03C003F5EF6 /* OtherDataCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherDataCollectViewController.m; sourceTree = "<group>"; };
+		55A27823EC7D3C53599E096E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		830B07771A3D925500EF85BD /* BloodSugarDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodSugarDisplayViewController.h; sourceTree = "<group>"; };
+		830B07781A3D925500EF85BD /* BloodSugarDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodSugarDisplayViewController.m; sourceTree = "<group>"; };
+		830B077A1A3D937300EF85BD /* ETCDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETCDisplayViewController.h; sourceTree = "<group>"; };
+		830B077B1A3D937300EF85BD /* ETCDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETCDisplayViewController.m; sourceTree = "<group>"; };
+		830B077D1A3D97D400EF85BD /* BloodSugarResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodSugarResult.h; sourceTree = "<group>"; };
+		830B077E1A3D97D400EF85BD /* BloodSugarResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodSugarResult.m; sourceTree = "<group>"; };
+		830B07801A3DA64100EF85BD /* ETCResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETCResult.h; sourceTree = "<group>"; };
+		830B07811A3DA64100EF85BD /* ETCResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETCResult.m; sourceTree = "<group>"; };
 		836406581A04C1D60093E988 /* ETCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETCModel.h; sourceTree = "<group>"; };
 		836406591A04C1D60093E988 /* ETCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETCModel.m; sourceTree = "<group>"; };
 		8364065C1A05D4E40093E988 /* BloodSugarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodSugarModel.h; sourceTree = "<group>"; };
@@ -181,7 +195,6 @@
 		83C4170C1A219A610011EB31 /* QueryStaffListResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryStaffListResult.m; sourceTree = "<group>"; };
 		83DE69C71A0496CB00CBFC6C /* ECGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECGView.h; sourceTree = "<group>"; };
 		83DE69C81A0496CB00CBFC6C /* ECGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECGView.m; sourceTree = "<group>"; };
-		9F40C37473934489AC2A6766 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C06ADFE49640419FBEFD2EB8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -233,8 +246,12 @@
 				48C796EE19FF528200F7527E /* QueryDeviceResult.m */,
 				836406581A04C1D60093E988 /* ETCModel.h */,
 				836406591A04C1D60093E988 /* ETCModel.m */,
+				830B07801A3DA64100EF85BD /* ETCResult.h */,
+				830B07811A3DA64100EF85BD /* ETCResult.m */,
 				8364065C1A05D4E40093E988 /* BloodSugarModel.h */,
 				8364065D1A05D4E40093E988 /* BloodSugarModel.m */,
+				830B077D1A3D97D400EF85BD /* BloodSugarResult.h */,
+				830B077E1A3D97D400EF85BD /* BloodSugarResult.m */,
 				83C416E31A2069F40011EB31 /* RegisterModel.h */,
 				83C416E41A2069F40011EB31 /* RegisterModel.m */,
 				83C416E61A206A700011EB31 /* RegisterResult.h */,
@@ -286,8 +303,8 @@
 				837113E119F540B60029DE66 /* MobileMedical */,
 				837113FE19F540B60029DE66 /* MobileMedicalTests */,
 				837113E019F540B60029DE66 /* Products */,
-				9F40C37473934489AC2A6766 /* Pods.xcconfig */,
 				5710DE2309C6474E9E02592E /* Frameworks */,
+				FB64BD68F9CC4281BF8C0F1D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -434,6 +451,10 @@
 				83C416F11A209DF50011EB31 /* DisplayTypeTableViewController.m */,
 				48C796EA19FF3DB700F7527E /* DataDisplayViewController.h */,
 				48C796EB19FF3DB700F7527E /* DataDisplayViewController.m */,
+				830B07771A3D925500EF85BD /* BloodSugarDisplayViewController.h */,
+				830B07781A3D925500EF85BD /* BloodSugarDisplayViewController.m */,
+				830B077A1A3D937300EF85BD /* ETCDisplayViewController.h */,
+				830B077B1A3D937300EF85BD /* ETCDisplayViewController.m */,
 			);
 			name = DataDisplay;
 			sourceTree = "<group>";
@@ -482,6 +503,15 @@
 				83DE69C81A0496CB00CBFC6C /* ECGView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		FB64BD68F9CC4281BF8C0F1D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				07DD9BF5BEDC974027C2D82F /* Pods.debug.xcconfig */,
+				55A27823EC7D3C53599E096E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -602,7 +632,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8B712765AB6B4D99B61C0C98 /* Check Pods Manifest.lock */ = {
@@ -652,6 +682,7 @@
 				8364065A1A04C1D60093E988 /* ETCModel.m in Sources */,
 				83C417011A20E5990011EB31 /* QueryHospitalResult.m in Sources */,
 				48C796EC19FF3DB700F7527E /* DataDisplayViewController.m in Sources */,
+				830B07791A3D925500EF85BD /* BloodSugarDisplayViewController.m in Sources */,
 				837113E819F540B60029DE66 /* AppDelegate.m in Sources */,
 				837EEB4E19FF11CE008D8C62 /* BaseResult.m in Sources */,
 				83C416EE1A2097C90011EB31 /* AccountDataViewController.m in Sources */,
@@ -663,14 +694,17 @@
 				837EEB3519FCFA28008D8C62 /* OtherDataItemTableViewCell.m in Sources */,
 				83C416FB1A20E0CA0011EB31 /* HospitalListTableViewController.m in Sources */,
 				48F03E3F19FC93A1003F5EF6 /* DatabaseManager.m in Sources */,
+				830B07821A3DA64100EF85BD /* ETCResult.m in Sources */,
 				837EEB5119FF11FB008D8C62 /* LoginResult.m in Sources */,
 				839148C919F947B200119F32 /* StaffModel.m in Sources */,
 				83C416F21A209DF50011EB31 /* DisplayTypeTableViewController.m in Sources */,
 				837113E519F540B60029DE66 /* main.m in Sources */,
 				83C416FE1A20E0D90011EB31 /* DoctorListTableViewController.m in Sources */,
+				830B077C1A3D937300EF85BD /* ETCDisplayViewController.m in Sources */,
 				83DE69C91A0496CB00CBFC6C /* ECGView.m in Sources */,
 				83C416E51A2069F40011EB31 /* RegisterModel.m in Sources */,
 				83C4170D1A219A610011EB31 /* QueryStaffListResult.m in Sources */,
+				830B077F1A3D97D400EF85BD /* BloodSugarResult.m in Sources */,
 				839148C619F9462C00119F32 /* StaffViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -785,7 +819,7 @@
 		};
 		8371140619F540B60029DE66 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F40C37473934489AC2A6766 /* Pods.xcconfig */;
+			baseConfigurationReference = 07DD9BF5BEDC974027C2D82F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -795,12 +829,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		8371140719F540B60029DE66 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F40C37473934489AC2A6766 /* Pods.xcconfig */;
+			baseConfigurationReference = 55A27823EC7D3C53599E096E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -810,6 +845,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
