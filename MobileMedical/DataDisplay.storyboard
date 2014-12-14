@@ -70,7 +70,7 @@
         <!--心电数据-->
         <scene sceneID="xge-nq-oXf">
             <objects>
-                <viewController title="心电数据" id="5de-6X-Ypy" customClass="ETCDisplayViewController" sceneMemberID="viewController">
+                <viewController title="心电数据" automaticallyAdjustsScrollViewInsets="NO" id="5de-6X-Ypy" customClass="ETCDisplayViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MMp-Vp-crl"/>
                         <viewControllerLayoutGuide type="bottom" id="9yC-CM-QB9"/>
@@ -88,7 +88,7 @@
         <!--血糖数据-->
         <scene sceneID="hax-2R-lyT">
             <objects>
-                <viewController title="血糖数据" hidesBottomBarWhenPushed="YES" id="CXB-eq-dQw" customClass="BloodSugarDisplayViewController" sceneMemberID="viewController">
+                <viewController title="血糖数据" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="CXB-eq-dQw" customClass="BloodSugarDisplayViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bde-vq-NOJ"/>
                         <viewControllerLayoutGuide type="bottom" id="5Ol-3K-9DP"/>

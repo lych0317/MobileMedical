@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) CKCalendarView *calendarView;
 @property (nonatomic, strong) OperatingStaff *operatingStaff;
+@property (nonatomic, strong) NSDate *selectedDate;
 
 - (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date;
 

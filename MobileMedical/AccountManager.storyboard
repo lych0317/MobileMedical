@@ -34,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名（必填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NM6-KU-UPC">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="G1" borderStyle="roundedRect" placeholder="用户名（必填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NM6-KU-UPC">
                                 <rect key="frame" x="35" y="127" width="250" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -42,7 +42,7 @@
                                     <outlet property="delegate" destination="JXe-RE-N2W" id="dw0-vS-eE7"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码（必填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tom-Vz-Y4C">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" borderStyle="roundedRect" placeholder="密码（必填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tom-Vz-Y4C">
                                 <rect key="frame" x="35" y="184" width="250" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>

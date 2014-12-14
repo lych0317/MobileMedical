@@ -36,6 +36,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.calendarView.hidden = YES;
+    [self.calendarView selectDate:[NSDate date] makeVisible:YES];
     self.calendarView.frame = CGRectMake(0, 68, CGRectGetWidth(self.view.frame), 0);
 }
 
@@ -53,12 +54,10 @@
 
 #pragma mark - Calendar delegate
 
-- (BOOL)calendar:(CKCalendarView *)calendar willSelectDate:(NSDate *)date {
-    return YES;
-}
-
 - (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
     self.calendarView.hidden = YES;
+    self.selectedDate = date;
+    [calendar selectDate:date makeVisible:YES];
 }
 
 @end
