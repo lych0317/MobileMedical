@@ -19,11 +19,13 @@
 #import "Utils.h"
 #import "Constants.h"
 
-#define DataTransferSegue @"DataTransferSegue"
 #define OtherDataCollectSegue @"OtherDataCollectSegue"
 
 #define BloodSugarDisplaySegue @"BloodSugarDisplaySegue"
 #define ETCDisplaySegue @"ETCDisplaySegue"
+
+#define BloodSugarTransferSegue @"BloodSugarTransferSegue"
+#define ETCTransferSegue @"ETCTransferSegue"
 
 @interface StaffListTableViewController ()
 
@@ -90,7 +92,11 @@
         }
     } else if (self.operatingStaff.operationType == OperationTypeCollection) {
         if (self.operatingStaff.testType == TestTypeDevice) {
-            [self performSegueWithIdentifier:DataTransferSegue sender:self.operatingStaff];
+            if (self.operatingStaff.deviceTestType == DeviceTestTypeBloodSugar) {
+                [self performSegueWithIdentifier:BloodSugarTransferSegue sender:self.operatingStaff];
+            } else if (self.operatingStaff.deviceTestType == DeviceTestTypeETC) {
+                [self performSegueWithIdentifier:ETCTransferSegue sender:self.operatingStaff];
+            }
         } else if (self.operatingStaff.testType == TestTypeOther) {
             [self performSegueWithIdentifier:OtherDataCollectSegue sender:self.operatingStaff];
         }
@@ -103,7 +109,7 @@
     if ([segue.identifier isEqualToString:OtherDataCollectSegue]) {
         OtherDataCollectViewController *viewController = segue.destinationViewController;
         viewController.operatingStaff = sender;
-    } else if ([segue.identifier isEqualToString:DataTransferSegue]) {
+    } else if ([segue.identifier isEqualToString:BloodSugarTransferSegue] || [segue.identifier isEqualToString:ETCTransferSegue]) {
         DataTransferViewController *viewController = segue.destinationViewController;
         viewController.operatingStaff = sender;
     } else if ([segue.identifier isEqualToString:BloodSugarDisplaySegue] || [segue.identifier isEqualToString:ETCDisplaySegue]) {

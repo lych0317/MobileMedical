@@ -16,8 +16,8 @@
 #import "Config.h"
 
 #define StaffListSegue @"StaffListSegue"
-#define BloodSugarSegue @"BloodSugarSegue"
-#define DataTransferSegue @"DataTransferSegue"
+#define BloodSugarTypeSegue @"BloodSugarTypeSegue"
+#define ETCTransferSegue @"ETCTransferSegue"
 #define OtherDataCollectSegue @"OtherDataCollectSegue"
 
 @interface CollectionTypeTableViewController ()
@@ -78,16 +78,16 @@
         self.operatingStaff.deviceTestType = [[AppModel sharedAppModel].deviceTestTypeTitleMap.allValues[indexPath.row] intValue];
         if ([[Config sharedConfig].usertype intValue] == 1) {
             if (self.operatingStaff.deviceTestType == DeviceTestTypeBloodSugar) {
-                [self performSegueWithIdentifier:BloodSugarSegue sender:self.operatingStaff];
+                [self performSegueWithIdentifier:BloodSugarTypeSegue sender:self.operatingStaff];
             } else if (self.operatingStaff.deviceTestType == DeviceTestTypeETC) {
                 [self performSegueWithIdentifier:StaffListSegue sender:self.operatingStaff];
             }
         } else if ([[Config sharedConfig].usertype intValue] == 2) {
             self.operatingStaff.staffModel = [Config sharedConfig].accountStaff;
             if (self.operatingStaff.deviceTestType == DeviceTestTypeBloodSugar) {
-                [self performSegueWithIdentifier:BloodSugarSegue sender:self.operatingStaff];
+                [self performSegueWithIdentifier:BloodSugarTypeSegue sender:self.operatingStaff];
             } else if (self.operatingStaff.deviceTestType == DeviceTestTypeETC) {
-                [self performSegueWithIdentifier:DataTransferSegue sender:self.operatingStaff];
+                [self performSegueWithIdentifier:ETCTransferSegue sender:self.operatingStaff];
             }
         }
     } else if (indexPath.section == 1) {
@@ -111,10 +111,10 @@
     } else if ([segue.identifier isEqualToString:StaffListSegue]) {
         StaffListTableViewController *viewController = segue.destinationViewController;
         viewController.operatingStaff = sender;
-    } else if ([segue.identifier isEqualToString:BloodSugarSegue]) {
+    } else if ([segue.identifier isEqualToString:BloodSugarTypeSegue]) {
         BloodSugarTypeTableViewController *viewController = segue.destinationViewController;
         viewController.operatingStaff = sender;
-    } else if ([segue.identifier isEqualToString:DataTransferSegue]) {
+    } else if ([segue.identifier isEqualToString:ETCTransferSegue]) {
         DataTransferTableViewController *viewController = segue.destinationViewController;
         viewController.operatingStaff = sender;
     }

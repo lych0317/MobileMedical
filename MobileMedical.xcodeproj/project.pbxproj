@@ -49,6 +49,8 @@
 		839148C619F9462C00119F32 /* StaffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839148C519F9462C00119F32 /* StaffViewController.m */; };
 		839148C919F947B200119F32 /* StaffModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 839148C819F947B200119F32 /* StaffModel.m */; };
 		8392FB731A3DC304000074BE /* BloodSugarDisplayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8392FB711A3DC304000074BE /* BloodSugarDisplayTableViewCell.xib */; };
+		839FA8431A4125680000D487 /* BloodSugarTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839FA8421A4125680000D487 /* BloodSugarTransferViewController.m */; };
+		839FA8461A4125860000D487 /* ETCTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839FA8451A4125860000D487 /* ETCTransferViewController.m */; };
 		83C416CF1A2045FB0011EB31 /* StaffManager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83C416CE1A2045FB0011EB31 /* StaffManager.storyboard */; };
 		83C416D11A2046280011EB31 /* DataCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83C416D01A2046280011EB31 /* DataCollection.storyboard */; };
 		83C416D31A2046890011EB31 /* DataDisplay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83C416D21A2046890011EB31 /* DataDisplay.storyboard */; };
@@ -163,6 +165,10 @@
 		839148C719F947B200119F32 /* StaffModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffModel.h; sourceTree = "<group>"; };
 		839148C819F947B200119F32 /* StaffModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffModel.m; sourceTree = "<group>"; };
 		8392FB711A3DC304000074BE /* BloodSugarDisplayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BloodSugarDisplayTableViewCell.xib; sourceTree = "<group>"; };
+		839FA8411A4125680000D487 /* BloodSugarTransferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodSugarTransferViewController.h; sourceTree = "<group>"; };
+		839FA8421A4125680000D487 /* BloodSugarTransferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodSugarTransferViewController.m; sourceTree = "<group>"; };
+		839FA8441A4125860000D487 /* ETCTransferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETCTransferViewController.h; sourceTree = "<group>"; };
+		839FA8451A4125860000D487 /* ETCTransferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETCTransferViewController.m; sourceTree = "<group>"; };
 		83C416CE1A2045FB0011EB31 /* StaffManager.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StaffManager.storyboard; sourceTree = "<group>"; };
 		83C416D01A2046280011EB31 /* DataCollection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DataCollection.storyboard; sourceTree = "<group>"; };
 		83C416D21A2046890011EB31 /* DataDisplay.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DataDisplay.storyboard; sourceTree = "<group>"; };
@@ -448,6 +454,10 @@
 				48F03E4419FCA5F1003F5EF6 /* DataTransferViewController.m */,
 				837547C41A29A2600059CB16 /* DataTransferTableViewController.h */,
 				837547C51A29A2600059CB16 /* DataTransferTableViewController.m */,
+				839FA8411A4125680000D487 /* BloodSugarTransferViewController.h */,
+				839FA8421A4125680000D487 /* BloodSugarTransferViewController.m */,
+				839FA8441A4125860000D487 /* ETCTransferViewController.h */,
+				839FA8451A4125860000D487 /* ETCTransferViewController.m */,
 			);
 			name = DataCollection;
 			sourceTree = "<group>";
@@ -697,6 +707,7 @@
 				83C416EE1A2097C90011EB31 /* AccountDataViewController.m in Sources */,
 				83C416DC1A205CF60011EB31 /* LoginViewController.m in Sources */,
 				83C416E21A20647B0011EB31 /* Config.m in Sources */,
+				839FA8431A4125680000D487 /* BloodSugarTransferViewController.m in Sources */,
 				837547C91A2AFB270059CB16 /* OperatingStaff.m in Sources */,
 				83C416DF1A205D0D0011EB31 /* RegisterViewController.m in Sources */,
 				837EEB2819FB43E2008D8C62 /* CollectionModel.m in Sources */,
@@ -715,6 +726,7 @@
 				83C416E51A2069F40011EB31 /* RegisterModel.m in Sources */,
 				83C4170D1A219A610011EB31 /* QueryStaffListResult.m in Sources */,
 				830B077F1A3D97D400EF85BD /* BloodSugarResult.m in Sources */,
+				839FA8461A4125860000D487 /* ETCTransferViewController.m in Sources */,
 				839148C619F9462C00119F32 /* StaffViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

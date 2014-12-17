@@ -14,7 +14,7 @@
 #import "Config.h"
 #import "AppModel.h"
 
-#define DataTransferSegue @"DataTransferSegue"
+#define BloodSugarTransferSegue @"BloodSugarTransferSegue"
 #define StaffListSegue @"StaffListSegue"
 
 @interface BloodSugarTypeTableViewController ()
@@ -48,14 +48,14 @@
     if ([[Config sharedConfig].usertype intValue] == 1) {
         [self performSegueWithIdentifier:StaffListSegue sender:self.operatingStaff];
     } else if ([[Config sharedConfig].usertype intValue] == 2) {
-        [self performSegueWithIdentifier:DataTransferSegue sender:self.operatingStaff];
+        [self performSegueWithIdentifier:BloodSugarTransferSegue sender:self.operatingStaff];
     }
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:DataTransferSegue]) {
+    if ([segue.identifier isEqualToString:BloodSugarTransferSegue]) {
         DataTransferTableViewController *viewController = segue.destinationViewController;
         viewController.operatingStaff = sender;
     } else if ([segue.identifier isEqualToString:StaffListSegue]) {

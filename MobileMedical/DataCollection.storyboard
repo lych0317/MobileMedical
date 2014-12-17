@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AZR-Ww-Zxc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AZR-Ww-Zxc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--人员列表-->
@@ -28,9 +28,9 @@
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <segue destination="fCg-3J-GHp" kind="show" identifier="DataTransferSegue" id="Ls7-GC-tZG"/>
                         <segue destination="TM4-ub-P80" kind="show" identifier="OtherDataCollectSegue" id="6fT-IG-ovs"/>
-                        <segue destination="Gru-BR-8Nt" kind="show" identifier="DataTransferSegue" id="Fe8-2o-VNn"/>
+                        <segue destination="Gru-BR-8Nt" kind="show" identifier="BloodSugarTransferSegue" id="Fe8-2o-VNn"/>
+                        <segue destination="3VR-Ts-Cq8" kind="show" identifier="ETCTransferSegue" id="j1m-IA-abY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGg-cp-wg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="1993" y="1344"/>
         </scene>
-        <!--数据传输-->
+        <!--血糖传输-->
         <scene sceneID="rMF-W3-i8j">
             <objects>
-                <tableViewController title="数据传输" id="Gru-BR-8Nt" customClass="DataTransferTableViewController" sceneMemberID="viewController">
+                <tableViewController title="血糖传输" id="Gru-BR-8Nt" customClass="BloodSugarTransferViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mre-IH-Vrv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,7 +108,33 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOO-dO-dZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1695" y="-353"/>
+            <point key="canvasLocation" x="2999" y="-656"/>
+        </scene>
+        <!--心电传输-->
+        <scene sceneID="et6-kS-ane">
+            <objects>
+                <tableViewController title="心电传输" id="3VR-Ts-Cq8" customClass="ETCTransferViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="94a-ji-a6U">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wbp-vV-g2S">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wbp-vV-g2S" id="8ro-92-q7B">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3VR-Ts-Cq8" id="3Lv-Zv-Hib"/>
+                            <outlet property="delegate" destination="3VR-Ts-Cq8" id="kO1-aH-Jtr"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JoW-2y-Nqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2999" y="-30"/>
         </scene>
         <!--血糖类型-->
         <scene sceneID="E5c-B6-Eyj">
@@ -133,30 +159,12 @@
                     </tableView>
                     <connections>
                         <segue destination="56r-xK-1ES" kind="show" identifier="StaffListSegue" id="1Jr-TU-bva"/>
-                        <segue destination="Gru-BR-8Nt" kind="show" identifier="DataTransferSegue" id="PLE-2d-YUm"/>
+                        <segue destination="Gru-BR-8Nt" kind="show" identifier="BloodSugarTransferSegue" id="PLE-2d-YUm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nzc-Md-d8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2266" y="-632"/>
-        </scene>
-        <!--数据传输-->
-        <scene sceneID="pmn-Av-oJK">
-            <objects>
-                <viewController title="数据传输" hidesBottomBarWhenPushed="YES" id="fCg-3J-GHp" customClass="DataTransferViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0wo-Go-bVM"/>
-                        <viewControllerLayoutGuide type="bottom" id="M0J-eI-0e8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="I5M-dN-h3m">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gTl-Pw-amt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3284" y="456"/>
+            <point key="canvasLocation" x="2266" y="-656"/>
         </scene>
         <!--数据采集-->
         <scene sceneID="stz-sE-3PK">
@@ -182,9 +190,9 @@
                     <navigationItem key="navigationItem" title="数据采集" id="cjB-AQ-wF6"/>
                     <connections>
                         <segue destination="56r-xK-1ES" kind="show" identifier="StaffListSegue" id="PGM-BC-xpy"/>
-                        <segue destination="SBh-Em-WUG" kind="show" identifier="BloodSugarSegue" id="LYq-wy-d5A"/>
+                        <segue destination="SBh-Em-WUG" kind="show" identifier="BloodSugarTypeSegue" id="LYq-wy-d5A"/>
                         <segue destination="TM4-ub-P80" kind="show" identifier="OtherDataCollectSegue" id="gVN-BH-gJn"/>
-                        <segue destination="Gru-BR-8Nt" kind="show" identifier="DataTransferSegue" id="Mhi-bs-9Da"/>
+                        <segue destination="3VR-Ts-Cq8" kind="show" identifier="ETCTransferSegue" id="1x0-y1-L76"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Au9-xo-zSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -214,8 +222,9 @@
         <image name="collect.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ls7-GC-tZG"/>
-        <segue reference="1Jr-TU-bva"/>
         <segue reference="6fT-IG-ovs"/>
+        <segue reference="PGM-BC-xpy"/>
+        <segue reference="PLE-2d-YUm"/>
+        <segue reference="j1m-IA-abY"/>
     </inferredMetricsTieBreakers>
 </document>
