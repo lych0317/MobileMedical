@@ -77,31 +77,6 @@
     return (hex / 16) * 10 + hex % 16;
 }
 
-- (void)parseReceived:(NSData *)data {
-    const Byte *bytes = data.bytes;
-    if (data.length > 1 && bytes[1] == 0x06) {
-        self.receivedData = [NSMutableData dataWithData:data];
-    } else if (self.receivedData) {
-        [self.receivedData appendData:data];
-    }
-    if (self.receivedData && self.receivedData.length > 4) {
-        bytes = self.receivedData.bytes;
-        int length = bytes[4] + 6;
-        while (self.receivedData.length >= length) {
-            [self parseCommand:[self.receivedData subdataWithRange:NSMakeRange(0, length)]];
-            self.receivedData = [NSMutableData dataWithData:[self.receivedData subdataWithRange:NSMakeRange(length, self.receivedData.length - length)]];
-            if (self.receivedData.length < 5) {
-                break;
-            }
-            bytes = self.receivedData.bytes;
-            length = bytes[4] + 6;
-        }
-        if (self.receivedData.length == 0) {
-            self.receivedData = nil;
-        }
-    }
-}
-
 - (void)parseCommand:(NSData *)data {
     [self addMessage:[NSString stringWithFormat:@"解析命令成功：%@", [self stringFromData:data]]];
     const Byte *bytes = data.bytes;

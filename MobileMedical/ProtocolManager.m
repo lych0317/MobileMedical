@@ -419,7 +419,27 @@ static ProtocolManager *sProtocolManager = nil;
     }];
 }
 
+- (void)postETCModel:(ETCModel *)model success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
+    RKObjectMapping *responseMapping = [self createBaseResponseMapping];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodPOST pathPattern:nil keyPath:nil statusCodes:[self createStatusCodes]];
 
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[AppModel sharedAppModel].baseUrl];
+    manager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
+    [manager addResponseDescriptor:responseDescriptor];
+    [self setupHeaderWithManager:manager];
+
+    NSDictionary *parameters = @{@"access_token": [Config sharedConfig].access_token, @"pulse": model.pulse, @"ecg": model.ecg, @"date": model.date, @"mac": @"44:45:53:54:00:01", @"pId": model.pId};
+
+    [manager postObject:nil path:UPLOAD_ETC parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (success) {
+            success(mappingResult.firstObject);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+}
 
 
 

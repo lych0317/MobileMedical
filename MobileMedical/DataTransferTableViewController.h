@@ -26,6 +26,9 @@
 - (NSData *)createCommand:(unsigned char *)bytes length:(size_t)length;
 - (void)addMessage:(NSString *)message;
 
+- (void)setupPeripheral:(LGPeripheral *)peripheral;
 - (void)setupCharacteristic:(LGCharacteristic *)characteristic;
+- (void)parseReceived:(NSData *)data;
+- (void)parseCommand:(NSData *)data;
 
 @end
