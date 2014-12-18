@@ -26,7 +26,7 @@
     _bloodSugarModel = bloodSugarModel;
     self.timeLabel.text = [Utils stringTimeFromDate:_bloodSugarModel.date];
     self.typeLabel.text = [self typeTitleByType:_bloodSugarModel.type];
-    self.valueLabel.text = [_bloodSugarModel.value stringValue];
+    self.valueLabel.text = [NSString stringWithFormat:@"%@ mmol/L", _bloodSugarModel.value];
     self.statusLabel.text = @"正常";
 }
 

@@ -28,6 +28,7 @@
 #import "BloodSugarResult.h"
 #import "ETCModel.h"
 #import "ETCResult.h"
+#import "BloodSugarModel.h"
 #import "Constants.h"
 #import "Config.h"
 #import "Utils.h"
@@ -396,6 +397,27 @@ static ProtocolManager *sProtocolManager = nil;
     return mapping;
 }
 
+- (void)postBloodSugarModel:(BloodSugarModel *)model success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure {
+    RKObjectMapping *responseMapping = [self createBaseResponseMapping];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodPOST pathPattern:nil keyPath:nil statusCodes:[self createStatusCodes]];
+
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[AppModel sharedAppModel].baseUrl];
+    manager.requestSerializationMIMEType = RKMIMETypeFormURLEncoded;
+    [manager addResponseDescriptor:responseDescriptor];
+    [self setupHeaderWithManager:manager];
+
+    NSDictionary *parameters = @{@"access_token": [Config sharedConfig].access_token, @"type": model.type, @"value": model.value, @"date": model.date, @"mac": @"44:45:53:54:00:00", @"pId": model.pId};
+
+    [manager postObject:nil path:UPLOAD_BLOOD_SUGAR parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (success) {
+            success(mappingResult.firstObject);
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(operation, error);
+        }
+    }];
+}
 
 
 

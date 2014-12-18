@@ -78,7 +78,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.bloodSugarModelArray) {
-        return 3;
         return self.bloodSugarModelArray.count;
     }
     return 0;

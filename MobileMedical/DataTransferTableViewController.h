@@ -12,16 +12,20 @@
 #define SERVICE_UUID @"ff60"
 #define CHARACTERISTIC_UUID @"ff61"
 
-@class OperatingStaff, LGCentralManager;
+@class OperatingStaff, LGCentralManager, LGPeripheral, LGCharacteristic;
 
 @interface DataTransferTableViewController : UITableViewController
 
 @property (nonatomic, strong) OperatingStaff *operatingStaff;
 @property (nonatomic, strong) NSMutableArray *instantMessages;
 @property (nonatomic, strong) LGCentralManager *centralManager;
+@property (nonatomic, strong) LGPeripheral *peripheral;
+@property (nonatomic, strong) NSMutableData *receivedData;
 
 - (NSString *)stringFromData:(NSData *)data;
 - (NSData *)createCommand:(unsigned char *)bytes length:(size_t)length;
 - (void)addMessage:(NSString *)message;
+
+- (void)setupCharacteristic:(LGCharacteristic *)characteristic;
 
 @end

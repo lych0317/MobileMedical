@@ -13,7 +13,7 @@
 typedef void(^ProtocolSuccessBlock)(id data);
 typedef void(^ProtocolFailureBlock)(RKObjectRequestOperation *operation, NSError *error);
 
-@class UserModel, RegisterModel, HospitalModel, StaffModel, OtherDataModel;
+@class UserModel, RegisterModel, HospitalModel, StaffModel, OtherDataModel, BloodSugarModel;
 
 @interface ProtocolManager : NSObject
 
@@ -29,6 +29,7 @@ typedef void(^ProtocolFailureBlock)(RKObjectRequestOperation *operation, NSError
 - (void)postOtherDataWithOtherDataModel:(OtherDataModel *)otherDataModel success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure;
 - (void)postQueryBloodSugar:(NSDate *)date pId:(NSString *)pId success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure;
 - (void)postQueryETC:(NSDate *)date pId:(NSString *)pId success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure;
+- (void)postBloodSugarModel:(BloodSugarModel *)model success:(ProtocolSuccessBlock)success failure:(ProtocolFailureBlock)failure;
 
 
 

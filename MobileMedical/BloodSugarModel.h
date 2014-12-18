@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSNumber *value;
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSString *mac;
+@property (nonatomic, strong) NSString *pId;
 
 @end

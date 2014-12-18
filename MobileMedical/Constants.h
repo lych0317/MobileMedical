@@ -21,6 +21,7 @@
 #define UPLOAD_OTHER_DATA_URL @"uploadOtherData"
 #define QUERY_BLOOD_SUGAR @"queryBloodSugar"
 #define QUERY_ETC @"queryETC"
+#define UPLOAD_BLOOD_SUGAR @"uploadBloodSugar"
 
 #define QUERY_DEVICE_URL @"queryDevice"
 

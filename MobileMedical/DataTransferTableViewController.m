@@ -19,6 +19,45 @@
     self.instantMessages = [NSMutableArray array];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self addMessage:@"查找外部蓝牙设备..."];
+    [self.centralManager scanForPeripheralsByInterval:2 completion:^(NSArray *peripherals) {
+        __block BOOL foundDevice = NO;
+        [peripherals enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            LGPeripheral *peripheral = obj;
+            [self addMessage:[NSString stringWithFormat:@"发现外部蓝牙设备 - %@", peripheral.name]];
+            if ([peripheral.name isEqualToString:PERIPHERAL_NAME]) {
+                foundDevice = YES;
+                [self setupPeripheral:peripheral];
+            }
+        }];
+        if (!foundDevice) {
+            [self addMessage:@"未发现对应蓝牙设备"];
+        }
+    }];
+}
+
+- (void)setupPeripheral:(LGPeripheral *)peripheral {
+    self.peripheral = peripheral;
+    [self addMessage:[NSString stringWithFormat:@"正在连接 %@ ...", peripheral.name]];
+    [LGUtils discoverCharactUUID:CHARACTERISTIC_UUID serviceUUID:SERVICE_UUID peripheral:peripheral completion:^(LGCharacteristic *characteristic, NSError *error) {
+        if (error) {
+            [self addMessage:@"连接失败"];
+        } else {
+            [self addMessage:@"连接成功，设置监听，准备接收数据"];
+            [self setupCharacteristic:characteristic];
+        }
+    }];
+}
+
+- (void)setupCharacteristic:(LGCharacteristic *)characteristic {}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.peripheral disconnectWithCompletion:nil];
+}
+
 - (NSString *)stringFromData:(NSData *)data {
     NSMutableString *retStr = [NSMutableString string];
     const Byte *bytes = data.bytes;
