@@ -46,7 +46,7 @@
     const Byte *bytes = data.bytes;
     BloodSugarModel *model = [[BloodSugarModel alloc] init];
     model.type = @(self.operatingStaff.bloodSugarTestType);
-    model.value = @(bytes[10] / 10.0);
+    model.value = @((bytes[9] * 256 + bytes[10]) / 10.0);
     NSString *dateText = [NSString stringWithFormat:@"%d-%d-%d %d:%d:%d", [self intFromHex:bytes[11]], [self intFromHex:bytes[12]], [self intFromHex:bytes[13]], [self intFromHex:bytes[14]], [self intFromHex:bytes[15]], [self intFromHex:bytes[16]]];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yy-MM-dd hh:mm:ss"];

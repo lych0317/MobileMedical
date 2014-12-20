@@ -86,7 +86,9 @@
         }];
     }];
     if (self.staffModel.hospitalDoctorMap.count > 0) {
-        self.staffModel.doctorIds = [doctorIds substringToIndex:doctorIds.length - 1];
+        if (doctorIds.length > 0) {
+            self.staffModel.doctorIds = [doctorIds substringToIndex:doctorIds.length - 1];
+        }
     } else {
         self.staffModel.doctorIds = doctorIds;
     }
