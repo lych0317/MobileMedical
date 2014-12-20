@@ -56,7 +56,17 @@
 
 - (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
     self.calendarView.hidden = YES;
-    self.selectedDate = date;
+    NSDate *selectedDate;
+    if (date == nil) {
+        if (self.selectedDate == nil) {
+            selectedDate = [NSDate date];
+        } else {
+            selectedDate = self.selectedDate;
+        }
+    } else {
+        selectedDate = date;
+    }
+    self.selectedDate = selectedDate;
     [calendar selectDate:date makeVisible:YES];
 }
 

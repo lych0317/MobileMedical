@@ -67,7 +67,7 @@
                 [self.ecgText appendFormat:@"%d,", bytes[i]];
             }
         } else if (bytes[7] == 0xfe) {
-            self.etcModel.ecg = self.ecgText;
+            self.etcModel.ecg = [self.ecgText substringToIndex:self.ecgText.length - 1];
             self.etcModel.date = [NSDate date];
             [self postETCData];
         }

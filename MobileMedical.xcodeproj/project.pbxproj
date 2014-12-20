@@ -23,6 +23,8 @@
 		830B077F1A3D97D400EF85BD /* BloodSugarResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 830B077E1A3D97D400EF85BD /* BloodSugarResult.m */; };
 		830B07821A3DA64100EF85BD /* ETCResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 830B07811A3DA64100EF85BD /* ETCResult.m */; };
 		830B07851A3DB77E00EF85BD /* BloodSugarDisplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 830B07841A3DB77E00EF85BD /* BloodSugarDisplayTableViewCell.m */; };
+		83551A7C1A45214100163009 /* ETCDisplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83551A7A1A45214100163009 /* ETCDisplayTableViewCell.m */; };
+		83551A7D1A45214100163009 /* ETCDisplayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83551A7B1A45214100163009 /* ETCDisplayTableViewCell.xib */; };
 		8364065A1A04C1D60093E988 /* ETCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 836406591A04C1D60093E988 /* ETCModel.m */; };
 		8364065E1A05D4E40093E988 /* BloodSugarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8364065D1A05D4E40093E988 /* BloodSugarModel.m */; };
 		837113E519F540B60029DE66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 837113E419F540B60029DE66 /* main.m */; };
@@ -118,6 +120,9 @@
 		830B07811A3DA64100EF85BD /* ETCResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETCResult.m; sourceTree = "<group>"; };
 		830B07831A3DB77E00EF85BD /* BloodSugarDisplayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodSugarDisplayTableViewCell.h; sourceTree = "<group>"; };
 		830B07841A3DB77E00EF85BD /* BloodSugarDisplayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodSugarDisplayTableViewCell.m; sourceTree = "<group>"; };
+		83551A791A45214100163009 /* ETCDisplayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETCDisplayTableViewCell.h; sourceTree = "<group>"; };
+		83551A7A1A45214100163009 /* ETCDisplayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETCDisplayTableViewCell.m; sourceTree = "<group>"; };
+		83551A7B1A45214100163009 /* ETCDisplayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ETCDisplayTableViewCell.xib; sourceTree = "<group>"; };
 		836406581A04C1D60093E988 /* ETCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETCModel.h; sourceTree = "<group>"; };
 		836406591A04C1D60093E988 /* ETCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETCModel.m; sourceTree = "<group>"; };
 		8364065C1A05D4E40093E988 /* BloodSugarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodSugarModel.h; sourceTree = "<group>"; };
@@ -414,6 +419,9 @@
 				830B07831A3DB77E00EF85BD /* BloodSugarDisplayTableViewCell.h */,
 				830B07841A3DB77E00EF85BD /* BloodSugarDisplayTableViewCell.m */,
 				8392FB711A3DC304000074BE /* BloodSugarDisplayTableViewCell.xib */,
+				83551A791A45214100163009 /* ETCDisplayTableViewCell.h */,
+				83551A7A1A45214100163009 /* ETCDisplayTableViewCell.m */,
+				83551A7B1A45214100163009 /* ETCDisplayTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -620,6 +628,7 @@
 				83C416D81A204D0B0011EB31 /* AccountManager.storyboard in Resources */,
 				837EEB3B19FD14AC008D8C62 /* staff.png in Resources */,
 				837EEB3F19FD17C1008D8C62 /* display.png in Resources */,
+				83551A7D1A45214100163009 /* ETCDisplayTableViewCell.xib in Resources */,
 				837EEB3E19FD17C1008D8C62 /* collect.png in Resources */,
 				83C416CF1A2045FB0011EB31 /* StaffManager.storyboard in Resources */,
 				837113F619F540B60029DE66 /* LaunchScreen.xib in Resources */,
@@ -692,6 +701,7 @@
 				48F03E3B19FB891B003F5EF6 /* Utils.m in Sources */,
 				837EEB4219FE7679008D8C62 /* HospitalModel.m in Sources */,
 				83C4170A1A217C9B0011EB31 /* PayTypeTableViewController.m in Sources */,
+				83551A7C1A45214100163009 /* ETCDisplayTableViewCell.m in Sources */,
 				83C416F51A20A25A0011EB31 /* StaffListTableViewController.m in Sources */,
 				837EEB2219FB239C008D8C62 /* StaffManagerTableViewController.m in Sources */,
 				83C417041A20E7F00011EB31 /* QueryDoctorResult.m in Sources */,

@@ -96,18 +96,8 @@
 #pragma mark - Calendar delegate
 
 - (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
-    NSDate *selectedDate;
-    if (date == nil) {
-        if (self.selectedDate == nil) {
-            selectedDate = [NSDate date];
-        } else {
-            selectedDate = self.selectedDate;
-        }
-    } else {
-        selectedDate = date;
-    }
     [super calendar:calendar didSelectDate:date];
-    [self fetchBloodSugarWithDate:selectedDate];
+    [self fetchBloodSugarWithDate:self.selectedDate];
 }
 
 - (UITableView *)listTableView {

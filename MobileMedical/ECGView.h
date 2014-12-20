@@ -10,4 +10,6 @@
 
 @interface ECGView : UIView
 
+@property (nonatomic, strong) NSArray *ecgDataArray;
+
 @end
