@@ -20,11 +20,12 @@
 + (void)hideProgressViewWithTitle:(NSString *)title after:(NSTimeInterval)delay completionBlock:(MBProgressHUDCompletionBlock)completionBlock;
 
 + (NSString *)stringDateFromDate:(NSDate *)date;
-
 + (NSString *)stringTimeFromDate:(NSDate *)date;
-
 + (NSDate *)dateFromString:(NSString *)string;
-
 + (NSDate *)dateFromStringDate:(NSString *)date time:(NSString *)time;
+
++ (void)saveToUserDefaultWithKey:(NSString *)key object:(id)data;
++ (id)getObjectFromUserDefaultWithKey:(NSString *)key;
++ (void)removeObjectFromUserDefaultWithKey:(NSString *)key;
 
 @end

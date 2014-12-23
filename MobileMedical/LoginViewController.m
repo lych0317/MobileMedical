@@ -31,7 +31,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSString *username = [Utils getObjectFromUserDefaultWithKey:USER_DEFAULT_KEY_ACCOUNT];
+    NSString *password = [Utils getObjectFromUserDefaultWithKey:USER_DEFAULT_KEY_PASSWORD];
+    if (CHECK_STRING_NOT_NULL(username) && CHECK_STRING_NOT_NULL(password)) {
+        self.usernameTextField.text = username;
+        self.passwordTextField.text = password;
+    }
 }
 
 - (IBAction)loginButtonClicked:(UIButton *)sender {

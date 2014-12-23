@@ -85,15 +85,6 @@
         }
     }
 }
-//@property (nonatomic, strong) NSString *username;
-//@property (nonatomic, strong) NSString *password;
-//@property (nonatomic, strong) NSString *pId;
-//@property (nonatomic, strong) NSString *name;
-//@property (nonatomic, strong) NSString *chengwei;
-//@property (nonatomic, strong) NSString *phone;
-//@property (nonatomic, strong) NSString *doctorIds;
-//@property (nonatomic, strong) NSNumber *paytype;
-//@property (nonatomic, strong) NSNumber *opr;
 
 - (void)registerWithRegisterModel:(RegisterModel *)registerModel {
     [Utils showProgressViewTitle:nil];

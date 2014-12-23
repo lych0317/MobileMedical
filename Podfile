@@ -1,10 +1,9 @@
 platform:ios, '7.0'
+inhibit_all_warnings!
+
 pod 'FMDB', '~> 2.3'
 pod 'AFNetworking', '~> 1.3.4'
 pod 'RestKit', '~> 0.23.1'
-pod 'SVPullToRefresh', :git => 'https://github.com/samvermette/SVPullToRefresh.git', :commit => 'a5f9dfee86a27c4e994d7edf93d0768c881d58bb'
-pod 'SDWebImage', '~> 3.6'
 pod 'MBProgressHUD', '~> 0.8'
 pod 'LGBluetooth', '~> 1.1.4'
 pod 'CKCalendar', '~> 1.0.0'
-pod 'PMCalendar', '~> 0.3.2'

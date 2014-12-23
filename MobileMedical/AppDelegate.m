@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "DatabaseManager.h"
 #import "Config.h"
+#import "Constants.h"
+#import "Utils.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +25,9 @@
 }
 
 - (void)enterMainView {
+    [Utils saveToUserDefaultWithKey:USER_DEFAULT_KEY_ACCOUNT object:[Config sharedConfig].username];
+    [Utils saveToUserDefaultWithKey:USER_DEFAULT_KEY_PASSWORD object:[Config sharedConfig].password];
+
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"DataDisplay" bundle:nil];
     UINavigationController *dataDisplay = [storyboard instantiateInitialViewController];
 

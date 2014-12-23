@@ -66,4 +66,21 @@ MBProgressHUD *_loading;
     return [formatter dateFromString:[NSString stringWithFormat:@"%@ %@", date, time]];
 }
 
++ (void)saveToUserDefaultWithKey:(NSString *)key object:(id)data {
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setObject:data forKey:key];
+    [userDefault synchronize];
+}
+
++ (id)getObjectFromUserDefaultWithKey:(NSString *)key {
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    return [userDefault objectForKey:key];
+}
+
++ (void)removeObjectFromUserDefaultWithKey:(NSString *)key {
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault removeObjectForKey:key];
+    [userDefault synchronize];
+}
+
 @end
