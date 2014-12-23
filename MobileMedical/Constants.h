@@ -30,6 +30,9 @@
 
 #define CHECK_STRING_NOT_NULL(string) (string != nil && string.length > 0)
 
+#define USER_DEFAULT_KEY_ACCOUNT @"acount"
+#define USER_DEFAULT_KEY_PASSWORD @"password"
+
 typedef enum {
     OperationTypeDisplay,
     OperationTypeCollection
