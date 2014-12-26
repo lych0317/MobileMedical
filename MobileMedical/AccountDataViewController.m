@@ -117,7 +117,26 @@
 
 - (void)updateStaff:(StaffModel *)staffModel {
     [Utils showProgressViewTitle:@"正在提交数据"];
-    [[ProtocolManager sharedManager] postStaffWithStaffModel:staffModel success:^(id data) {
+    StaffModel *model = [[StaffModel alloc] init];
+    model.username = staffModel.username;
+    model.password = staffModel.password;
+    model.pId = staffModel.pId;
+    model.name = staffModel.name;
+    model.chengwei = staffModel.chengwei;
+    model.phone = staffModel.phone;
+    model.paytype = staffModel.paytype;
+    model.opr = staffModel.opr;
+    NSArray *doctorIds = [staffModel.doctorIds componentsSeparatedByString:@","];
+    NSMutableString *doctorIdStr = [NSMutableString string];
+    for (NSString *str in doctorIds) {
+        NSArray *array = [str componentsSeparatedByString:@"#"];
+        [doctorIdStr appendFormat:@"%@,", array[1]];
+    }
+    model.doctorIds = @"";
+    if (doctorIdStr.length > 0) {
+        model.doctorIds = [doctorIdStr substringToIndex:doctorIdStr.length - 1];
+    }
+    [[ProtocolManager sharedManager] postStaffWithStaffModel:model success:^(id data) {
         [Utils hideProgressViewAfter:0];
         BaseResult *result = data;
         if ([result.return_code intValue] == 0) {
