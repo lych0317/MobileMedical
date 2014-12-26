@@ -14,6 +14,7 @@
 #import "HospitalModel.h"
 #import "QueryHospitalResult.h"
 #import "Config.h"
+#import "Constants.h"
 
 #define DoctorListSegue @"DoctorListSegue"
 
@@ -29,6 +30,66 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self addRightBarButtonItem];
+}
+
+- (void)addRightBarButtonItem {
+    UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] init];
+    addButtonItem.title = @"提交";
+    addButtonItem.target = self;
+    addButtonItem.action = @selector(addButtonItemClicked:);
+    self.navigationItem.rightBarButtonItem = addButtonItem;
+}
+
+- (void)addButtonItemClicked:(UIBarButtonItem *)sender {
+    if (CHECK_STRING_NOT_NULL(self.staffModel.username) && CHECK_STRING_NOT_NULL(self.staffModel.pId) && CHECK_STRING_NOT_NULL(self.staffModel.doctorIds) && CHECK_STRING_NOT_NULL(self.staffModel.phone)) {
+        if (![Utils validatePId:self.staffModel.pId]) {
+            [Utils showToastWithTitle:@"请输入正确的身份证号" time:1];
+        } else if (![Utils validatePhone:self.staffModel.phone]) {
+            [Utils showToastWithTitle:@"请输入正确的手机号" time:1];
+        } else {
+            [self updateStaff:self.staffModel];
+        }
+    } else {
+        [Utils showToastWithTitle:@"请输入必填项" time:1];
+    }
+}
+
+- (void)updateStaff:(StaffModel *)staffModel {
+    [Utils showProgressViewTitle:@"正在提交数据"];
+    StaffModel *model = [[StaffModel alloc] init];
+    model.username = staffModel.username;
+    model.password = staffModel.password;
+    model.pId = staffModel.pId;
+    model.name = staffModel.name;
+    model.chengwei = staffModel.chengwei;
+    model.phone = staffModel.phone;
+    model.paytype = staffModel.paytype;
+    model.opr = staffModel.opr;
+    NSArray *doctorIds = [staffModel.doctorIds componentsSeparatedByString:@","];
+    NSMutableString *doctorIdStr = [NSMutableString string];
+    for (NSString *str in doctorIds) {
+        NSArray *array = [str componentsSeparatedByString:@"#"];
+        [doctorIdStr appendFormat:@"%@,", array[1]];
+    }
+    model.doctorIds = @"";
+    if (doctorIdStr.length > 0) {
+        model.doctorIds = [doctorIdStr substringToIndex:doctorIdStr.length - 1];
+    }
+    [[ProtocolManager sharedManager] postStaffWithStaffModel:model success:^(id data) {
+        [Utils hideProgressViewAfter:0];
+        BaseResult *result = data;
+        if ([result.return_code intValue] == 0) {
+            [Utils showToastWithTitle:@"提交数据成功" time:1];
+            [Config sharedConfig].accountStaff = staffModel;
+        } else {
+            [Utils showToastWithTitle:@"提交数据失败" time:1];
+        }
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        [Utils hideProgressViewAfter:0];
+        [Utils showToastWithTitle:@"提交数据失败" time:1];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -40,6 +101,12 @@
             NSString *hospitalId = key;
             if (![hospitalId isEqualToString:self.tempHospitalModel.hospitalId]) {
                 [hospitalDoctorMap setObject:obj forKey:key];
+            }
+        }];
+        [hospitalDoctorMap enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            NSArray *doctors = obj;
+            if (doctors.count == 0) {
+                [hospitalDoctorMap removeObjectForKey:key];
             }
         }];
         self.staffModel.hospitalDoctorMap = hospitalDoctorMap;
@@ -125,16 +192,16 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:DoctorListSegue sender:self.hospitals[indexPath.row]];
+    self.tempHospitalModel = self.hospitals[indexPath.row];
+    [self performSegueWithIdentifier:DoctorListSegue sender:@{@"HospitalModel": self.tempHospitalModel, @"StaffModel": self.staffModel}];
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:DoctorListSegue]) {
-        self.tempHospitalModel = sender;
         DoctorListTableViewController *viewController = segue.destinationViewController;
-        viewController.hospitalModel = sender;
+        viewController.dataMap = sender;
     }
 }
 

@@ -45,7 +45,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addRightBarButtonItem];
+//    [self addRightBarButtonItem];
     self.isAdd = NO;
 
     if (self.staffModel == nil) {
@@ -95,6 +95,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setupTextField];
+    self.chooseDoctorButton.hidden = YES;
+    self.usernameTextField.enabled = NO;
+    self.passwordTextField.enabled = NO;
+    self.nameTextField.enabled = NO;
+    self.chengweiTextField.enabled = NO;
+    self.pIdTextField.enabled = NO;
+    self.phoneTextField.enabled = NO;
+    self.payTypeTextField.enabled = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

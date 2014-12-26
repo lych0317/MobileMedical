@@ -19,6 +19,9 @@
 + (void)hideProgressViewWithTitle:(NSString *)title after:(NSTimeInterval)delay;
 + (void)hideProgressViewWithTitle:(NSString *)title after:(NSTimeInterval)delay completionBlock:(MBProgressHUDCompletionBlock)completionBlock;
 
++ (BOOL)validatePhone:(NSString *)phone;
++ (BOOL)validatePId:(NSString *)pId;
+
 + (NSString *)stringDateFromDate:(NSDate *)date;
 + (NSString *)stringTimeFromDate:(NSDate *)date;
 + (NSDate *)dateFromString:(NSString *)string;

@@ -12,6 +12,6 @@
 
 @interface DoctorListTableViewController : UITableViewController
 
-@property (nonatomic, strong) HospitalModel *hospitalModel;
+@property (nonatomic, strong) NSDictionary *dataMap;
 
 @end

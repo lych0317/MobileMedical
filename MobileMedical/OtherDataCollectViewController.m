@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *valueTextField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (nonatomic, strong) NSArray *spiritTitleArray;
 
 @end
 
@@ -50,6 +51,7 @@
     } else if (self.operatingStaff.otherTestType == OtherTestTypeSpirit) {
         self.valueTextField.placeholder = @"请选择";
         self.navigationItem.title = @"精神状态";
+        self.spiritTitleArray = [AppModel sharedAppModel].spiritTypeTitleMap.allKeys;
     }
 }
 
@@ -62,11 +64,19 @@
     self.navigationItem.rightBarButtonItems = @[sendBarButtonItem];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.valueTextField.keyboardType = UIKeyboardTypeDecimalPad;
+}
+
 #pragma mark - Selectors
 
 - (void)sendButtonClicked:(UIBarButtonItem *)sender {
     [self.valueTextField resignFirstResponder];
     NSNumber *value = [NSNumber numberWithFloat:[self.valueTextField.text floatValue]];
+    if (self.operatingStaff.otherTestType == OtherTestTypeSpirit) {
+        value = [AppModel sharedAppModel].spiritTypeTitleMap[self.valueTextField.text];
+    }
     if (value) {
         OtherDataModel *model = [[OtherDataModel alloc] init];
         model.datatype = @(self.operatingStaff.otherTestType);
@@ -97,7 +107,30 @@
     }];
 }
 
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex < self.spiritTitleArray.count) {
+        self.valueTextField.text = self.spiritTitleArray[buttonIndex];
+    }
+}
+
 #pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (self.operatingStaff.otherTestType == OtherTestTypeSpirit) {
+        UIAlertView *alertView = [[UIAlertView alloc] init];
+        alertView.title = @"请选择";
+        alertView.delegate = self;
+        [self.spiritTitleArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [alertView addButtonWithTitle:obj];
+        }];
+        [alertView addButtonWithTitle:@"取消"];
+        [alertView show];
+        return NO;
+    }
+    return YES;
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];

@@ -65,6 +65,30 @@
     self.submitButton.hidden = !isStaffUser;
 
     self.tempStaffModel = config.accountStaff;
+
+    [self addRightBarButtonItem];
+}
+
+- (void)addRightBarButtonItem {
+    UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] init];
+    addButtonItem.title = @"提交";
+    addButtonItem.target = self;
+    addButtonItem.action = @selector(addButtonItemClicked:);
+    self.navigationItem.rightBarButtonItem = addButtonItem;
+}
+
+- (void)addButtonItemClicked:(UIBarButtonItem *)sender {
+    if (CHECK_STRING_NOT_NULL(self.tempStaffModel.username) && CHECK_STRING_NOT_NULL(self.tempStaffModel.pId) && CHECK_STRING_NOT_NULL(self.tempStaffModel.doctorIds) && CHECK_STRING_NOT_NULL(self.tempStaffModel.phone)) {
+        if (![Utils validatePId:self.tempStaffModel.pId]) {
+            [Utils showToastWithTitle:@"请输入正确的身份证号" time:1];
+        } else if (![Utils validatePhone:self.tempStaffModel.phone]) {
+            [Utils showToastWithTitle:@"请输入正确的手机号" time:1];
+        } else {
+            [self updateStaff:self.tempStaffModel];
+        }
+    } else {
+        [Utils showToastWithTitle:@"请输入必填项" time:1];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -92,13 +116,6 @@
 
 - (IBAction)chooseDoctorButtonClicked:(UIButton *)sender {
     [self performSegueWithIdentifier:HospitalListSegue sender:self.tempStaffModel];
-}
-- (IBAction)submitButtonClicked:(UIButton *)sender {
-    if (CHECK_STRING_NOT_NULL(self.tempStaffModel.username) && CHECK_STRING_NOT_NULL(self.tempStaffModel.pId) && CHECK_STRING_NOT_NULL(self.tempStaffModel.doctorIds)) {
-        [self updateStaff:self.tempStaffModel];
-    } else {
-        [Utils showToastWithTitle:@"请输入必填项" time:1];
-    }
 }
 
 - (NSString *)getDoctorsIds {

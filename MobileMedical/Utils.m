@@ -42,6 +42,63 @@ MBProgressHUD *_loading;
     [Utils hideProgressViewWithTitle:title after:delay];
 }
 
++ (BOOL)validatePhone:(NSString *)phone {
+    NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", phoneRegex];
+    return [phoneTest evaluateWithObject:phone];
+}
+
++ (BOOL)validatePId:(NSString *)pId {
+    if (pId.length == 15 || pId.length == 18) {
+        NSString *emailRegex = @"^[0-9]*$";
+        NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+        bool sfzNo = [emailTest evaluateWithObject:[pId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+
+        if (pId.length == 15) {
+            if (!sfzNo) {
+                return NO;
+            }
+        }
+        else if (pId.length == 18) {
+            bool sfz18NO = [self checkIdentityCardNo:pId];
+            if (!sfz18NO) {
+                return NO;
+            }
+        }
+    } else {
+        return NO;
+    }
+    return YES;
+}
+
++ (BOOL)checkIdentityCardNo:(NSString *)cardNo {
+    if (cardNo.length != 18) {
+        return  NO;
+    }
+    NSArray* codeArray = [NSArray arrayWithObjects:@"7",@"9",@"10",@"5",@"8",@"4",@"2",@"1",@"6",@"3",@"7",@"9",@"10",@"5",@"8",@"4",@"2", nil];
+    NSDictionary* checkCodeDic = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"1",@"0",@"X",@"9",@"8",@"7",@"6",@"5",@"4",@"3",@"2", nil]  forKeys:[NSArray arrayWithObjects:@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10", nil]];
+
+    NSScanner* scan = [NSScanner scannerWithString:[cardNo substringToIndex:17]];
+
+    int val;
+    BOOL isNum = [scan scanInt:&val] && [scan isAtEnd];
+    if (!isNum) {
+        return NO;
+    }
+    int sumValue = 0;
+
+    for (int i =0; i<17; i++) {
+        sumValue+=[[cardNo substringWithRange:NSMakeRange(i , 1) ] intValue]* [[codeArray objectAtIndex:i] intValue];
+    }
+
+    NSString* strlast = [checkCodeDic objectForKey:[NSString stringWithFormat:@"%d",sumValue%11]];
+
+    if ([strlast isEqualToString: [[cardNo substringWithRange:NSMakeRange(17, 1)]uppercaseString]]) {
+        return YES;
+    }
+    return  NO;
+}
+
 + (NSString *)stringDateFromDate:(NSDate *)date {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];

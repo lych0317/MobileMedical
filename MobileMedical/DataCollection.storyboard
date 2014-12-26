@@ -113,7 +113,7 @@
         <!--心电传输-->
         <scene sceneID="et6-kS-ane">
             <objects>
-                <tableViewController title="心电传输" id="3VR-Ts-Cq8" customClass="ETCTransferViewController" sceneMemberID="viewController">
+                <tableViewController title="心电传输" hidesBottomBarWhenPushed="YES" id="3VR-Ts-Cq8" customClass="ETCTransferViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="94a-ji-a6U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
