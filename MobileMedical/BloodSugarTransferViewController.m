@@ -47,10 +47,10 @@
     BloodSugarModel *model = [[BloodSugarModel alloc] init];
     model.type = @(self.operatingStaff.bloodSugarTestType);
     model.value = @((bytes[9] * 256 + bytes[10]) / 10.0);
-    NSString *dateText = [NSString stringWithFormat:@"%d-%d-%d %d:%d:%d", [self intFromHex:bytes[11]], [self intFromHex:bytes[12]], [self intFromHex:bytes[13]], [self intFromHex:bytes[14]], [self intFromHex:bytes[15]], [self intFromHex:bytes[16]]];
+//    NSString *dateText = [NSString stringWithFormat:@"%d-%d-%d %d:%d:%d", [self intFromHex:bytes[11]], [self intFromHex:bytes[12]], [self intFromHex:bytes[13]], [self intFromHex:bytes[14]], [self intFromHex:bytes[15]], [self intFromHex:bytes[16]]];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yy-MM-dd hh:mm:ss"];
-    model.date = [formatter dateFromString:dateText];
+    model.date = [NSDate date];
     model.mac = self.peripheral.UUIDString;
     model.pId = self.operatingStaff.staffModel.pId;
     [self addMessage:[NSString stringWithFormat:@"血糖类型：%@, 血糖值：%@, 测量时间：%@, 设备MAC地址：%@", model.type, model.value, [formatter stringFromDate:model.date], model.mac]];
