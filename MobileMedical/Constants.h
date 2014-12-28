@@ -9,7 +9,7 @@
 #ifndef MobileMedical_Constants_h
 #define MobileMedical_Constants_h
 
-#define BASE_URL @"http://beijingsny.eicp.net:91/healthmoni/"
+#define BASE_URL @"http://ydyl.cynosure.com.cn/healthmoni/"
 
 #define LOGIN_URL @"checkLogin"
 #define REGISTER_URL ([[Config sharedConfig].usertype intValue] == 1 ? @"groupReg" : @"patientReg")
