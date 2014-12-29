@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSString *doctorIds;
 @property (nonatomic, strong) NSNumber *paytype;
 @property (nonatomic, strong) NSNumber *opr;
+@property (nonatomic, strong) NSString *doctors;
 
 @property (nonatomic, strong) NSDictionary *hospitalDoctorMap;
 

@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *pIdTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *payTypeTextField;
+@property (weak, nonatomic) IBOutlet UITextView *doctorsTextView;
 
 @property (weak, nonatomic) IBOutlet UIButton *chooseDoctorButton;
 
@@ -65,6 +66,7 @@
     staffModel.doctorIds = self.staffModel.doctorIds;
     staffModel.paytype = self.staffModel.paytype;
     staffModel.opr = self.staffModel.opr;
+    staffModel.doctors = self.staffModel.doctors;
 
     self.tempStaffModel = staffModel;
 }
@@ -76,6 +78,7 @@
     self.chengweiTextField.text = self.tempStaffModel.chengwei;
     self.pIdTextField.text = self.tempStaffModel.pId;
     self.phoneTextField.text = self.tempStaffModel.phone;
+    self.doctorsTextView.text = [NSString stringWithFormat:@"责任医生：%@", self.tempStaffModel.doctors];
     if (self.tempStaffModel.paytype) {
         int payType = [self.tempStaffModel.paytype intValue];
         if (payType > 0 && payType <= [AppModel sharedAppModel].payTypeTitles.count) {
@@ -103,6 +106,7 @@
     self.pIdTextField.enabled = NO;
     self.phoneTextField.enabled = NO;
     self.payTypeTextField.enabled = NO;
+    self.doctorsTextView.editable = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

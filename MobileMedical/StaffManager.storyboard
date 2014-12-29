@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X1x-iP-KiI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X1x-iP-KiI">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--人员管理-->
@@ -66,7 +66,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8us-7C-Vee">
-                                <rect key="frame" x="0.0" y="64" width="333" height="367"/>
+                                <rect key="frame" x="0.0" y="64" width="333" height="416"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A3B-Wy-oby">
                                         <rect key="frame" x="35" y="10" width="250" height="30"/>
@@ -133,6 +133,12 @@
                                             <action selector="chooseDoctorButtonClicked:" destination="azF-5K-VMZ" eventType="touchUpInside" id="pZF-ZB-1J9"/>
                                         </connections>
                                     </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="医生列表" translatesAutoresizingMaskIntoConstraints="NO" id="Cjy-Ps-Dij">
+                                        <rect key="frame" x="35" y="317" width="249" height="90"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -142,6 +148,7 @@
                         <outlet property="chengweiTextField" destination="7Zz-dI-PSU" id="RAJ-XU-JdJ"/>
                         <outlet property="chooseDoctorButton" destination="15R-a6-uBw" id="AsN-Jb-2TY"/>
                         <outlet property="contentScrollView" destination="8us-7C-Vee" id="ZdX-MN-Lo2"/>
+                        <outlet property="doctorsTextView" destination="Cjy-Ps-Dij" id="srs-DP-ZyV"/>
                         <outlet property="nameTextField" destination="H0a-gX-peJ" id="aKY-Tx-Wp7"/>
                         <outlet property="pIdTextField" destination="wkA-Ez-7nX" id="lOb-fD-AVc"/>
                         <outlet property="passwordTextField" destination="K65-6u-rAR" id="irB-IS-s7T"/>
@@ -154,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pE-0o-10N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="159"/>
+            <point key="canvasLocation" x="821" y="193"/>
         </scene>
         <!--支付方式-->
         <scene sceneID="NHV-L3-7VT">

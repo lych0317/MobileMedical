@@ -285,7 +285,7 @@ static ProtocolManager *sProtocolManager = nil;
 
 - (RKObjectMapping *)createStaffModelMapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[StaffModel class]];
-    [mapping addAttributeMappingsFromArray:@[@"username", @"password", @"pId", @"name", @"chengwei", @"phone", @"doctorIds", @"paytype", @"opr"]];
+    [mapping addAttributeMappingsFromArray:@[@"username", @"password", @"pId", @"name", @"chengwei", @"phone", @"doctorIds", @"paytype", @"opr", @"doctors"]];
     return mapping;
 }
 
