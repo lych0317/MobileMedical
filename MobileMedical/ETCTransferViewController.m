@@ -28,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = nil;
     self.ecgText = [NSMutableString string];
     self.etcModel = [[ETCModel alloc] init];
     self.etcModel.pId = self.operatingStaff.staffModel.pId;

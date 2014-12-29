@@ -23,6 +23,10 @@
 
 @implementation BloodSugarTransferViewController
 
+- (void)addButtonItemClicked:(UIBarButtonItem *)sender {
+
+}
+
 - (void)setupCharacteristic:(LGCharacteristic *)characteristic {
 //    __weak LGCharacteristic *weakCharact = characteristic;
     [characteristic setNotifyValue:YES completion:^(NSError *error) {

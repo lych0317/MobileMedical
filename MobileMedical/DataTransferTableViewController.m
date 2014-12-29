@@ -10,17 +10,34 @@
 #import <LGBluetooth/LGBluetooth.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "Constants.h"
+#import "Utils.h"
 
 @implementation DataTransferTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addRightBarButtonItem];
     self.centralManager = [LGCentralManager sharedInstance];
     self.instantMessages = [NSMutableArray array];
 }
 
+- (void)addRightBarButtonItem {
+    UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] init];
+    addButtonItem.title = @"重新读取";
+    addButtonItem.target = self;
+    addButtonItem.action = @selector(addButtonItemClicked:);
+    self.navigationItem.rightBarButtonItem = addButtonItem;
+}
+
+- (void)addButtonItemClicked:(UIBarButtonItem *)sender {
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self scanForPeripherals];
+}
+
+- (void)scanForPeripherals {
     [self addMessage:@"查找外部蓝牙设备..."];
     [self.centralManager scanForPeripheralsByInterval:2 completion:^(NSArray *peripherals) {
         __block BOOL foundDevice = NO;
@@ -33,7 +50,8 @@
             }
         }];
         if (!foundDevice) {
-            [self addMessage:@"未发现对应蓝牙设备"];
+            [Utils showToastWithTitle:@"查找失败，请确保蓝牙以打开" time:1];
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }];
 }
