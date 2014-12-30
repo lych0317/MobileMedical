@@ -69,7 +69,9 @@
     }];
 }
 
-- (void)setupCharacteristic:(LGCharacteristic *)characteristic {}
+- (void)setupCharacteristic:(LGCharacteristic *)characteristic {
+    self.characteristic = characteristic;
+}
 
 - (void)parseReceived:(NSData *)data {
     const Byte *bytes = data.bytes;

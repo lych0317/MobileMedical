@@ -19,22 +19,33 @@
 
 @interface BloodSugarTransferViewController ()
 
+@property (nonatomic, assign) BOOL notify;
+
 @end
 
 @implementation BloodSugarTransferViewController
 
-- (void)addButtonItemClicked:(UIBarButtonItem *)sender {
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.notify = NO;
+}
 
+- (void)addButtonItemClicked:(UIBarButtonItem *)sender {
+    if (self.characteristic && self.notify) {
+        [self writeValueForLastData:self.characteristic];
+    }
 }
 
 - (void)setupCharacteristic:(LGCharacteristic *)characteristic {
-//    __weak LGCharacteristic *weakCharact = characteristic;
+    [super setupCharacteristic:characteristic];
+    __weak LGCharacteristic *weakCharact = characteristic;
     [characteristic setNotifyValue:YES completion:^(NSError *error) {
         if (error) {
             [self addMessage:@"设置监听失败"];
         } else {
             [self addMessage:@"设置监听成功"];
-//            [self writeValueForSearchTestModel:weakCharact];
+            self.notify = YES;
+            [self writeValueForSearchTestModel:weakCharact];
         }
     } onUpdate:^(NSData *data, NSError *error) {
         if (error) {
@@ -114,32 +125,46 @@
             }
         } else if (bytes[7] == 0x06 && bytes[8] == 0x01) {
             [self parseBloodSugarData:data];
+        } else if (bytes[4] == 2) {
+            [self writeValueForPrepareReceiveData:self.characteristic];
         }
     }
 }
 
-//- (void)writeValueForSearchTestModel:(LGCharacteristic *)charact {
-//    unsigned char bytes[7] = {0x4f, 0xff, 0xff, 0xff, 0x02, 0xff, 0xff};
-//    NSData *commandData = [self createCommand:bytes length:sizeof(bytes)];
-//    [charact writeValue:commandData completion:^(NSError *error) {
-//        if (error) {
-//            [self addMessage:[NSString stringWithFormat:@"发送数据失败：%@", [self stringFromData:commandData]]];
-//        } else {
-//            [self addMessage:[NSString stringWithFormat:@"发送数据成功：%@", [self stringFromData:commandData]]];
-//        }
-//    }];
-//}
-//
-//- (void)writeValueForPrepareReceiveData:(LGCharacteristic *)charact {
-//    unsigned char bytes[8] = {0x4f, 0x06, 0x00, 0x00, 0x03, 0x02, 0x4c, 0xfe};
-//    NSData *commandData = [self createCommand:bytes length:sizeof(bytes)];
-//    [charact writeValue:commandData completion:^(NSError *error) {
-//        if (error) {
-//            [self addMessage:[NSString stringWithFormat:@"发送数据失败：%@", [self stringFromData:commandData]]];
-//        } else {
-//            [self addMessage:[NSString stringWithFormat:@"发送数据成功：%@", [self stringFromData:commandData]]];
-//        }
-//    }];
-//}
+- (void)writeValueForSearchTestModel:(LGCharacteristic *)charact {
+    unsigned char bytes[7] = {0x4f, 0xff, 0xff, 0xff, 0x02, 0xff, 0xff};
+    NSData *commandData = [self createCommand:bytes length:sizeof(bytes)];
+    [charact writeValue:commandData completion:^(NSError *error) {
+        if (error) {
+            [self addMessage:[NSString stringWithFormat:@"发送数据失败：%@", [self stringFromData:commandData]]];
+        } else {
+            [self addMessage:[NSString stringWithFormat:@"发送数据成功：%@", [self stringFromData:commandData]]];
+        }
+    }];
+}
+
+- (void)writeValueForPrepareReceiveData:(LGCharacteristic *)charact {
+    unsigned char bytes[8] = {0x4f, 0x06, 0x00, 0x00, 0x03, 0x02, 0x4c, 0xfe};
+    NSData *commandData = [self createCommand:bytes length:sizeof(bytes)];
+    [charact writeValue:commandData completion:^(NSError *error) {
+        if (error) {
+            [self addMessage:[NSString stringWithFormat:@"发送数据失败：%@", [self stringFromData:commandData]]];
+        } else {
+            [self addMessage:[NSString stringWithFormat:@"发送数据成功：%@", [self stringFromData:commandData]]];
+        }
+    }];
+}
+
+- (void)writeValueForLastData:(LGCharacteristic *)charact {
+    unsigned char bytes[11] = {0x4f, 0x06, 0x00, 0x00, 0x06, 0x02, 0x4c, 0x00, 0x05, 0x00, 0x01};
+    NSData *commandData = [self createCommand:bytes length:sizeof(bytes)];
+    [charact writeValue:commandData completion:^(NSError *error) {
+        if (error) {
+            [self addMessage:[NSString stringWithFormat:@"发送数据失败：%@", [self stringFromData:commandData]]];
+        } else {
+            [self addMessage:[NSString stringWithFormat:@"发送数据成功：%@", [self stringFromData:commandData]]];
+        }
+    }];
+}
 
 @end

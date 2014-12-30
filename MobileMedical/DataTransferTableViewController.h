@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSMutableArray *instantMessages;
 @property (nonatomic, strong) LGCentralManager *centralManager;
 @property (nonatomic, strong) LGPeripheral *peripheral;
+@property (nonatomic, strong) LGCharacteristic *characteristic;
 @property (nonatomic, strong) NSMutableData *receivedData;
 
 - (NSString *)stringFromData:(NSData *)data;
