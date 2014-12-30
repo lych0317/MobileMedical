@@ -30,13 +30,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *paytypeTextField;
 @property (weak, nonatomic) IBOutlet UIButton *chooseDoctorButton;
-@property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *oldPwdTextField;
 @property (weak, nonatomic) IBOutlet UITextField *updatePwdTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPwdTextField;
-@property (weak, nonatomic) IBOutlet UIButton *updatePwdButton;
 
 @property (nonatomic, strong) StaffModel *tempStaffModel;
 
@@ -52,7 +50,6 @@
     self.oldPwdTextField.hidden = !isGroupUser;
     self.updatePwdTextField.hidden = !isGroupUser;
     self.confirmPwdTextField.hidden = !isGroupUser;
-    self.updatePwdButton.hidden = !isGroupUser;
 
     BOOL isStaffUser = [config.usertype intValue] == 2;
     self.usernameTextField.hidden = !isStaffUser;
@@ -62,7 +59,6 @@
     self.phoneTextField.hidden = !isStaffUser;
     self.paytypeTextField.hidden = !isStaffUser;
     self.chooseDoctorButton.hidden = !isStaffUser;
-    self.submitButton.hidden = !isStaffUser;
 
     self.tempStaffModel = config.accountStaff;
 
@@ -78,16 +74,31 @@
 }
 
 - (void)addButtonItemClicked:(UIBarButtonItem *)sender {
-    if (CHECK_STRING_NOT_NULL(self.tempStaffModel.username) && CHECK_STRING_NOT_NULL(self.tempStaffModel.pId) && CHECK_STRING_NOT_NULL(self.tempStaffModel.doctorIds) && CHECK_STRING_NOT_NULL(self.tempStaffModel.phone)) {
-        if (![Utils validatePId:self.tempStaffModel.pId]) {
-            [Utils showToastWithTitle:@"请输入正确的身份证号" time:1];
-        } else if (![Utils validatePhone:self.tempStaffModel.phone]) {
-            [Utils showToastWithTitle:@"请输入正确的手机号" time:1];
+    if ([[Config sharedConfig].usertype intValue] == 1) {
+        NSString *oldPwd = self.oldPwdTextField.text;
+        NSString *updatePwd = self.updatePwdTextField.text;
+        NSString *confirmPwd = self.confirmPwdTextField.text;
+        if (CHECK_STRING_NOT_NULL(oldPwd) && CHECK_STRING_NOT_NULL(updatePwd) && CHECK_STRING_NOT_NULL(confirmPwd)) {
+            if ([updatePwd isEqualToString:confirmPwd]) {
+                [self updatePassword:oldPwd update:updatePwd];
+            } else {
+                [Utils showToastWithTitle:@"两次新密码不一致" time:1];
+            }
         } else {
-            [self updateStaff:self.tempStaffModel];
+            [Utils showToastWithTitle:@"请输入所有项" time:1];
         }
     } else {
-        [Utils showToastWithTitle:@"请输入必填项" time:1];
+        if (CHECK_STRING_NOT_NULL(self.tempStaffModel.username) && CHECK_STRING_NOT_NULL(self.tempStaffModel.pId) && CHECK_STRING_NOT_NULL(self.tempStaffModel.doctorIds) && CHECK_STRING_NOT_NULL(self.tempStaffModel.phone)) {
+            if (![Utils validatePId:self.tempStaffModel.pId]) {
+                [Utils showToastWithTitle:@"请输入正确的身份证号" time:1];
+            } else if (![Utils validatePhone:self.tempStaffModel.phone]) {
+                [Utils showToastWithTitle:@"请输入正确的手机号" time:1];
+            } else {
+                [self updateStaff:self.tempStaffModel];
+            }
+        } else {
+            [Utils showToastWithTitle:@"请输入必填项" time:1];
+        }
     }
 }
 
@@ -166,21 +177,6 @@
         [Utils hideProgressViewAfter:0];
         [Utils showToastWithTitle:@"提交数据失败" time:1];
     }];
-}
-
-- (IBAction)updatePwdButtonClicked:(UIButton *)sender {
-    NSString *oldPwd = self.oldPwdTextField.text;
-    NSString *updatePwd = self.updatePwdTextField.text;
-    NSString *confirmPwd = self.confirmPwdTextField.text;
-    if (CHECK_STRING_NOT_NULL(oldPwd) && CHECK_STRING_NOT_NULL(updatePwd) && CHECK_STRING_NOT_NULL(confirmPwd)) {
-        if ([updatePwd isEqualToString:confirmPwd]) {
-            [self updatePassword:oldPwd update:updatePwd];
-        } else {
-            [Utils showToastWithTitle:@"两次新密码不一致" time:1];
-        }
-    } else {
-        [Utils showToastWithTitle:@"请输入所有项" time:1];
-    }
 }
 
 - (void)updatePassword:(NSString *)oldPwd update:(NSString *)updatePwd {

@@ -163,15 +163,6 @@
                                             <outlet property="delegate" destination="VXV-Rp-QcT" id="Rou-aK-opn"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPh-GN-78t">
-                                        <rect key="frame" x="35" y="250" width="250" height="44"/>
-                                        <state key="normal" title="修改密码">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="updatePwdButtonClicked:" destination="VXV-Rp-QcT" eventType="touchUpInside" id="zI9-cz-9Jv"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -187,7 +178,6 @@
                         <outlet property="pIdTextField" destination="t7v-gG-HRo" id="mqw-K9-qAX"/>
                         <outlet property="paytypeTextField" destination="kvk-yZ-VHN" id="aDd-Gn-Fbq"/>
                         <outlet property="phoneTextField" destination="dxl-KO-PWA" id="u7p-iT-scl"/>
-                        <outlet property="updatePwdButton" destination="GPh-GN-78t" id="MI9-3g-AzK"/>
                         <outlet property="updatePwdTextField" destination="sGf-CP-4nn" id="7Nc-Ty-aeB"/>
                         <outlet property="usernameLabel" destination="d03-JY-Xh2" id="6gJ-qV-tvR"/>
                         <outlet property="usernameTextField" destination="mcx-QT-sC9" id="UGX-bn-lLz"/>
