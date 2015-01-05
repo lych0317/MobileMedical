@@ -11,6 +11,7 @@
 		481FE86E19F913AE00C164D2 /* AppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 481FE86D19F913AE00C164D2 /* AppModel.m */; };
 		4845E90019F8F2C700161C2A /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4845E8FF19F8F2C700161C2A /* SettingTableViewController.m */; };
 		48B4CC4E19FE20D8009CEDF1 /* ProtocolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CC4D19FE20D8009CEDF1 /* ProtocolManager.m */; };
+		48BF04831A5A7F78005D8004 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48BF04801A5A7F78005D8004 /* libMobClickLibrary.a */; };
 		48C796EC19FF3DB700F7527E /* DataDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C796EB19FF3DB700F7527E /* DataDisplayViewController.m */; };
 		48C796EF19FF528200F7527E /* QueryDeviceResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C796EE19FF528200F7527E /* QueryDeviceResult.m */; };
 		48F03E3B19FB891B003F5EF6 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F03E3A19FB891B003F5EF6 /* Utils.m */; };
@@ -95,6 +96,9 @@
 		4845E8FF19F8F2C700161C2A /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		48B4CC4C19FE20D8009CEDF1 /* ProtocolManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolManager.h; sourceTree = "<group>"; };
 		48B4CC4D19FE20D8009CEDF1 /* ProtocolManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolManager.m; sourceTree = "<group>"; };
+		48BF04801A5A7F78005D8004 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		48BF04811A5A7F78005D8004 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		48BF04821A5A7F78005D8004 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		48C796EA19FF3DB700F7527E /* DataDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDisplayViewController.h; sourceTree = "<group>"; };
 		48C796EB19FF3DB700F7527E /* DataDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDisplayViewController.m; sourceTree = "<group>"; };
 		48C796ED19FF528200F7527E /* QueryDeviceResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryDeviceResult.h; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EAA1379EE3C42B6851F4C8D /* libPods.a in Frameworks */,
+				48BF04831A5A7F78005D8004 /* libMobClickLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +287,16 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		48BF047F1A5A7F78005D8004 /* UMeng */ = {
+			isa = PBXGroup;
+			children = (
+				48BF04801A5A7F78005D8004 /* libMobClickLibrary.a */,
+				48BF04811A5A7F78005D8004 /* MobClick.h */,
+				48BF04821A5A7F78005D8004 /* MobClickSocialAnalytics.h */,
+			);
+			path = UMeng;
+			sourceTree = "<group>";
+		};
 		48F03E3819FB8901003F5EF6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +331,7 @@
 		837113D619F540B60029DE66 = {
 			isa = PBXGroup;
 			children = (
+				48BF047F1A5A7F78005D8004 /* UMeng */,
 				837113E119F540B60029DE66 /* MobileMedical */,
 				837113FE19F540B60029DE66 /* MobileMedicalTests */,
 				837113E019F540B60029DE66 /* Products */,
@@ -859,6 +875,43 @@
 				INFOPLIST_FILE = MobileMedical/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UMeng",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-AFNetworking\"",
+					"-l\"Pods-CKCalendar\"",
+					"-l\"Pods-FMDB\"",
+					"-l\"Pods-ISO8601DateFormatterValueTransformer\"",
+					"-l\"Pods-LGBluetooth\"",
+					"-l\"Pods-MBProgressHUD\"",
+					"-l\"Pods-RKValueTransformers\"",
+					"-l\"Pods-RestKit\"",
+					"-l\"Pods-SOCKit\"",
+					"-l\"Pods-TransitionKit\"",
+					"-l\"sqlite3\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreBluetooth\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-lz",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "fb8b0bd4-ee3f-4a40-a2de-52284bfd143f";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -875,6 +928,43 @@
 				INFOPLIST_FILE = MobileMedical/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UMeng",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-AFNetworking\"",
+					"-l\"Pods-CKCalendar\"",
+					"-l\"Pods-FMDB\"",
+					"-l\"Pods-ISO8601DateFormatterValueTransformer\"",
+					"-l\"Pods-LGBluetooth\"",
+					"-l\"Pods-MBProgressHUD\"",
+					"-l\"Pods-RKValueTransformers\"",
+					"-l\"Pods-RestKit\"",
+					"-l\"Pods-SOCKit\"",
+					"-l\"Pods-TransitionKit\"",
+					"-l\"sqlite3\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreBluetooth\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-lz",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "fb8b0bd4-ee3f-4a40-a2de-52284bfd143f";
 				TARGETED_DEVICE_FAMILY = 1;

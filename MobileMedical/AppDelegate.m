@@ -12,6 +12,8 @@
 #import "Constants.h"
 #import "Utils.h"
 
+#import "MobClick.h"
+
 @interface AppDelegate ()
 
 @end
@@ -21,10 +23,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //    [[DatabaseManager sharedManager] loadAllData];
+    [self setupUMeng];
     return YES;
 }
 
+- (void)setupUMeng {
+    [MobClick setAppVersion:XcodeAppVersion];
+    [MobClick startWithAppkey:@"5460385cfd98c5c3bb00220e"];
+    [MobClick updateOnlineConfig];
+}
+
 - (void)enterMainView {
+    BOOL appEnable = [[MobClick getConfigParams:@"app_enable"] boolValue];
+    if (!appEnable) {
+        return;
+    }
+
     [Utils saveToUserDefaultWithKey:USER_DEFAULT_KEY_ACCOUNT object:[Config sharedConfig].username];
     [Utils saveToUserDefaultWithKey:USER_DEFAULT_KEY_PASSWORD object:[Config sharedConfig].password];
 
